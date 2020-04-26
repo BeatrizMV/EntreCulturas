@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="" />
+    <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/JUnit5ExampleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +27,55 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="entreculturas" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="entreculturas" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="entreculturas" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="test" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="entreculturas" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="test" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="entreculturas" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="entreculturas" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -41,7 +106,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.entreculturas [test]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="entreculturas.main" />
@@ -49,8 +114,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="entreculturas [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="entreculturas [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="testClasses" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="entreculturas [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.entreculturas [test]" />
+        <item itemvalue="Gradle.entreculturas [testClasses]" />
+        <item itemvalue="Gradle.entreculturas [clean]" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -66,33 +191,61 @@
       <option name="presentableId" value="Default" />
       <updated>1587925843386</updated>
       <workItem from="1587925844589" duration="297000" />
+      <workItem from="1587926178430" duration="688000" />
     </task>
+    <task id="LOCAL-00001" summary="Testing GitHub Actions">
+      <created>1587926197002</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587926197003</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Testing GitHub Actions">
+      <created>1587926206309</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587926206309</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Testing GitHub Actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing GitHub Actions" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2318" y="503" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1587926433199">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="2318" y="503" key="#com.intellij.ide.util.PackageChooserDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1587926433199" />
     <state x="2412" y="598" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1587925918121">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="2412" y="598" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.3440.1440@0.0.3440.1440" timestamp="1587925918121" />
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1587926176252">
+    <state x="2191" y="322" key="CommitChangelistDialog2" timestamp="1587926206202">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176252" />
-    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1587926176252">
+    <state x="2191" y="322" key="CommitChangelistDialog2/0.0.3440.1440@0.0.3440.1440" timestamp="1587926206202" />
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1587926945285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176252" />
-    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1587926176251">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1587926945285" />
+    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1587926945285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176251" />
-    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1587926176252">
+    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1587926945285" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1587926945285">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176252" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1587926945285" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1587926945285">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1587926945285" />
     <state x="2089" y="359" key="SettingsEditor" timestamp="1587925853295">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
@@ -101,5 +254,13 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="2381" y="505" key="chooseDestDirectoryDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1587925908559" />
+    <state x="2273" y="552" key="com.intellij.ide.util.TipDialog" timestamp="1587926884518">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="2273" y="552" key="com.intellij.ide.util.TipDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1587926884518" />
+    <state x="2359" y="454" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587926472576">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="2359" y="454" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1587926472576" />
   </component>
 </project>
