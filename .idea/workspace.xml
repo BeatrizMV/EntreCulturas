@@ -19,6 +19,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1b5dMwzxb9wnhzsWQpzD5cNQohZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -32,6 +35,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -57,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587925843386</updated>
-      <workItem from="1587925844589" duration="50000" />
+      <workItem from="1587925844589" duration="297000" />
     </task>
     <servers />
   </component>
@@ -69,22 +77,22 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="2412" y="598" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.3440.1440@0.0.3440.1440" timestamp="1587925918121" />
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1587926010044">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1587926176252">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010044" />
-    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1587926010043">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176252" />
+    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1587926176252">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010043" />
-    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1587926010043">
+    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176252" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1587926176251">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010043" />
-    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1587926010044">
+    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176251" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1587926176252">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010044" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1587926176252" />
     <state x="2089" y="359" key="SettingsEditor" timestamp="1587925853295">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
