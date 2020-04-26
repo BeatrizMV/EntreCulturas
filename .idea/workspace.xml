@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1b5dMwzxb9wnhzsWQpzD5cNQohZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="entreculturas.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="" />
+      <created>1587925843386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587925843386</updated>
+      <workItem from="1587925844589" duration="50000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2412" y="598" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1587925918121">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="2412" y="598" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.3440.1440@0.0.3440.1440" timestamp="1587925918121" />
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1587926010044">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010044" />
+    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1587926010043">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010043" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1587926010043">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010043" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1587926010044">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1587926010044" />
+    <state x="2089" y="359" key="SettingsEditor" timestamp="1587925853295">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="2089" y="359" key="SettingsEditor/0.0.3440.1440@0.0.3440.1440" timestamp="1587925853295" />
+    <state x="2381" y="505" key="chooseDestDirectoryDialog" timestamp="1587925908559">
+      <screen x="0" y="0" width="3440" height="1440" />
+    </state>
+    <state x="2381" y="505" key="chooseDestDirectoryDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1587925908559" />
+  </component>
+</project>
