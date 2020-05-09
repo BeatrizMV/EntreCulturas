@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="entreculturas" default="all">
+  
+  
+  <property file="entreculturas.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.klib"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.12" value="${jdk.home.12}/bin"/>
+  <path id="jdk.classpath.12">
+    <fileset dir="${jdk.home.12}">
+      <include name="../Home!/java.base"/>
+      <include name="../Home!/java.compiler"/>
+      <include name="../Home!/java.datatransfer"/>
+      <include name="../Home!/java.desktop"/>
+      <include name="../Home!/java.instrument"/>
+      <include name="../Home!/java.logging"/>
+      <include name="../Home!/java.management"/>
+      <include name="../Home!/java.management.rmi"/>
+      <include name="../Home!/java.naming"/>
+      <include name="../Home!/java.net.http"/>
+      <include name="../Home!/java.prefs"/>
+      <include name="../Home!/java.rmi"/>
+      <include name="../Home!/java.scripting"/>
+      <include name="../Home!/java.se"/>
+      <include name="../Home!/java.security.jgss"/>
+      <include name="../Home!/java.security.sasl"/>
+      <include name="../Home!/java.smartcardio"/>
+      <include name="../Home!/java.sql"/>
+      <include name="../Home!/java.sql.rowset"/>
+      <include name="../Home!/java.transaction.xa"/>
+      <include name="../Home!/java.xml"/>
+      <include name="../Home!/java.xml.crypto"/>
+      <include name="../Home!/jdk.accessibility"/>
+      <include name="../Home!/jdk.aot"/>
+      <include name="../Home!/jdk.attach"/>
+      <include name="../Home!/jdk.charsets"/>
+      <include name="../Home!/jdk.compiler"/>
+      <include name="../Home!/jdk.crypto.cryptoki"/>
+      <include name="../Home!/jdk.crypto.ec"/>
+      <include name="../Home!/jdk.dynalink"/>
+      <include name="../Home!/jdk.editpad"/>
+      <include name="../Home!/jdk.hotspot.agent"/>
+      <include name="../Home!/jdk.httpserver"/>
+      <include name="../Home!/jdk.internal.ed"/>
+      <include name="../Home!/jdk.internal.jvmstat"/>
+      <include name="../Home!/jdk.internal.le"/>
+      <include name="../Home!/jdk.internal.opt"/>
+      <include name="../Home!/jdk.internal.vm.ci"/>
+      <include name="../Home!/jdk.internal.vm.compiler"/>
+      <include name="../Home!/jdk.internal.vm.compiler.management"/>
+      <include name="../Home!/jdk.jartool"/>
+      <include name="../Home!/jdk.javadoc"/>
+      <include name="../Home!/jdk.jcmd"/>
+      <include name="../Home!/jdk.jconsole"/>
+      <include name="../Home!/jdk.jdeps"/>
+      <include name="../Home!/jdk.jdi"/>
+      <include name="../Home!/jdk.jdwp.agent"/>
+      <include name="../Home!/jdk.jfr"/>
+      <include name="../Home!/jdk.jlink"/>
+      <include name="../Home!/jdk.jshell"/>
+      <include name="../Home!/jdk.jsobject"/>
+      <include name="../Home!/jdk.jstatd"/>
+      <include name="../Home!/jdk.localedata"/>
+      <include name="../Home!/jdk.management"/>
+      <include name="../Home!/jdk.management.agent"/>
+      <include name="../Home!/jdk.management.jfr"/>
+      <include name="../Home!/jdk.naming.dns"/>
+      <include name="../Home!/jdk.naming.rmi"/>
+      <include name="../Home!/jdk.net"/>
+      <include name="../Home!/jdk.pack"/>
+      <include name="../Home!/jdk.rmic"/>
+      <include name="../Home!/jdk.scripting.nashorn"/>
+      <include name="../Home!/jdk.scripting.nashorn.shell"/>
+      <include name="../Home!/jdk.sctp"/>
+      <include name="../Home!/jdk.security.auth"/>
+      <include name="../Home!/jdk.security.jgss"/>
+      <include name="../Home!/jdk.unsupported"/>
+      <include name="../Home!/jdk.unsupported.desktop"/>
+      <include name="../Home!/jdk.xml.dom"/>
+      <include name="../Home!/jdk.zipfs"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.12}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.12}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.12"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/javax.activation/javax.activation-api/1.2.0/85262acf3ca9816f9537ca47d5adeabaead7cb16/javax.activation-api-1.2.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/javax.xml.bind/jaxb-api/2.4.0-b180830.0359/b54184b7dcab2031add3f525550c7f1b7e12209d/jaxb-api-2.4.0-b180830.0359.jar"/>
+  </path>
+  
+  <path id="library.gradle:_junit:junit:4.12.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.apiguardian:apiguardian-api:1.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.0.0/3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d/apiguardian-api-1.0.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.junit.jupiter:junit-jupiter-api:5.4.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/665d1c0daecb26c6210c872768000b417e7e52b6/junit-jupiter-api-5.4.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.junit.jupiter:junit-jupiter-engine:5.4.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.4.2/4d10922ce4d9c4e22cef8ff5386cb273b9f12281/junit-jupiter-engine-5.4.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.junit.platform:junit-platform-commons:1.4.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/37993dc807ca253aa347be8968a0ae7b70642dbc/junit-platform-commons-1.4.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.junit.platform:junit-platform-engine:1.4.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.4.2/52b70561f65bb397b054876f2d8c6f30b06c3581/junit-platform-engine-1.4.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.junit.vintage:junit-vintage-engine:5.4.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.junit.vintage/junit-vintage-engine/5.4.2/7625aac45b1ee19d3b9a59b1fe9c11e9983e7a42/junit-vintage-engine-5.4.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.opentest4j:opentest4j:1.1.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.1.1/efd9f971e91074491ea55b19f67b13470cf4fcdd/opentest4j-1.1.1.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <fileset dir="${javac2.home}">
+      <include name="javac2.jar"/>
+      <include name="jdom.jar"/>
+      <include name="asm-all*.jar"/>
+      <include name="forms-*.jar"/>
+    </fileset>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module entreculturas -->
+  
+  <dirname property="module.entreculturas.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.entreculturas" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.entreculturas" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.entreculturas" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.entreculturas" value="-encoding UTF-8 -source 12 -target 12 ${compiler.args}"/>
+  
+  <property name="entreculturas.output.dir" value="${module.entreculturas.basedir}/out/production/entreculturas"/>
+  <property name="entreculturas.testoutput.dir" value="${module.entreculturas.basedir}/out/test/entreculturas"/>
+  
+  <path id="entreculturas.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="entreculturas.module.production.classpath">
+    <path refid="${module.jdk.classpath.entreculturas}"/>
+  </path>
+  
+  <path id="entreculturas.runtime.production.module.classpath">
+    <pathelement location="${entreculturas.output.dir}"/>
+  </path>
+  
+  <path id="entreculturas.module.classpath">
+    <path refid="${module.jdk.classpath.entreculturas}"/>
+    <pathelement location="${entreculturas.output.dir}"/>
+  </path>
+  
+  <path id="entreculturas.runtime.module.classpath">
+    <pathelement location="${entreculturas.testoutput.dir}"/>
+    <pathelement location="${entreculturas.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.entreculturas">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.entreculturas">
+    <patternset refid="excluded.from.module.entreculturas"/>
+  </patternset>
+  
+  
+  <target name="compile.module.entreculturas" depends="compile.module.entreculturas.production,compile.module.entreculturas.tests" description="Compile module entreculturas"/>
+  
+  <target name="compile.module.entreculturas.production" depends="register.custom.compilers" description="Compile module entreculturas; production classes"/>
+  
+  <target name="compile.module.entreculturas.tests" depends="register.custom.compilers,compile.module.entreculturas.production" description="compile module entreculturas; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.entreculturas" description="cleanup module">
+    <delete dir="${entreculturas.output.dir}"/>
+    <delete dir="${entreculturas.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module entreculturas.main -->
+  
+  <dirname property="module.entreculturas.main.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.entreculturas.main" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.entreculturas.main" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.entreculturas.main" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.entreculturas.main" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="entreculturas.main.output.dir" value="${module.entreculturas.main.basedir}/build/classes/java/main"/>
+  <property name="entreculturas.main.testoutput.dir" value="${module.entreculturas.main.basedir}/build/classes/java/main"/>
+  
+  <path id="entreculturas.main.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="entreculturas.main.module.production.classpath">
+    <path refid="${module.jdk.classpath.entreculturas.main}"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+  </path>
+  
+  <path id="entreculturas.main.runtime.production.module.classpath">
+    <pathelement location="${entreculturas.main.output.dir}"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+  </path>
+  
+  <path id="entreculturas.main.module.classpath">
+    <path refid="${module.jdk.classpath.entreculturas.main}"/>
+    <pathelement location="${entreculturas.main.output.dir}"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+  </path>
+  
+  <path id="entreculturas.main.runtime.module.classpath">
+    <pathelement location="${entreculturas.main.output.dir}"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.entreculturas.main">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.entreculturas.main">
+    <patternset refid="excluded.from.module.entreculturas.main"/>
+  </patternset>
+  
+  <path id="entreculturas.main.module.sourcepath">
+    <dirset dir="${module.entreculturas.main.basedir}/src/main">
+      <include name="java"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.entreculturas.main" depends="compile.module.entreculturas.main.production,compile.module.entreculturas.main.tests" description="Compile module entreculturas.main"/>
+  
+  <target name="compile.module.entreculturas.main.production" depends="register.custom.compilers" description="Compile module entreculturas.main; production classes">
+    <mkdir dir="${entreculturas.main.output.dir}"/>
+    <javac2 destdir="${entreculturas.main.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.entreculturas.main}/javac">
+      <compilerarg line="${compiler.args.entreculturas.main}"/>
+      <bootclasspath refid="entreculturas.main.module.bootclasspath"/>
+      <classpath refid="entreculturas.main.module.production.classpath"/>
+      <src refid="entreculturas.main.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.entreculturas.main"/>
+    </javac2>
+    
+    <copy todir="${entreculturas.main.output.dir}">
+      <fileset dir="${module.entreculturas.main.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.entreculturas.main.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.entreculturas.main.tests" depends="register.custom.compilers,compile.module.entreculturas.main.production" description="compile module entreculturas.main; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.entreculturas.main" description="cleanup module">
+    <delete dir="${entreculturas.main.output.dir}"/>
+    <delete dir="${entreculturas.main.testoutput.dir}"/>
+  </target>
+  
+  
+  <!-- Module entreculturas.test -->
+  
+  <dirname property="module.entreculturas.test.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.entreculturas.test" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.entreculturas.test" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.entreculturas.test" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.entreculturas.test" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="entreculturas.test.output.dir" value="undefined"/>
+  <property name="entreculturas.test.testoutput.dir" value="${module.entreculturas.test.basedir}/build/classes/java/test"/>
+  
+  <path id="entreculturas.test.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="entreculturas.test.module.production.classpath">
+    <path refid="${module.jdk.classpath.entreculturas.test}"/>
+    <pathelement location="${entreculturas.main.output.dir}"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_junit:junit:4.12.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-api:5.4.2.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-commons:1.4.2.classpath"/>
+    <path refid="library.gradle:_org.apiguardian:apiguardian-api:1.0.0.classpath"/>
+    <path refid="library.gradle:_org.opentest4j:opentest4j:1.1.1.classpath"/>
+  </path>
+  
+  <path id="entreculturas.test.runtime.production.module.classpath">
+    <path refid="entreculturas.main.runtime.production.module.classpath"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_junit:junit:4.12.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-api:5.4.2.classpath"/>
+    <path refid="library.gradle:_org.junit.vintage:junit-vintage-engine:5.4.2.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-commons:1.4.2.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-engine:5.4.2.classpath"/>
+    <path refid="library.gradle:_org.apiguardian:apiguardian-api:1.0.0.classpath"/>
+    <path refid="library.gradle:_org.opentest4j:opentest4j:1.1.1.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-engine:1.4.2.classpath"/>
+  </path>
+  
+  <path id="entreculturas.test.module.classpath">
+    <path refid="${module.jdk.classpath.entreculturas.test}"/>
+    <pathelement location="${entreculturas.main.output.dir}"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_junit:junit:4.12.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-api:5.4.2.classpath"/>
+    <path refid="library.gradle:_org.junit.vintage:junit-vintage-engine:5.4.2.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-commons:1.4.2.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-engine:5.4.2.classpath"/>
+    <path refid="library.gradle:_org.apiguardian:apiguardian-api:1.0.0.classpath"/>
+    <path refid="library.gradle:_org.opentest4j:opentest4j:1.1.1.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-engine:1.4.2.classpath"/>
+  </path>
+  
+  <path id="entreculturas.test.runtime.module.classpath">
+    <pathelement location="${entreculturas.test.testoutput.dir}"/>
+    <path refid="entreculturas.main.runtime.module.classpath"/>
+    <path refid="library.gradle:_javax.xml.bind:jaxb-api:2.4.0-b180830.0359.classpath"/>
+    <path refid="library.gradle:_junit:junit:4.12.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-api:5.4.2.classpath"/>
+    <path refid="library.gradle:_org.junit.vintage:junit-vintage-engine:5.4.2.classpath"/>
+    <path refid="library.gradle:_javax.activation:javax.activation-api:1.2.0.classpath"/>
+    <path refid="library.gradle:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-commons:1.4.2.classpath"/>
+    <path refid="library.gradle:_org.junit.jupiter:junit-jupiter-engine:5.4.2.classpath"/>
+    <path refid="library.gradle:_org.apiguardian:apiguardian-api:1.0.0.classpath"/>
+    <path refid="library.gradle:_org.opentest4j:opentest4j:1.1.1.classpath"/>
+    <path refid="library.gradle:_org.junit.platform:junit-platform-engine:1.4.2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.entreculturas.test">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.entreculturas.test">
+    <patternset refid="excluded.from.module.entreculturas.test"/>
+  </patternset>
+  
+  <path id="entreculturas.test.module.test.sourcepath">
+    <dirset dir="${module.entreculturas.test.basedir}/src/test">
+      <include name="java"/>
+      <include name="resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.entreculturas.test" depends="compile.module.entreculturas.test.production,compile.module.entreculturas.test.tests" description="Compile module entreculturas.test"/>
+  
+  <target name="compile.module.entreculturas.test.production" depends="register.custom.compilers,compile.module.entreculturas.main" description="Compile module entreculturas.test; production classes"/>
+  
+  <target name="compile.module.entreculturas.test.tests" depends="register.custom.compilers,compile.module.entreculturas.test.production" description="compile module entreculturas.test; test classes" unless="skip.tests">
+    <mkdir dir="${entreculturas.test.testoutput.dir}"/>
+    <javac2 destdir="${entreculturas.test.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.entreculturas.test}/javac">
+      <compilerarg line="${compiler.args.entreculturas.test}"/>
+      <bootclasspath refid="entreculturas.test.module.bootclasspath"/>
+      <classpath refid="entreculturas.test.module.classpath"/>
+      <src refid="entreculturas.test.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.entreculturas.test"/>
+    </javac2>
+    
+    <copy todir="${entreculturas.test.testoutput.dir}">
+      <fileset dir="${module.entreculturas.test.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.entreculturas.test.basedir}/src/test/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.entreculturas.test" description="cleanup module">
+    <delete dir="${entreculturas.test.output.dir}"/>
+    <delete dir="${entreculturas.test.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.entreculturas, clean.module.entreculturas.main, clean.module.entreculturas.test" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.entreculturas, compile.module.entreculturas.main, compile.module.entreculturas.test" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>
