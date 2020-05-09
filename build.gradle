@@ -12,6 +12,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+
     testImplementation(
             'junit:junit:4.12',
             'org.junit.jupiter:junit-jupiter-api:5.4.2'

@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/JUnit5ExampleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +75,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1b5dMwzxb9wnhzsWQpzD5cNQohZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -99,6 +88,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
