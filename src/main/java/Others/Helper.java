@@ -1,3 +1,5 @@
+package Others;
+
 public class Helper {
     public final static void clearConsole()
     {
