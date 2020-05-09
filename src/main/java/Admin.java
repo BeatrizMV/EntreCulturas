@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class Admin {
-    private BufferedReader reader = new BufferedReader(new InputStreamReader((System.in)));
+    BufferedReader reader = new BufferedReader(new InputStreamReader((System.in)));
 
     private int userType;
 
@@ -28,23 +28,28 @@ public class Admin {
     private void showMenu(int userType) {
         //TODO: Mostrar opciones del menu según tipo de usuario
         System.out.println("Por favor, introduce el número de la acción que deseas realizar: ");
+        System.out.println("1 - Menu socios");
         if (getUserType() == 1) {
-            System.out.println("Solo admins pueden ver esto");
+            System.out.println("9 - Crear trabajador");
         }
         System.out.println("0 - Cerrar aplicación.");
     }
 
     private int selectMenuOption() throws IOException {
-        int optionSelected = 100000;
+        int optionSelected = 10000;
         Integer[] options = {0, 1};
         do {
-            // TODO: Leer por pantalla la opción elegida
             try {
                 optionSelected = Integer.parseInt(reader.readLine());
             } catch (NumberFormatException nfe) {
-                System.out.println("Introduce un número");
             }
+
+            if (!Arrays.asList(options).contains(optionSelected)) {
+                System.out.println("Por favor, introduce un número de la lista anterior.\n");
+            }
+
         } while (!Arrays.asList(options).contains(optionSelected));
+
         return optionSelected;
     }
 
@@ -53,9 +58,6 @@ public class Admin {
             case 0:
                 Helper.clearScreen();
                 System.exit(0);
-                break;
-            case 1:
-                System.out.println("TEST");
                 break;
         }
     }

@@ -12,7 +12,7 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader((System.in)));
         String user;
         String password;
-        int userType = 0;
+        int userType = 1;
         boolean isLogged = false;
 
         Helper.clearScreen();

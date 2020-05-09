@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/DAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/XMLDAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/AdminTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/entreculturas-1.0-SNAPSHOT-all.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/entreculturas-1.0-SNAPSHOT-all.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/Helper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Others/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Others/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +70,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -92,6 +100,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -101,7 +111,13 @@
     <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
   </component>
@@ -258,22 +274,22 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="2191" y="322" key="CommitChangelistDialog2/0.0.3440.1440@0.0.3440.1440" timestamp="1587926206202" />
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1589061635486">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1589063228799">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1589061635486" />
-    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1589061635486">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1589063228799" />
+    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1589063228799">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1589061635486" />
-    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1589061635485">
+    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1589063228799" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1589063228799">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1589061635485" />
-    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1589061635486">
+    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1589063228799" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1589063228799">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1589061635486" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1589063228799" />
     <state x="828" y="327" key="SettingsEditor" timestamp="1589060866589">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
@@ -290,10 +306,10 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1066" y="646" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.3440.1440@0.0.3440.1440" timestamp="1589060864659" />
-    <state x="2359" y="454" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1587926472576">
+    <state x="801" y="324" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589063421909">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="2359" y="454" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1587926472576" />
+    <state x="801" y="324" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1589063421909" />
     <state x="525" y="331" key="search.everywhere.popup" timestamp="1589049447386">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
