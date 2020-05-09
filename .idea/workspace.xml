@@ -10,8 +10,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AdminTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AdminTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Helper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/AdminTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/AdminTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/entreculturas-1.0-SNAPSHOT-all.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/AdminTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/AdminTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-AdminTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-AdminTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/fatJar/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +148,33 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.entreculturas [test]">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="entreculturas.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="entreculturas [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="entreculturas [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -180,44 +213,6 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="entreculturas [fatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="fatJar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="entreculturas [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="entreculturas [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -239,11 +234,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.entreculturas [clean]" />
+        <item itemvalue="Gradle.entreculturas [build]" />
         <item itemvalue="Gradle.entreculturas [test]" />
         <item itemvalue="Gradle.entreculturas [check]" />
-        <item itemvalue="Gradle.entreculturas [fatJar]" />
-        <item itemvalue="Gradle.entreculturas [jar]" />
-        <item itemvalue="Gradle.entreculturas [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -306,22 +301,22 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="2191" y="322" key="CommitChangelistDialog2/0.0.3440.1440@0.0.3440.1440" timestamp="1587926206202" />
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1589063841233">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1589064118764">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1589063841233" />
-    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1589063841233">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
+    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1589064118764">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1589063841233" />
-    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1589063841233">
+    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1589064118764">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1589063841233" />
-    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1589063841233">
+    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1589064118764">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1589063841233" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
     <state x="828" y="327" key="SettingsEditor" timestamp="1589060866589">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
