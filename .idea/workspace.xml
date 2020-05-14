@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Direccion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Sede.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Helper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/AdminTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/AdminTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/entreculturas-1.0-SNAPSHOT-all.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/AdminTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/AdminTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-AdminTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-AdminTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/fatJar/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,8 +82,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -130,7 +116,10 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -254,6 +243,8 @@
       <updated>1587925843386</updated>
       <workItem from="1587925844589" duration="297000" />
       <workItem from="1587926178430" duration="688000" />
+      <workItem from="1589226110881" duration="18000" />
+      <workItem from="1589444901933" duration="985000" />
     </task>
     <task id="LOCAL-00001" summary="Testing GitHub Actions">
       <created>1587926197002</created>
@@ -281,10 +272,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Testing GitHub Actions" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="673" y="411" key="#com.intellij.ide.util.MemberChooser" timestamp="1589062073012">
+    <state x="673" y="411" key="#com.intellij.ide.util.MemberChooser" timestamp="1589452951762">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="673" y="411" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1589062073012" />
+    <state x="673" y="411" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1440@0.0.3440.1440" timestamp="1589452951762" />
     <state x="2318" y="503" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1587926433199">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
@@ -301,22 +292,22 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="2191" y="322" key="CommitChangelistDialog2/0.0.3440.1440@0.0.3440.1440" timestamp="1587926206202" />
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1589064118764">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom" timestamp="1589064272545">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
-    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1589064118764">
+    <state width="1678" height="416" key="GridCell.Tab.0.bottom/0.0.3440.1440@0.0.3440.1440" timestamp="1589064272545" />
+    <state width="1678" height="416" key="GridCell.Tab.0.center" timestamp="1589064272545">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
-    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1589064118764">
+    <state width="1678" height="416" key="GridCell.Tab.0.center/0.0.3440.1440@0.0.3440.1440" timestamp="1589064272545" />
+    <state width="1678" height="416" key="GridCell.Tab.0.left" timestamp="1589064272545">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
-    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1589064118764">
+    <state width="1678" height="416" key="GridCell.Tab.0.left/0.0.3440.1440@0.0.3440.1440" timestamp="1589064272545" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right" timestamp="1589064272545">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1589064118764" />
+    <state width="1678" height="416" key="GridCell.Tab.0.right/0.0.3440.1440@0.0.3440.1440" timestamp="1589064272545" />
     <state x="828" y="327" key="SettingsEditor" timestamp="1589060866589">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
