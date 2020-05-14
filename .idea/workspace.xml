@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c55deb-0f57-4e13-8544-c5b32b56482f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Proyecto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ProyectoTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,9 +80,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -243,7 +243,7 @@
       <workItem from="1587925844589" duration="297000" />
       <workItem from="1587926178430" duration="688000" />
       <workItem from="1589226110881" duration="18000" />
-      <workItem from="1589444901933" duration="1755000" />
+      <workItem from="1589444901933" duration="1997000" />
     </task>
     <task id="LOCAL-00001" summary="Testing GitHub Actions">
       <created>1587926197002</created>
@@ -323,10 +323,10 @@
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
     <state x="1066" y="646" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.3440.1440@0.0.3440.1440" timestamp="1589060864659" />
-    <state x="801" y="324" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589063421909">
+    <state x="801" y="324" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1589454247261">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
-    <state x="801" y="324" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1589063421909" />
+    <state x="801" y="324" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.3440.1440@0.0.3440.1440" timestamp="1589454247261" />
     <state x="525" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1589454115627">
       <screen x="0" y="0" width="3440" height="1440" />
     </state>
