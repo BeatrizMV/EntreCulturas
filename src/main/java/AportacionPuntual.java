@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 
+import Enums.TipoPuntual;
+
 public class AportacionPuntual extends IngresoPrivado{
 	
 	private TipoPuntual tipoPuntual;

@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 
+import Enums.ProcedenciaPublico;
+
 public class IngresoPublico extends Ingreso {
 
 	private ProcedenciaPublico procedenciaPublico;
