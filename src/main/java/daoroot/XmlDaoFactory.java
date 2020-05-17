@@ -1,4 +1,4 @@
-package dao;
+package daoroot;
 
 public class XmlDaoFactory {
 }

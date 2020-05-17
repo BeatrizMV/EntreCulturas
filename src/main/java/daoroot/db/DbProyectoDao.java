@@ -1,4 +1,4 @@
-package dao.db;
+package daoroot.db;
 
 public class DbProyectoDao {
 

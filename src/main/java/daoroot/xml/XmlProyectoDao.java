@@ -1,9 +1,9 @@
-package dao.xml;
+package daoroot.xml;
 
 import java.util.List;
 import java.util.Optional;
 
-import dao.XmlDao;
+import daoroot.XmlDao;
 import root.Proyecto;
 
 public class XmlProyectoDao extends XmlDao<Proyecto>{
