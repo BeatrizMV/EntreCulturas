@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import root.Admin;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import javax.xml.bind.JAXBException;
