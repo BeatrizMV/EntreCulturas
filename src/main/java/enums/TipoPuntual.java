@@ -1,0 +1,5 @@
+package enums;
+
+public enum TipoPuntual {
+    INGRESO_EXTRAORDINARIO,INSTITUCION, EMPRESA, HERENCIA, LEGADO, PARTICULAR
+}
