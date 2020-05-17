@@ -1,24 +1,28 @@
 package root;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import enums.LineaAccion;
 import enums.SublineaAccion;
 
+@XmlRootElement
 public class Proyecto {
     private int codigoProyecto;
     private String nombreProyecto;
     private Direccion localizacion;
     private LineaAccion lineaAccion;
     private SublineaAccion sublineaAccion;
-    private Date fechaInicio;
-    private Date FechaFin;
+    private LocalDate fechaInicio;
+    private LocalDate FechaFin;
     private String SocioLocal;
     private String accionesRealizar;
     private List<MiembroEquipo> miembrosEquipo;
 
-    public Proyecto(int codigoProyecto, String nombreProyecto, LineaAccion lineaAccion, Date fechaInicio, String socioLocal, String accionesRealizar, List<MiembroEquipo> miembrosEquipo, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
+    public Proyecto(int codigoProyecto, String nombreProyecto, LineaAccion lineaAccion, LocalDate fechaInicio, String socioLocal, String accionesRealizar, List<MiembroEquipo> miembrosEquipo, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
         setCodigoProyecto(codigoProyecto);
         setNombreProyecto(nombreProyecto);
         setLineaAccion(lineaAccion);
@@ -28,6 +32,9 @@ public class Proyecto {
         setLocalizacion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
     }
 
+    public Proyecto() {}
+
+    @XmlElement
     public int getCodigoProyecto() {
         return codigoProyecto;
     }
@@ -37,6 +44,7 @@ public class Proyecto {
         return this;
     }
 
+    @XmlElement
     public String getNombreProyecto() {
         return nombreProyecto;
     }
@@ -46,6 +54,7 @@ public class Proyecto {
         return this;
     }
 
+    @XmlElement
     public Direccion getLocalizacion() {
         return localizacion;
     }
@@ -55,6 +64,7 @@ public class Proyecto {
         return this;
     }
 
+    @XmlElement
     public LineaAccion getLineaAccion() {
         return lineaAccion;
     }
@@ -64,6 +74,7 @@ public class Proyecto {
         return this;
     }
 
+    @XmlElement
     public SublineaAccion getSublineaAccion() {
         return sublineaAccion;
     }
@@ -73,24 +84,27 @@ public class Proyecto {
         return this;
     }
 
-    public Date getFechaInicio() {
+    @XmlElement
+    public LocalDate getFechaInicio() {
         return fechaInicio;
     }
 
-    public Proyecto setFechaInicio(Date fechaInicio) {
+    public Proyecto setFechaInicio(LocalDate fechaInicio) {
         this.fechaInicio = fechaInicio;
         return this;
     }
 
-    public Date getFechaFin() {
+    @XmlElement
+    public LocalDate getFechaFin() {
         return FechaFin;
     }
 
-    public Proyecto setFechaFin(Date fechaFin) {
+    public Proyecto setFechaFin(LocalDate fechaFin) {
         FechaFin = fechaFin;
         return this;
     }
 
+    @XmlElement
     public String getSocioLocal() {
         return SocioLocal;
     }
@@ -100,6 +114,7 @@ public class Proyecto {
         return this;
     }
 
+    @XmlElement
     public String getAccionesRealizar() {
         return accionesRealizar;
     }
@@ -109,6 +124,7 @@ public class Proyecto {
         return this;
     }
 
+    @XmlElement
     public List<MiembroEquipo> getMiembrosEquipo() {
         return miembrosEquipo;
     }

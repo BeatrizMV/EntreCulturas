@@ -37,14 +37,10 @@ dependencies {
     // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
 
-    testImplementation(
-            'junit:junit:4.12',
-            'org.junit.jupiter:junit-jupiter-api:5.4.2'
-    )
-    testRuntime(
-            'org.junit.jupiter:junit-jupiter-engine:5.4.2',
-            'org.junit.vintage:junit-vintage-engine:5.4.2'
-    )
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.6.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.1")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.6.1")
 }
 
 test {
