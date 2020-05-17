@@ -29,7 +29,7 @@ public class XmlProyectoDaoTest {
 			    		18,
 			    		"Cantabria",
 			    		47894,
-			    		"España",
+			    		"Espaï¿½a",
 			    		"Muy lejos del centro"
 				),
 			    946881122, 
@@ -50,7 +50,7 @@ public class XmlProyectoDaoTest {
 				18,
 				"Cantabria",
 				47890,
-				"España",
+				"Espaï¿½a",
 				"Nada que comentar"
 				);
 		return pro;
