@@ -25,5 +25,10 @@ public class Voluntario extends MiembroEquipo{
         super (idPersona, dni, nombre, apellido1, apellido2, direccion,
         telefono, email, usuario, password, rol);
     }
+
+	public Voluntario(int i, String string, String string2, String string3, String string4, String string5,
+			String string6, int j, String string7, int k, String string8, int l, String string9, String string10,
+			String string11, Rol admin) {
+	}
     
 }

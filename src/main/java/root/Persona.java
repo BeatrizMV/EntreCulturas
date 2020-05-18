@@ -135,6 +135,45 @@ public class Persona {
     }
 
     /**
+     * método para modificar el idPersona
+     * @param idPersona
+     */
+    public void setIdPersona (int idPersona){
+        this.idPersona = idPersona;
+    }
+
+    /**
+     * método para cambiar el dni
+     * @param dni
+     */
+    public void setDni (String dni){
+        this.dni = dni;
+    }
+
+    /**
+     * metodo para cambiar el nombre
+     * @param nombre
+     */
+    public void setNombre (String nombre){
+        this.nombre = nombre;
+    }
+
+    /**
+     * método para cambiar el primer apellido
+     * @param apellido1
+     */
+    public void setApellido1 (String apellido1){
+        this.apellido1 = apellido1;
+    }   
+
+    /**
+     * método para cambiar el segundo apellido
+     * @param apellido2
+     */
+    public void setApellido2 (String apellido2){
+        this.apellido2 = apellido2;
+    }
+    /**
      * método para modificar la dirección
      * 
      * @param direccion modifica la dirección
@@ -159,6 +198,22 @@ public class Persona {
         this.email = email;
     }
 
+    /**
+     * Método para cambiar el usario
+     * @param usuario
+     */
+    public void setUsuario (String usuario){
+        this.usuario = usuario;
+    }
+
+    /**
+     * Método para cambiar el rol
+     * @param rol
+     */
+    public void setRol (Rol rol){
+        this.rol = rol;
+    }
+    
     /**
      * método para modificar la contraseña
      * @param password modifica la contraseña
