@@ -20,12 +20,8 @@ public class Socio  extends Persona {
      * @param rol alberga el rol del usuario
      * @param numSocio alberga el número de socio
      */
-    public Socio(int idPersona, String dni, String nombre, 
-    String apellido1, String apellido2, Direccion direccion,
-    int telefono, String email, String usuario, String password,
-    Rol rol, int numSocio){
-        super(idPersona, dni, nombre, apellido1, apellido2, direccion,
-        telefono, email, usuario, password, rol);
+    public Socio(int idPersona, String dni, String nombre, String apellido1, String apellido2, Direccion direccion, int telefono, String email, String usuario, String password, Rol rol, int numSocio){
+        super(idPersona, dni, nombre, apellido1, apellido2, direccion, telefono, email, usuario, password, rol);
         this.numSocio = numSocio;
     }
 

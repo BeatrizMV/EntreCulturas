@@ -30,10 +30,7 @@ public class Persona {
     * @password alberga la contraseña del usuario
     * @rol alberga el rol del usuario en el sistema
     */
-    public Persona (int idPersona, String dni, String nombre, 
-    String apellido1, String apellido2, Direccion direccion,
-    int telefono, String email, String usuario, String password,
-    Rol rol){
+    public Persona (int idPersona, String dni, String nombre, String apellido1, String apellido2, Direccion direccion, int telefono, String email, String usuario, String password, Rol rol){
         this.idPersona = idPersona;
         this.dni = dni;
         this.nombre = nombre;
