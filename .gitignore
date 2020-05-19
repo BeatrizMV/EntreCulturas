@@ -3,4 +3,6 @@
 .gradle
 bin
 .idea/
-output/
+output/proyectos/*
+output/sedes/*
+output/voluntarios/*
