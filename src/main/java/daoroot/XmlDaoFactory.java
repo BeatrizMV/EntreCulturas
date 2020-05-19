@@ -3,7 +3,7 @@ package daoroot;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class XmlDao<T> implements Dao<T> {
+public abstract class XmlDaoFactory<T> implements DaoFactory<T> {
 
 	public abstract void crearNuevo(T t);
 
