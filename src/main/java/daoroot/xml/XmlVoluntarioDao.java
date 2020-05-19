@@ -9,10 +9,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import daoroot.XmlDaoFactory;
+import daoroot.XmlDao;
 import root.Voluntario;
 
-public class XmlVoluntarioDao extends XmlDaoFactory<Voluntario>{
+public class XmlVoluntarioDao extends XmlDao<Voluntario> {
     @Override
     public void crearNuevo (Voluntario vol){
         try {
@@ -32,7 +32,7 @@ public class XmlVoluntarioDao extends XmlDaoFactory<Voluntario>{
     }
 
     @Override
-	public void actualizar(Voluntario vol, String[] params) {
+	public void actualizar(Voluntario vol) {
 		// TODO Auto-generated method stub
 		
 	}

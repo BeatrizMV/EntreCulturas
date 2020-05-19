@@ -3,7 +3,9 @@ package daoroot.xml;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
+import exceptions.DaoException;
 import org.junit.jupiter.api.Test;
 
 import enums.LineaAccion;
@@ -11,6 +13,10 @@ import enums.Rol;
 import root.Direccion;
 import root.MiembroEquipo;
 import root.Proyecto;
+
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class XmlProyectoDaoTest {
 	
@@ -57,9 +63,26 @@ public class XmlProyectoDaoTest {
 	}
 	
 	@Test
-	public void xmlGetsCreated() {
-		System.out.println("Probando");
+	public void xmlGetsCreatedDoesNotRaiseExceptions() throws DaoException {
 		Proyecto proyecto = createProyecto();
 		toTest.crearNuevo(proyecto);
+	}
+
+	@Test
+	public void xmlGetsReadFromDoesNotRaiseExceptions() throws DaoException {
+		Proyecto proyecto = createProyecto();
+		toTest.crearNuevo(proyecto);
+		Optional<Proyecto> ret = toTest.obtener(String.valueOf(proyecto.getCodigoProyecto()));
+		assertTrue(ret.isPresent());
+	}
+
+	@Test
+	public void xmlIsDeleted() throws DaoException {
+		Proyecto proyecto = createProyecto();
+		toTest.crearNuevo(proyecto);
+
+		toTest.borrar(proyecto);
+
+		assertFalse(toTest.obtener(String.valueOf(proyecto.getCodigoProyecto())).isPresent());
 	}
 }

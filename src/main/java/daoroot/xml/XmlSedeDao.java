@@ -1,6 +1,6 @@
 package daoroot.xml;
 
-import daoroot.XmlDaoFactory;
+import daoroot.XmlDao;
 import root.Proyecto;
 import root.Sede;
 
@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Optional;
 
-public class XmlSedeDao extends XmlDaoFactory<Sede> {
+public class XmlSedeDao extends XmlDao<Sede> {
 
     @Override
     public void crearNuevo(Sede sede) {
@@ -32,7 +32,7 @@ public class XmlSedeDao extends XmlDaoFactory<Sede> {
     }
 
     @Override
-    public void actualizar(Sede sede, String[] params) {
+    public void actualizar(Sede sede) {
 
     }
 

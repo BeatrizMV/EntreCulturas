@@ -19,6 +19,8 @@ public class Direccion {
         setObservaciones(observaciones);
     }
 
+    public Direccion() {}
+
     public String getTipoVia() {
         return tipoVia;
     }
