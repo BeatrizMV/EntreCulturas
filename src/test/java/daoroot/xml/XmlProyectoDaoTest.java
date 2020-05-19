@@ -50,7 +50,7 @@ public class XmlProyectoDaoTest {
 				18,
 				"Cantabria",
 				47890,
-				"Espa�a",
+				"España",
 				"Nada que comentar"
 				);
 		return pro;

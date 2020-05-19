@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AdminTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-09T22:40:15" hostname="Mac-mini-de-Erik.local" time="0.006">
-  <properties/>
-  <testcase name="adminInitialization()" classname="AdminTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
