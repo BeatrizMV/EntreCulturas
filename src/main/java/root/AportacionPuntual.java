@@ -1,75 +1,73 @@
 package root;
+
 import java.time.LocalDate;
 
 import enums.TipoPuntual;
 
-public class AportacionPuntual extends IngresoPrivado{
-	
-	private TipoPuntual tipoPuntual;
-	private double importe;
-	private String donante;
-	private LocalDate fecha;
-	private String destinoPartida;
-	
-	public AportacionPuntual(int numIngreso, String tipoIngreso, LocalDate fecha, float financiacionAportada,
-			String destinoPartida, TipoPuntual tipoPuntual, double importe, String donante, LocalDate fecha2,
-			String destinoPartida2) {
-		super(numIngreso, tipoIngreso, fecha, financiacionAportada, destinoPartida);
-		this.tipoPuntual = tipoPuntual;
-		this.importe = importe;
-		this.donante = donante;
-		fecha = fecha2;
-		destinoPartida = destinoPartida2;
-	}
+public class AportacionPuntual extends IngresoPrivado {
 
-	public TipoPuntual getTipoPuntual() {
-		return tipoPuntual;
-	}
+    private TipoPuntual tipoPuntual;
+    private double importe;
+    private String donante;
+    private LocalDate fecha;
+    private String destinoPartida;
 
-	public void setTipoPuntual(TipoPuntual tipoPuntual) {
-		this.tipoPuntual = tipoPuntual;
-	}
+    public AportacionPuntual(int numIngreso, String tipoIngreso, LocalDate fecha, float financiacionAportada,
+                             String destinoPartida, TipoPuntual tipoPuntual, double importe, String donante, LocalDate fecha2,
+                             String destinoPartida2) {
+        super(numIngreso, tipoIngreso, fecha, financiacionAportada, destinoPartida);
+        this.tipoPuntual = tipoPuntual;
+        this.importe = importe;
+        this.donante = donante;
+        fecha = fecha2;
+        destinoPartida = destinoPartida2;
+    }
 
-	public double getImporte() {
-		return importe;
-	}
+    public TipoPuntual getTipoPuntual() {
+        return tipoPuntual;
+    }
 
-	public void setImporte(double importe) {
-		this.importe = importe;
-	}
+    public void setTipoPuntual(TipoPuntual tipoPuntual) {
+        this.tipoPuntual = tipoPuntual;
+    }
 
-	public String getDonante() {
-		return donante;
-	}
+    public double getImporte() {
+        return importe;
+    }
 
-	public void setDonante(String donante) {
-		this.donante = donante;
-	}
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
 
-	public LocalDate getFecha() {
-		return fecha;
-	}
+    public String getDonante() {
+        return donante;
+    }
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
+    public void setDonante(String donante) {
+        this.donante = donante;
+    }
 
-	public String getDestinoPartida() {
-		return destinoPartida;
-	}
+    public LocalDate getFecha() {
+        return fecha;
+    }
 
-	public void setDestinoPartida(String destinoPartida) {
-		this.destinoPartida = destinoPartida;
-	}
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
 
-	@Override
-	public String toString() {
-		return "AportacionPuntual [tipoPuntual=" + tipoPuntual + ", importe=" + importe + ", donante=" + donante
-				+ ", fecha=" + fecha + ", destinoPartida=" + destinoPartida + "]";
-	}
-	
-	
-	
-	
+    public String getDestinoPartida() {
+        return destinoPartida;
+    }
+
+    public void setDestinoPartida(String destinoPartida) {
+        this.destinoPartida = destinoPartida;
+    }
+
+    @Override
+    public String toString() {
+        return "AportacionPuntual [tipoPuntual=" + tipoPuntual + ", importe=" + importe + ", donante=" + donante
+                + ", fecha=" + fecha + ", destinoPartida=" + destinoPartida + "]";
+    }
+
 
 }

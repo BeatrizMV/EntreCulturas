@@ -1,4 +1,5 @@
 package root;
+
 public class Sede {
     private int idSede;
     private String nombreSede;

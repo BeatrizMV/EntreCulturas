@@ -12,7 +12,7 @@ import javax.xml.bind.Marshaller;
 import daoroot.XmlDaoFactory;
 import root.Voluntario;
 
-public class XmlVoluntarioDao extends XmlDao<Voluntario>{
+public class XmlVoluntarioDao extends XmlDaoFactory<Voluntario>{
     @Override
     public void crearNuevo (Voluntario vol){
         try {

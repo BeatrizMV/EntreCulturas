@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Optional;
 
-public class XmlProyectoDao extends XmlDao<Proyecto>{
+public class XmlProyectoDao extends XmlDaoFactory<Proyecto>{
 
 	@Override
 	public void crearNuevo(Proyecto pro) {

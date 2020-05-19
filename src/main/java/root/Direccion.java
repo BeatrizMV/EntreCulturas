@@ -1,4 +1,5 @@
 package root;
+
 public class Direccion {
     private String tipoVia;
     private String via;

@@ -32,7 +32,8 @@ public class Proyecto {
         setLocalizacion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
     }
 
-    public Proyecto() {}
+    public Proyecto() {
+    }
 
     @XmlElement
     public int getCodigoProyecto() {

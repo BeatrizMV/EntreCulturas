@@ -1,72 +1,68 @@
 package root;
+
 import java.time.LocalDate;
 
 public class Ingreso {
-	
-	private int numIngreso;
-	private String tipoIngreso;
-	private LocalDate fecha;
-	private float financiacionAportada;
-	private String destinoPartida;
-	
-	public Ingreso(int numIngreso, String tipoIngreso, LocalDate fecha, float financiacionAportada,
-			String destinoPartida) {
-		this.numIngreso = numIngreso;
-		this.tipoIngreso = tipoIngreso;
-		this.fecha = fecha;
-		this.financiacionAportada = financiacionAportada;
-		this.destinoPartida = destinoPartida;
-	}
 
-	public int getNumIngreso() {
-		return numIngreso;
-	}
+    private int numIngreso;
+    private String tipoIngreso;
+    private LocalDate fecha;
+    private float financiacionAportada;
+    private String destinoPartida;
 
-	public void setNumIngreso(int numIngreso) {
-		this.numIngreso = numIngreso;
-	}
+    public Ingreso(int numIngreso, String tipoIngreso, LocalDate fecha, float financiacionAportada, String destinoPartida) {
+        this.numIngreso = numIngreso;
+        this.tipoIngreso = tipoIngreso;
+        this.fecha = fecha;
+        this.financiacionAportada = financiacionAportada;
+        this.destinoPartida = destinoPartida;
+    }
 
-	public String getTipoIngreso() {
-		return tipoIngreso;
-	}
+    public int getNumIngreso() {
+        return numIngreso;
+    }
 
-	public void setTipoIngreso(String tipoIngreso) {
-		this.tipoIngreso = tipoIngreso;
-	}
+    public void setNumIngreso(int numIngreso) {
+        this.numIngreso = numIngreso;
+    }
 
-	public LocalDate getFecha() {
-		return fecha;
-	}
+    public String getTipoIngreso() {
+        return tipoIngreso;
+    }
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
-	}
+    public void setTipoIngreso(String tipoIngreso) {
+        this.tipoIngreso = tipoIngreso;
+    }
 
-	public float getFinanciacionAportada() {
-		return financiacionAportada;
-	}
+    public LocalDate getFecha() {
+        return fecha;
+    }
 
-	public void setFinanciacionAportada(float financiacionAportada) {
-		this.financiacionAportada = financiacionAportada;
-	}
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
 
-	public String getDestinoPartida() {
-		return destinoPartida;
-	}
+    public float getFinanciacionAportada() {
+        return financiacionAportada;
+    }
 
-	public void setDestinoPartida(String destinoPartida) {
-		this.destinoPartida = destinoPartida;
-	}
+    public void setFinanciacionAportada(float financiacionAportada) {
+        this.financiacionAportada = financiacionAportada;
+    }
 
-	@Override
-	public String toString() {
-		return "Ingreso [numIngreso=" + numIngreso + ", tipoIngreso=" + tipoIngreso + ", fecha=" + fecha
-				+ ", financiacionAportada=" + financiacionAportada + ", destinoPartida=" + destinoPartida + "]";
-	}
-	
-	
-	
-	
-	
+    public String getDestinoPartida() {
+        return destinoPartida;
+    }
+
+    public void setDestinoPartida(String destinoPartida) {
+        this.destinoPartida = destinoPartida;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingreso [numIngreso=" + numIngreso + ", tipoIngreso=" + tipoIngreso + ", fecha=" + fecha
+                + ", financiacionAportada=" + financiacionAportada + ", destinoPartida=" + destinoPartida + "]";
+    }
+
 
 }
