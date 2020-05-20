@@ -31,7 +31,10 @@ public class Persona {
      * @password alberga la contraseña del usuario
      * @rol alberga el rol del usuario en el sistema
      */
-    public Persona(int idPersona, String dni, String nombre, String apellido1, String apellido2, Direccion direccion, int telefono, String email, String usuario, String password, Rol rol) {
+    public Persona(final int idPersona, final String dni, final String nombre, final String apellido1,
+            final String apellido2, final String tipoVia, final String via, final int num, final String provincia,
+            final int codigoPostal, final String pais, final String observaciones, final int telefono,
+            final String email, final String usuario, final String password, final Rol rol) {
         this.idPersona = idPersona;
         this.dni = dni;
         this.nombre = nombre;
@@ -137,7 +140,7 @@ public class Persona {
      *
      * @param idPersona
      */
-    public void setIdPersona(int idPersona) {
+    public void setIdPersona(final int idPersona) {
         this.idPersona = idPersona;
     }
 
@@ -146,7 +149,7 @@ public class Persona {
      *
      * @param dni
      */
-    public void setDni(String dni) {
+    public void setDni(final String dni) {
         this.dni = dni;
     }
 
@@ -155,7 +158,7 @@ public class Persona {
      *
      * @param nombre
      */
-    public void setNombre(String nombre) {
+    public void setNombre(final String nombre) {
         this.nombre = nombre;
     }
 
@@ -164,7 +167,7 @@ public class Persona {
      *
      * @param apellido1
      */
-    public void setApellido1(String apellido1) {
+    public void setApellido1(final String apellido1) {
         this.apellido1 = apellido1;
     }
 
@@ -173,7 +176,7 @@ public class Persona {
      *
      * @param apellido2
      */
-    public void setApellido2(String apellido2) {
+    public void setApellido2(final String apellido2) {
         this.apellido2 = apellido2;
     }
 
@@ -182,8 +185,10 @@ public class Persona {
      *
      * @param direccion modifica la dirección
      */
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public Persona setDireccion(final String tipoVia, final String via, final int num, final String provincia,
+            final int codigoPostal, final String pais, final String observaciones) {
+        direccion = new Direccion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
+        return this;
     }
 
     /**
@@ -191,7 +196,7 @@ public class Persona {
      *
      * @param telefono modifica el teléfono
      */
-    public void setTelefono(int telefono) {
+    public void setTelefono(final int telefono) {
         this.telefono = telefono;
     }
 
@@ -200,7 +205,7 @@ public class Persona {
      *
      * @param email modifica el email
      */
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
 
@@ -209,7 +214,7 @@ public class Persona {
      *
      * @param usuario
      */
-    public void setUsuario(String usuario) {
+    public void setUsuario(final String usuario) {
         this.usuario = usuario;
     }
 
@@ -218,7 +223,7 @@ public class Persona {
      *
      * @param rol
      */
-    public void setRol(Rol rol) {
+    public void setRol(final Rol rol) {
         this.rol = rol;
     }
 
@@ -227,7 +232,7 @@ public class Persona {
      *
      * @param password modifica la contraseña
      */
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 
