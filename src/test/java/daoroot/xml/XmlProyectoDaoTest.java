@@ -29,15 +29,15 @@ public class XmlProyectoDaoTest {
 				"Maria", 
 			    "Benitez",
 			    "Suarez", 
-			    new Direccion(
+			    //new Direccion(
 			    		"calle",
 			    		"los chopos",
 			    		18,
 			    		"Cantabria",
 			    		47894,
 			    		"Espa�a",
-			    		"Muy lejos del centro"
-				),
+			    		"Muy lejos del centro",
+				//),
 			    946881122, 
 			    "mbenitez@gmail.com", 
 			    "mbenitezlokita", 
