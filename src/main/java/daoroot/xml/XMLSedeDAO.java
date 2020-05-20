@@ -1,39 +1,31 @@
 package daoroot.xml;
 
 import daoroot.DAO;
+import exceptions.DaoException;
 import root.Proyecto;
 import root.Sede;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Optional;
 
-public class XMLSedeDAO implements DAO<Sede> {
+public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
 
-    private List<Sede> listadoSedes;
+    private static final String PREFIX_FILE = "sede/sede";
+    private static final String PREFIX_PATH = "output/sede";
 
     public XMLSedeDAO(){
     }
 
-    public XMLSedeDAO(List<Sede> listadoSedes){
-        super();
-        this.listadoSedes = listadoSedes;
-    }
-
-    @Override
-    public void crearNuevo(Sede sede) {
-        try {
-            JAXBContext contextObj = JAXBContext.newInstance(Proyecto.class);
-            Marshaller marshallerObj = contextObj.createMarshaller();
-            marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            marshallerObj.marshal(sede, new FileOutputStream("output/sede.xml"));
-        } catch (JAXBException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+    public void crearNuevaSede(Sede sede) {
+        String fileName = this.buildFileName(sede.getIdSede(), PREFIX_FILE);
+        this.createDirectoryIfNotExists(PREFIX_PATH);
+        this.crearNuevoArchivo(sede, fileName, Sede.class);
     }
 
     @Override

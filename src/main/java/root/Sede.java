@@ -1,5 +1,8 @@
 package root;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="sede")
 public class Sede {
     private int idSede;
     private String nombreSede;
@@ -7,6 +10,8 @@ public class Sede {
     private String telefono;
     private String email;
     private boolean central;
+
+    public Sede(){}
 
     public Sede(int idSede, String nombreSede, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, String telefono, String email, boolean central) {
         setIdSede(idSede);

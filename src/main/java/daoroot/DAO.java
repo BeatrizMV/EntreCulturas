@@ -2,11 +2,12 @@ package daoroot;
 
 import exceptions.DaoException;
 
+import javax.xml.bind.JAXBException;
 import java.util.List;
 import java.util.Optional;
 
 public interface DAO<T> {
-    public void crearNuevo(T t) throws DaoException;
+    public void crearNuevoArchivo(T t, String fileName, Class c) throws DaoException;
 
     public Optional<T> obtener(String id) throws DaoException;
 

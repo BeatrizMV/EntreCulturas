@@ -14,6 +14,8 @@ import root.Direccion;
 import root.MiembroEquipo;
 import root.Proyecto;
 
+import javax.xml.bind.JAXBException;
+
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -63,15 +65,15 @@ public class XmlProyectoDAOTest {
 	}
 	
 	@Test
-	public void xmlGetsCreatedDoesNotRaiseExceptions() throws DaoException {
+	public void xmlGetsCreatedDoesNotRaiseExceptions() throws DaoException{
 		Proyecto proyecto = createProyecto();
-		toTest.crearNuevo(proyecto);
+		toTest.crearNuevoArchivo(proyecto);
 	}
 
 	@Test
 	public void xmlGetsReadFromDoesNotRaiseExceptions() throws DaoException {
 		Proyecto proyecto = createProyecto();
-		toTest.crearNuevo(proyecto);
+		toTest.crearNuevoArchivo(proyecto);
 		Optional<Proyecto> ret = toTest.obtener(String.valueOf(proyecto.getCodigoProyecto()));
 		assertTrue(ret.isPresent());
 	}
@@ -79,7 +81,7 @@ public class XmlProyectoDAOTest {
 	@Test
 	public void xmlIsDeleted() throws DaoException {
 		Proyecto proyecto = createProyecto();
-		toTest.crearNuevo(proyecto);
+		toTest.crearNuevoArchivo(proyecto);
 
 		toTest.borrar(proyecto);
 

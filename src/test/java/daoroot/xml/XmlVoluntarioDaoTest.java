@@ -2,7 +2,7 @@ package daoroot.xml;
 
 
 public class XmlVoluntarioDaoTest {
-    private final XmlVoluntarioDao toTest = new XmlVoluntarioDao();
+    private final XMLVoluntarioDAO toTest = new XMLVoluntarioDAO();
 
    // private Voluntario createVoluntario() {
 //
