@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class XMLDAOFactory extends DAOFactory {
     @Override
-    public XMLProyectosDAO getProyectoDAO(){
+    public XMLProyectosDAO getProyectoDAO() {
         return new XMLProyectosDAO();
     }
 

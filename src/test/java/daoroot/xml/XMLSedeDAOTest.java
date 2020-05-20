@@ -4,6 +4,8 @@ import root.Sede;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 class XMLSedeDAOTest {
 
     private XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
@@ -15,7 +17,9 @@ class XMLSedeDAOTest {
 
     @Test
     public void XmlGetsCreated() {
+        File file = new File("output/sede/sede_1.xml");
         Sede sede = createSede();
         xmlSedeDao.crearNuevaSede(sede);
+        assert(file.exists());
     }
 }
