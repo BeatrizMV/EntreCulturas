@@ -77,7 +77,7 @@ public class XmlVoluntarioDao extends XmlDao<Voluntario> {
 			if(file.delete()) {
 				System.out.println("Successfully deleted");
 			} else {
-				throw new DaoException("Could not delete the file for proyecto with id ");
+				throw new DaoException("Could not delete the file for voluntario with id ");
 			}
 		}
 	}
