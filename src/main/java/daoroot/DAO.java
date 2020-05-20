@@ -9,7 +9,7 @@ package daoroot;
 public interface DAO<T> {
     public void crearNuevoArchivo(T t, String fileName, Class c) throws DaoException;
 
-    public Optional<T> obtener(String id) throws DaoException;
+    public Optional<T> obtenerDatos(String id, String filePath, Class c) throws DaoException;
 
     public void actualizar(T t) throws DaoException;
 

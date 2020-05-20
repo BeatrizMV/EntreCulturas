@@ -23,9 +23,7 @@ public class XMLProyectosDAO implements DAO<Proyecto> {
 	private static final String ID_SEPARATOR = "_";
 
 	@Override
-	public void crearNuevo(Proyecto pro) throws DaoException {
-
-
+	public void crearNuevoArchivo(Proyecto pro) throws DaoException {
 		try(FileOutputStream fo = new FileOutputStream(this.buildFileName(pro.getCodigoProyecto()))) {
 			JAXBContext contextObj = JAXBContext.newInstance(Proyecto.class);
 			Marshaller marshallerObj = contextObj.createMarshaller();

@@ -29,13 +29,7 @@ public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
     }
 
     @Override
-    public Optional<Sede> obtener(String id) {
-        return Optional.empty();
-    }
-
-    @Override
     public void actualizar(Sede sede) {
-
     }
 
     @Override

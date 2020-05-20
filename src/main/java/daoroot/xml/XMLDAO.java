@@ -1,9 +1,13 @@
 package daoroot.xml;
 
+import daoroot.DAO;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.util.Optional;
 
 public class XMLDAO<T> {
     private static final String OUTPUT_DIR_PATH = "output/";
@@ -24,6 +28,25 @@ public class XMLDAO<T> {
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+    }
+
+    public final Optional<T> obtenerDatos(String id, String filePath, Class c) {
+        File file = new File(filePath);
+        if(!file.exists()){
+            return Optional.empty();
+        }
+        T t = null;
+
+        try {
+            JAXBContext context = JAXBContext.newInstance(c);
+            Unmarshaller unmarshaller = null;
+            unmarshaller = context.createUnmarshaller();
+            t = (T) unmarshaller.unmarshal(file);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+        return Optional.ofNullable(t);
     }
 
     protected String buildFileName(String id, String prefixFile) {
