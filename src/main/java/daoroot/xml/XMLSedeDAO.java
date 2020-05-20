@@ -1,6 +1,6 @@
 package daoroot.xml;
 
-import daoroot.XmlDao;
+import daoroot.DAO;
 import root.Proyecto;
 import root.Sede;
 
@@ -12,7 +12,17 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.Optional;
 
-public class XmlSedeDao extends XmlDao<Sede> {
+public class XMLSedeDAO implements DAO<Sede> {
+
+    private List<Sede> listadoSedes;
+
+    public XMLSedeDAO(){
+    }
+
+    public XMLSedeDAO(List<Sede> listadoSedes){
+        super();
+        this.listadoSedes = listadoSedes;
+    }
 
     @Override
     public void crearNuevo(Sede sede) {

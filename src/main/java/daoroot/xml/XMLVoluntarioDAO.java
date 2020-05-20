@@ -9,10 +9,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import daoroot.XmlDao;
+import daoroot.DAO;
 import root.Voluntario;
 
-public class XmlVoluntarioDao extends XmlDao<Voluntario> {
+public class XMLVoluntarioDAO implements DAO<Voluntario> {
     @Override
     public void crearNuevo (Voluntario vol){
         try {

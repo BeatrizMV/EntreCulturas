@@ -1,11 +1,5 @@
 package daoroot.xml;
 
-import org.junit.jupiter.api.Test;
-
-import enums.Rol;
-import root.Direccion;
-import root.Voluntario;
-
 
 public class XmlVoluntarioDaoTest {
     private final XmlVoluntarioDao toTest = new XmlVoluntarioDao();

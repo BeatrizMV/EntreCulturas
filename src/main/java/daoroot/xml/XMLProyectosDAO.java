@@ -1,6 +1,6 @@
 package daoroot.xml;
 
-import daoroot.XmlDao;
+import daoroot.DAO;
 import exceptions.DaoException;
 import root.Proyecto;
 
@@ -9,14 +9,13 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class XmlProyectoDao extends XmlDao<Proyecto> {
+public class XMLProyectosDAO implements DAO<Proyecto> {
 
 	private static final String OUTPUT_DIR_PATH = "output/proyectos";
 	private static final String PREFIX_FILE = OUTPUT_DIR_PATH + "/proyecto";

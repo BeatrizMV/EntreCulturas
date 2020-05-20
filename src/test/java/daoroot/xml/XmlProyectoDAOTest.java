@@ -18,9 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class XmlProyectoDaoTest {
+public class XmlProyectoDAOTest {
 	
-	private XmlProyectoDao toTest = new XmlProyectoDao();
+	private XMLProyectosDAO toTest = new XMLProyectosDAO();
 
 	private Proyecto createProyecto() {
 		List<MiembroEquipo> miembrosEquipo = Arrays.asList(new MiembroEquipo(
