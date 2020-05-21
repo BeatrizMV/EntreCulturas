@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class XMLProyectosDAO implements DAO<Proyecto> {
+public class XMLProyectoDAO implements DAO<Proyecto> {
 
     private static final String OUTPUT_DIR_PATH = "output/proyectos";
     private static final String PREFIX_FILE = OUTPUT_DIR_PATH + "/proyecto";

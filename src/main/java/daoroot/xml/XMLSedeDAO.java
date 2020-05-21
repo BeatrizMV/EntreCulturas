@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
 
-    public XMLSedeDAO(){
+    public XMLSedeDAO() {
         this.subfolderPrefixFile = "sede/sede";
         this.prefixPath = "output/sede";
     }
