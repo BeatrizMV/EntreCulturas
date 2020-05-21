@@ -61,18 +61,20 @@ public class XMLDAO<T> {
     }
 
     public final void actualizarArchivo(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+        // TODO: Get file and update it
+
         Object t = null;
 
         Optional<T> dataOptional = obtenerDatos(Integer.toString(idArchivo));
         File file = new File(buildFileName(Integer.toString(idArchivo), subfolderPrefixFile));
 
-        if (dataOptional.isPresent()) {
+        if(dataOptional.isPresent()){
             t = dataOptional.get();
         } else {
             throw new DaoException("El archivo no existe o está vacío");
         }
 
-        decideFieldToUpdate(t, field, value);
+        updateFile(t, field, value);
     }
 
     public final void borrarArchivo(String id) throws DaoException {
@@ -87,7 +89,7 @@ public class XMLDAO<T> {
     }
 
     // Este metodo está vacío porque esta implementado en los hijos
-    protected void decideFieldToUpdate(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
+    protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
     }
 
     protected String buildFileName(String id, String prefixFile) {
@@ -107,12 +109,16 @@ public class XMLDAO<T> {
         }
     }
 
+    ;
+
     protected void createDirectoryIfNotExists(String path) {
         File f = new File(path);
         if (!checkIfDirectoryExists(f)) {
             f.mkdirs();
         }
     }
+
+    ;
 
     protected boolean checkIfDirectoryExists(File f) {
         if (!f.exists()) {
