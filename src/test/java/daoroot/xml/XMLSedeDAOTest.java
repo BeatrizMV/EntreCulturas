@@ -57,20 +57,22 @@ class XMLSedeDAOTest {
     }
 
     @Test
-    public void XMLGetsUpdated() throws DaoException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
+    public void XMLGetsUpdated() throws DaoException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException, InstantiationException {
+        sedeDAO.crearNuevoArchivo(sede);
+
         Object t = null;
         int field = 1;
         String value = "SedeBarcelona";
         sedeDAO.actualizarArchivo(field, value, 1);
 
         Optional<Sede> dataOptional = sedeDAO.obtenerDatos("1");
-        t = (Object) dataOptional.get();
+        t = dataOptional.get();
 
-        Field fieldToCheck = dataOptional.getClass().getDeclaredField("nombreSede");
+        Field fieldToCheck = t.getClass().getDeclaredField("nombreSede");
         fieldToCheck.setAccessible(true);
 
         String testValue = (String) fieldToCheck.get(t);
 
-        assertTrue(testValue == value);
+        assertTrue(testValue.equals(value));
     }
 }
