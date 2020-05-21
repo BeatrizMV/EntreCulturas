@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 
 class XMLSedeDAOTest {
@@ -44,14 +46,31 @@ class XMLSedeDAOTest {
     @Test
     public void XmlObtainTest() throws DaoException {
         sedeDAO.crearNuevoArchivo(sede);
-        Optional<Sede> ret = sedeDAO.obtenerDatos("1", Sede.class);
+        Optional<Sede> ret = sedeDAO.obtenerDatos("1");
         assertTrue(ret.isPresent());
     }
 
     @Test
     public void XMLGetsDeleted() throws DaoException {
         sedeDAO.borrarArchivo("1");
-        assertFalse(sedeDAO.obtenerDatos("1", Sede.class).isPresent());
+        assertFalse(sedeDAO.obtenerDatos("1").isPresent());
     }
 
+    @Test
+    public void XMLGetsUpdated() throws DaoException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException {
+        Object t = null;
+        int field = 1;
+        String value = "SedeBarcelona";
+        sedeDAO.actualizarArchivo(field, value, 1);
+
+        Optional<Sede> dataOptional = sedeDAO.obtenerDatos("1");
+        t = (Object) dataOptional.get();
+
+        Field fieldToCheck = dataOptional.getClass().getDeclaredField("nombreSede");
+        fieldToCheck.setAccessible(true);
+
+        String testValue = (String) fieldToCheck.get(t);
+
+        assertTrue(testValue == value);
+    }
 }

@@ -19,10 +19,7 @@ public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
     public XMLSedeDAO(){
         this.subfolderPrefixFile = "sede/sede";
         this.prefixPath = "output/sede";
-    }
-
-    @Override
-    public void actualizar(Sede sede) {
+        this.clase = Sede.class;
     }
 
     @Override
