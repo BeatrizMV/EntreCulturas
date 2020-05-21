@@ -29,7 +29,7 @@ public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
     }
 
     @Override
-    protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
+    protected void decideFieldToUpdate(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
         switch (field) {
             case 0:
                 throw new DaoException("El ID no se puede modificar");
