@@ -20,15 +20,10 @@ class XMLSedeDAOTest {
     private DAOFactory xmlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
     private DAO<Sede> sedeDAO = (XMLSedeDAO) xmlDAOFactory.getSedeDAO();
 
-    private Sede createSede() {
-        Sede sede = new Sede(2, "Barcelona", "Calle", "Pujades", 29, "Barcelona", 8905, "España", "", "+34666999888", "barcelona@entreculturas.org", true);
-        return sede;
-    }
-
     @Test
     public void XmlGetsCreated() throws DaoException {
         File file = new File("output/sede/sede_1.xml");
-        Sede nuevaSede = createSede();
+        Sede nuevaSede = new Sede(1, "Barcelona", "Calle", "Pujades", 29, "Barcelona", 8905, "España", "", "+34666999888", "barcelona@entreculturas.org", true);
         sedeDAO.crearNuevoArchivo(nuevaSede);
         assertTrue(file.exists());
     }
