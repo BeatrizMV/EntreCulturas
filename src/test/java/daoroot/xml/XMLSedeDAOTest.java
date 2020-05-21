@@ -1,5 +1,8 @@
 package daoroot.xml;
 
+import daoroot.DAO;
+import daoroot.DAOFactory;
+import exceptions.DaoException;
 import org.junit.jupiter.api.BeforeEach;
 import root.Sede;
 
@@ -14,18 +17,19 @@ import java.util.Optional;
 
 class XMLSedeDAOTest {
 
-    XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
+    private DAOFactory xmlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
+    private DAO<Sede> sedeDAO = (XMLSedeDAO) xmlDAOFactory.getSedeDAO();
 
     private Sede createSede() {
-        Sede sede = new Sede(1, "Barcelona", "Calle", "Pujades", 29, "Barcelona", 8905, "España", "", "+34666999888", "barcelona@entreculturas.org", true);
+        Sede sede = new Sede(2, "Barcelona", "Calle", "Pujades", 29, "Barcelona", 8905, "España", "", "+34666999888", "barcelona@entreculturas.org", true);
         return sede;
     }
 
     @Test
-    public void XmlGetsCreated() {
+    public void XmlGetsCreated() throws DaoException {
         File file = new File("output/sede/sede_1.xml");
         Sede nuevaSede = createSede();
-        xmlSedeDao.crearNuevoArchivo(nuevaSede);
+        sedeDAO.crearNuevoArchivo(nuevaSede);
         assertTrue(file.exists());
     }
 

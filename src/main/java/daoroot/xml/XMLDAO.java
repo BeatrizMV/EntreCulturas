@@ -22,6 +22,7 @@ public class XMLDAO<T> {
 
     public final void crearNuevoArchivo(T t) {
         try {
+
             Class<?> clase = t.getClass();
 
             Field field = clase.getDeclaredField("id");
