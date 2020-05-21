@@ -28,13 +28,11 @@ class XMLSedeDAOTest {
         assertTrue(file.exists());
     }
 
-    /*
+
     @Test
     public void XmlObtainTest() {
-        Sede sede = createSede();
         XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
         Optional<Sede> ret = xmlSedeDao.obtenerDatos("1", Sede.class);
         assertTrue(ret.isPresent());
     }
-    */
 }
