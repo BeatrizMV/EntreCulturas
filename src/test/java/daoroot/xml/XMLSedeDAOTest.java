@@ -28,7 +28,6 @@ class XMLSedeDAOTest {
         assertTrue(file.exists());
     }
 
-
     @Test
     public void XmlObtainTest() {
         XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
