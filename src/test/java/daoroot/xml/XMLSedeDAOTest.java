@@ -14,7 +14,7 @@ import java.util.Optional;
 
 class XMLSedeDAOTest {
 
-    private XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
+    XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
 
     private Sede createSede() {
         Sede sede = new Sede(1, "Barcelona", "Calle", "Pujades", 29, "Barcelona", 8905, "España", "", "+34666999888", "barcelona@entreculturas.org", true);
@@ -25,14 +25,17 @@ class XMLSedeDAOTest {
     public void XmlGetsCreated() {
         File file = new File("output/sede/sede_1.xml");
         Sede nuevaSede = createSede();
-        xmlSedeDao.crearNuevoArchivo(nuevaSede, xmlSedeDao.buildFileName(nuevaSede.getIdSede(), "sede/sede"), Sede.class);
-        assert (file.exists());
+        xmlSedeDao.crearNuevoArchivo(nuevaSede);
+        assertTrue(file.exists());
     }
 
+    /*
     @Test
     public void XmlObtainTest() {
         Sede sede = createSede();
-        Optional<Sede> ret = xmlSedeDao.obtener(String.valueOf(sede.getIdSede()));
+        XMLSedeDAO xmlSedeDao = new XMLSedeDAO();
+        Optional<Sede> ret = xmlSedeDao.obtenerDatos("1", Sede.class);
         assertTrue(ret.isPresent());
     }
+    */
 }

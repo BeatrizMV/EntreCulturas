@@ -7,9 +7,9 @@ package daoroot;
         import java.util.Optional;
 
 public interface DAO<T> {
-    public void crearNuevoArchivo(T t, String fileName, Class c) throws DaoException;
+    public void crearNuevoArchivo(T t) throws DaoException;
 
-    public Optional<T> obtenerDatos(String id, String filePath, Class c) throws DaoException;
+    public Optional<T> obtenerDatos(String id, Class c) throws DaoException;
 
     public void actualizar(T t) throws DaoException;
 
