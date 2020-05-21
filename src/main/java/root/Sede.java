@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="sede")
 public class Sede {
-    private int idSede;
+    private int id;
     private String nombreSede;
     private Direccion direccion;
     private String telefono;
@@ -14,7 +14,7 @@ public class Sede {
     public Sede(){}
 
     public Sede(int idSede, String nombreSede, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, String telefono, String email, boolean central) {
-        setIdSede(idSede);
+        setId(idSede);
         setNombreSede(nombreSede);
         setDireccion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
         setTelefono(telefono);
@@ -22,12 +22,12 @@ public class Sede {
         setCentral(central);
     }
 
-    public int getIdSede() {
-        return idSede;
+    public int getId() {
+        return id;
     }
 
-    public Sede setIdSede(int idSede) {
-        this.idSede = idSede;
+    public Sede setId(int id) {
+        this.id = id;
         return this;
     }
 

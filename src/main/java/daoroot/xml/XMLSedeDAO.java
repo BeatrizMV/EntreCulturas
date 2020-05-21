@@ -16,26 +16,18 @@ import java.util.Optional;
 
 public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
 
-    private static final String PREFIX_FILE = "sede/sede";
-    private static final String PREFIX_PATH = "output/sede";
-
     public XMLSedeDAO(){
-    }
-
-    public void crearNuevaSede(Sede sede) {
-        String fileName = this.buildFileName(sede.getIdSede(), PREFIX_FILE);
-        this.createDirectoryIfNotExists(PREFIX_PATH);
-        this.crearNuevoArchivo(sede, fileName, Sede.class);
+        this.subfolderPrefixFile = "sede/sede";
+        this.prefixPath = "output/sede";
     }
 
     @Override
-    public Optional<Sede> obtener(String id) {
+    public Optional<Sede> obtenerDatos(String id, Class c) throws DaoException {
         return Optional.empty();
     }
 
     @Override
     public void actualizar(Sede sede) {
-
     }
 
     @Override
