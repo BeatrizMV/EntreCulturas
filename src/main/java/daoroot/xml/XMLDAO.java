@@ -1,15 +1,14 @@
 package daoroot.xml;
 
-import exceptions.DaoException;
-import root.Sede;
+import daoroot.DAO;
 
+import javax.swing.text.html.Option;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Optional;
 
@@ -20,11 +19,13 @@ public class XMLDAO<T> {
 
     protected String subfolderPrefixFile;
     protected String prefixPath;
-    protected Class clase;
     private String fileName;
 
     public final void crearNuevoArchivo(T t) {
         try {
+
+            Class<?> clase = t.getClass();
+
             Field field = clase.getDeclaredField("id");
             field.setAccessible(true);
             int number = (int) field.get(t);
@@ -41,16 +42,16 @@ public class XMLDAO<T> {
         }
     }
 
-    public final Optional<T> obtenerDatos(String id) {
+    public final Optional<T> obtenerDatos(String id, Class c){
         File file = new File(this.buildFileName(id, subfolderPrefixFile));
-        if (!file.exists()) {
+        if(!file.exists()){
             return Optional.empty();
         }
 
         T t = null;
 
         try {
-            JAXBContext context = JAXBContext.newInstance(clase);
+            JAXBContext context = JAXBContext.newInstance(c);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             t = (T) unmarshaller.unmarshal(file);
         } catch (JAXBException e) {
@@ -58,36 +59,6 @@ public class XMLDAO<T> {
         }
 
         return Optional.ofNullable(t);
-    }
-
-    public final void actualizarArchivo(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
-        Object t = null;
-
-        Optional<T> dataOptional = obtenerDatos(Integer.toString(idArchivo));
-        File file = new File(buildFileName(Integer.toString(idArchivo), subfolderPrefixFile));
-
-        if (dataOptional.isPresent()) {
-            t = dataOptional.get();
-        } else {
-            throw new DaoException("El archivo no existe o está vacío");
-        }
-
-        decideFieldToUpdate(t, field, value);
-    }
-
-    public final void borrarArchivo(String id) throws DaoException {
-        File file = new File(this.buildFileName(id, subfolderPrefixFile));
-        if (file.exists()) {
-            if (file.delete()) {
-                System.out.println("El archivo se ha borrado correctamente");
-            } else {
-                throw new DaoException("No se ha podido eliminar el fichero con ID " + id);
-            }
-        }
-    }
-
-    // Este metodo está vacío porque esta implementado en los hijos
-    protected void decideFieldToUpdate(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
     }
 
     protected String buildFileName(String id, String prefixFile) {
@@ -107,12 +78,16 @@ public class XMLDAO<T> {
         }
     }
 
+    ;
+
     protected void createDirectoryIfNotExists(String path) {
         File f = new File(path);
         if (!checkIfDirectoryExists(f)) {
             f.mkdirs();
         }
     }
+
+    ;
 
     protected boolean checkIfDirectoryExists(File f) {
         if (!f.exists()) {
