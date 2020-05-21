@@ -2,6 +2,7 @@ package daoroot.xml;
 
 import daoroot.DAO;
 
+import javax.swing.text.html.Option;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -39,6 +40,25 @@ public class XMLDAO<T> {
         } catch (JAXBException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    public final Optional<T> obtenerDatos(String id, Class c){
+        File file = new File(this.buildFileName(id, subfolderPrefixFile));
+        if(!file.exists()){
+            return Optional.empty();
+        }
+
+        T t = null;
+
+        try {
+            JAXBContext context = JAXBContext.newInstance(c);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            t = (T) unmarshaller.unmarshal(file);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+        return Optional.ofNullable(t);
     }
 
     protected String buildFileName(String id, String prefixFile) {
