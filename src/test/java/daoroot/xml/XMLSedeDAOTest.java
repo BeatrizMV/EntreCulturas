@@ -23,7 +23,7 @@ class XMLSedeDAOTest {
     private static Sede sede;
 
     @BeforeAll
-    public static void nuevaSede(){
+    public static void nuevaSede() {
         sede = new Sede(1, "Barcelona", "Calle", "Pujades", 29, "Barcelona", 8905, "España", "", "+34666999888", "barcelona@entreculturas.org", true);
     }
 
