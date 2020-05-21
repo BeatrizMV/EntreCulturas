@@ -1,6 +1,7 @@
 package daoroot.xml;
 
 import daoroot.DAO;
+import exceptions.DaoException;
 
 import javax.swing.text.html.Option;
 import javax.xml.bind.JAXBContext;
@@ -59,6 +60,17 @@ public class XMLDAO<T> {
         }
 
         return Optional.ofNullable(t);
+    }
+
+    public final void borrarArchivo(String id) throws DaoException {
+        File file = new File(this.buildFileName(id, subfolderPrefixFile));
+        if(file.exists()){
+            if(file.delete()){
+                System.out.println("Successfully deleted");
+            } else {
+                throw new DaoException("Could not delete the file for proyecto with id ");
+            }
+        }
     }
 
     protected String buildFileName(String id, String prefixFile) {

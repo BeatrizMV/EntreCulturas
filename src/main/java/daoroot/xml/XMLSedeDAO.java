@@ -26,11 +26,6 @@ public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
     }
 
     @Override
-    public void borrar(Sede sede) {
-
-    }
-
-    @Override
     public List<Sede> obtenerDatos() {
         return null;
     }
