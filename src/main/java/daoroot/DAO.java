@@ -13,7 +13,7 @@ public interface DAO<T> {
 
     public void actualizar(T t) throws DaoException;
 
-    public void borrar(T t) throws DaoException;
+    public void borrarArchivo(String id) throws DaoException;
 
     public List<T> obtenerDatos() throws DaoException;
 }
