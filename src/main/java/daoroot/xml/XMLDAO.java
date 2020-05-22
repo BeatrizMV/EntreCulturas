@@ -11,6 +11,8 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class XMLDAO<T> {
@@ -88,6 +90,28 @@ public class XMLDAO<T> {
         }
     }
 
+    public final List<T> obtenerDatos() throws DaoException {
+        File outDir = new File(prefixPath);
+        String[] fileNameList = outDir.list();
+        List<T> retList = new ArrayList<>();
+        for(String fileName : fileNameList) {
+            String id = extraerId(fileName);
+            Optional<T> retOpt = this.obtenerDatos(id);
+            if(retOpt.isPresent()) {
+                retList.add(retOpt.get());
+            }
+        }
+        return retList;
+    }
+
+    private String extraerId(String fileName) {
+        if(fileName != null && !fileName.isEmpty()) {
+            String[] splitRes = fileName.split(ID_SEPARATOR);
+            return splitRes[1];
+        }
+        return "";
+    }
+
     // Este metodo está vacío porque esta implementado en los hijos
     protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
     }
@@ -109,16 +133,12 @@ public class XMLDAO<T> {
         }
     }
 
-    ;
-
     protected void createDirectoryIfNotExists(String path) {
         File f = new File(path);
         if (!checkIfDirectoryExists(f)) {
             f.mkdirs();
         }
     }
-
-    ;
 
     protected boolean checkIfDirectoryExists(File f) {
         if (!f.exists()) {
