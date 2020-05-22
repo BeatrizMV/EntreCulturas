@@ -62,6 +62,20 @@ public class XMLDAO<T> {
         return Optional.ofNullable(t);
     }
 
+    public final List<T> obtenerDatos() throws DaoException {
+        File outDir = new File(prefixPath);
+        String[] fileNameList = outDir.list();
+        List<T> retList = new ArrayList<>();
+        for(String fileName : fileNameList) {
+            String id = extraerId(fileName);
+            Optional<T> retOpt = this.obtenerDatos(id);
+            if(retOpt.isPresent()) {
+                retList.add(retOpt.get());
+            }
+        }
+        return retList;
+    }
+
     public final void actualizarArchivo(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
         // TODO: Get file and update it
 
@@ -88,20 +102,6 @@ public class XMLDAO<T> {
                 throw new DaoException("No se ha podido eliminar el fichero con ID " + id);
             }
         }
-    }
-
-    public final List<T> obtenerDatos() throws DaoException {
-        File outDir = new File(prefixPath);
-        String[] fileNameList = outDir.list();
-        List<T> retList = new ArrayList<>();
-        for(String fileName : fileNameList) {
-            String id = extraerId(fileName);
-            Optional<T> retOpt = this.obtenerDatos(id);
-            if(retOpt.isPresent()) {
-                retList.add(retOpt.get());
-            }
-        }
-        return retList;
     }
 
     private String extraerId(String fileName) {
