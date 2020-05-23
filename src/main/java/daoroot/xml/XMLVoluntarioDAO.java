@@ -21,7 +21,27 @@ public class XMLVoluntarioDAO extends XMLDAO<Voluntario> implements DAO<Voluntar
             case 0:
                 throw new DaoException("El ID no se puede modificar");
             case 1:
-                method = "setNombreSede";
+                method = "setNombre";
+                break;
+            case 2:
+                method = "setApellido1";
+                break;
+            case 3:
+                method = "setApellido2";
+                break;
+            case 4:
+                method = "setDireccion";
+                break;
+            case 5: 
+                method = "setTelefono";
+                break;
+            case 6:
+                method = "setEmail";
+                break;
+            case 7:
+                method = "setUsuario";
+            case 8:
+                method = "setPassword";
                 break;
         }
 

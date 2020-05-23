@@ -10,8 +10,9 @@ public abstract class DAOFactory {
     public abstract DAO<Sede> getSedeDAO();
     /*
     public abstract DAO<Proyecto> getProyectoDAO();
-    public abstract DAO<Voluntario> getVoluntarioDAO();
     */
+    public abstract DAO<Voluntario> getVoluntarioDAO();
+
 
     public static DAOFactory getDAOFactory(int whichFactory) {
 
