@@ -18,7 +18,6 @@ import java.util.Optional;
 
 class XMLSedeDAOTest {
 
-
     private DAOFactory xmlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
     private DAO<Sede> sedeDAO = (XMLSedeDAO) xmlDAOFactory.getSedeDAO();
 

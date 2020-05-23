@@ -42,20 +42,24 @@ public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
                 type = getFieldType((Sede) t, "nombreSede");
                 t.getClass().getMethod(method, type).invoke(t, value);
                 break;
+
             case 2:
                 // No implementado
                 method = "setDireccion";
                 break;
+
             case 3:
                 method = "setTelefono";
                 type = getFieldType((Sede) t, "telefono");
                 t.getClass().getMethod(method, type).invoke(t, value);
                 break;
+
             case 4:
                 method = "setEmail";
                 type = getFieldType((Sede) t, "email");
                 t.getClass().getMethod(method, type).invoke(t, value);
                 break;
+
             case 5:
                 method = "setCentral";
                 type = getFieldType((Sede) t, "central");

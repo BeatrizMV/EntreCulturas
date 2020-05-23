@@ -2,7 +2,6 @@ package daoroot.xml;
 
 import exceptions.DaoException;
 import others.Helper;
-import root.Sede;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -11,7 +10,6 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +26,6 @@ public class XMLDAO<T> {
 
     public final void crearNuevoArchivo(T t) {
         try {
-            // Field field = t.getClass().getDeclaredField("id");
             Field field = Helper.findFieldInTopParent(clase, "id");
             field.setAccessible(true);
             int number = (int) field.get(t);
@@ -68,10 +65,10 @@ public class XMLDAO<T> {
         File outDir = new File(prefixPath);
         String[] fileNameList = outDir.list();
         List<T> retList = new ArrayList<>();
-        for(String fileName : fileNameList) {
+        for (String fileName : fileNameList) {
             String id = extraerId(fileName);
             Optional<T> retOpt = this.obtenerDatos(id);
-            if(retOpt.isPresent()) {
+            if (retOpt.isPresent()) {
                 retList.add(retOpt.get());
             }
         }
@@ -86,7 +83,7 @@ public class XMLDAO<T> {
         Optional<T> dataOptional = obtenerDatos(Integer.toString(idArchivo));
         File file = new File(buildFileName(Integer.toString(idArchivo), subfolderPrefixFile));
 
-        if(dataOptional.isPresent()){
+        if (dataOptional.isPresent()) {
             t = dataOptional.get();
         } else {
             throw new DaoException("El archivo no existe o está vacío");
@@ -107,7 +104,7 @@ public class XMLDAO<T> {
     }
 
     private String extraerId(String fileName) {
-        if(fileName != null && !fileName.isEmpty()) {
+        if (fileName != null && !fileName.isEmpty()) {
             String[] splitRes = fileName.split(ID_SEPARATOR);
             return splitRes[1];
         }
@@ -147,15 +144,6 @@ public class XMLDAO<T> {
             return false;
         }
         return true;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public XMLDAO<T> setFileName(String fileName) {
-        this.fileName = fileName;
-        return this;
     }
 
     public Class<?> getFieldType(T t, String fieldName) throws NoSuchFieldException {
