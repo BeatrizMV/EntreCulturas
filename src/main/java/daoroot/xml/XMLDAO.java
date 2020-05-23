@@ -78,7 +78,7 @@ public class XMLDAO<T> {
         return retList;
     }
 
-    public final void actualizarArchivo(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+    public final void actualizarArchivo(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
         // TODO: Get file and update it
 
         Object t = null;
@@ -115,7 +115,7 @@ public class XMLDAO<T> {
     }
 
     // Este metodo está vacío porque esta implementado en los hijos
-    protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
+    protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException, NoSuchFieldException {
     }
 
     protected String buildFileName(String id, String prefixFile) {
@@ -156,5 +156,13 @@ public class XMLDAO<T> {
     public XMLDAO<T> setFileName(String fileName) {
         this.fileName = fileName;
         return this;
+    }
+
+    public Class<?> getFieldType(T t, String fieldName) throws NoSuchFieldException {
+        Class<?> type = null;
+
+        type = t.getClass().getDeclaredField(fieldName).getType();
+
+        return type;
     }
 }

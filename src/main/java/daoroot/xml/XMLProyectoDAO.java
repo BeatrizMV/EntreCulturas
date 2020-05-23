@@ -23,6 +23,27 @@ public class XMLProyectoDAO extends XMLDAO<Proyecto> implements DAO<Proyecto> {
             case 1:
                 method = "setNombreProyecto";
                 break;
+            case 2:
+                method = "setLocalizacion";
+                break;
+            case 3:
+                method = "setLineaAccion";
+                break;
+            case 4:
+                method = "setSublineaAccion";
+                break;
+            case 5:
+                method = "setFechaInicio";
+                break;
+            case 6:
+                method = "setFechaFin";
+                break;
+            case 7:
+                method = "setSocioLocal";
+                break;
+            case 8:
+                method ="setAccionesRealizar";
+                break;
         }
 
         t.getClass().getMethod(method, String.class).invoke(t, value);

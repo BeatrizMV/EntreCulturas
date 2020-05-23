@@ -1,11 +1,13 @@
 package daoroot.xml;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import daoroot.DAO;
 import daoroot.DAOFactory;
 import exceptions.DaoException;
 import org.junit.jupiter.api.*;
 import root.Sede;
 
+import static java.lang.Boolean.valueOf;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -74,5 +76,26 @@ class XMLSedeDAOTest {
         String testValue = (String) fieldToCheck.get(t);
 
         assertTrue(testValue.equals(value));
+    }
+
+    @Test
+    public void XMLGetsBoolUpdated() throws DaoException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException, InstantiationException {
+        sedeDAO.crearNuevoArchivo(sede);
+
+        Object t = null;
+        int field = 5;
+        String value = "false";
+        sedeDAO.actualizarArchivo(field, value, 1);
+
+        Optional<Sede> dataOptional = sedeDAO.obtenerDatos("1");
+        t = dataOptional.get();
+
+        Field fieldToCheck = t.getClass().getDeclaredField("central");
+        fieldToCheck.setAccessible(true);
+
+        Boolean boolValue = valueOf(value);
+        Boolean testValue = (Boolean) fieldToCheck.get(t);
+
+        assertTrue(boolValue == testValue);
     }
 }
