@@ -19,7 +19,7 @@ public class XMLVoluntarioDAOTest {
 
 
     private DAOFactory xmlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
-    private DAO<Voluntario> VoluntarioDAO = (XMLVoluntarioDAO) xmlDAOFactory.getVoluntarioDAO();
+    private DAO<Voluntario> voluntarioDAO = (XMLVoluntarioDAO) xmlDAOFactory.getVoluntarioDAO();
 
     private static Voluntario voluntario;
 

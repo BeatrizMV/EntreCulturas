@@ -5,6 +5,8 @@ import enums.Rol;
 public class MiembroEquipo extends Persona {
     //Miembro equipo hereda de Persona
 
+    public MiembroEquipo(){}
+
     /**
      * Método constructor con llamada a la clase padre Persona
      *
@@ -20,7 +22,7 @@ public class MiembroEquipo extends Persona {
      * @param password  alberga la contraseña para el usuario
      * @param rol       alberga el rol del usuario
      */
-    public MiembroEquipo(int idPersona, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, int telefono, String email, String usuario, String password, Rol rol) {
-        super (idPersona, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
+    public MiembroEquipo(int id, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, int telefono, String email, String usuario, String password, Rol rol) {
+        super (id, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
     }
 }

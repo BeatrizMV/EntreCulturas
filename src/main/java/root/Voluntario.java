@@ -2,8 +2,13 @@ package root;
 
 import enums.Rol;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="voluntario")
 public class Voluntario extends MiembroEquipo {
     //Colaborador hereda de la clase padre MiembroEquipo
+
+    public Voluntario(){}
 
     /**
      * Método constructor con llamada a la clase padre MiembroEquipo
@@ -20,7 +25,7 @@ public class Voluntario extends MiembroEquipo {
      * @param password  alberga la contraseña para el usuario
      * @param rol       alberga el rol del usuario
      */
-    public Voluntario(int idPersona, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, int telefono, String email, String usuario, String password, Rol rol) {
-        super (idPersona, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
+    public Voluntario(int id, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, int telefono, String email, String usuario, String password, Rol rol) {
+        super (id, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
     }
 }

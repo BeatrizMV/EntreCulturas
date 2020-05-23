@@ -6,17 +6,17 @@ public class Persona {
 
     /* Atributos
      */
-    private int idPersona;
-    private String dni;
-    private String nombre;
-    private String apellido1;
-    private String apellido2;
-    private Direccion direccion;
-    private int telefono;
-    private String email;
-    private String usuario;
-    private String password;
-    private Rol rol;
+    protected int id;
+    protected String dni;
+    protected String nombre;
+    protected String apellido1;
+    protected String apellido2;
+    protected Direccion direccion;
+    protected int telefono;
+    protected String email;
+    protected String usuario;
+    protected String password;
+    protected Rol rol;
 
     /*Método constructor
      * @idPersona alberga el número de identificación interno
@@ -31,11 +31,14 @@ public class Persona {
      * @password alberga la contraseña del usuario
      * @rol alberga el rol del usuario en el sistema
      */
-    public Persona(final int idPersona, final String dni, final String nombre, final String apellido1,
+
+    public Persona(){}
+
+    public Persona(final int id, final String dni, final String nombre, final String apellido1,
             final String apellido2, final String tipoVia, final String via, final int num, final String provincia,
             final int codigoPostal, final String pais, final String observaciones, final int telefono,
             final String email, final String usuario, final String password, final Rol rol) {
-        this.idPersona = idPersona;
+        this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -60,8 +63,8 @@ public class Persona {
      *
      * @return retorna idPersona
      */
-    public int getIdPersona() {
-        return idPersona;
+    public int getId() {
+        return id;
     }
 
     /**
@@ -138,10 +141,10 @@ public class Persona {
     /**
      * método para modificar el idPersona
      *
-     * @param idPersona
+     * @param id
      */
-    public void setIdPersona(final int idPersona) {
-        this.idPersona = idPersona;
+    public void setId(final int id) {
+        this.id = id;
     }
 
     /**

@@ -27,7 +27,8 @@ public class XMLDAO<T> {
 
     public final void crearNuevoArchivo(T t) {
         try {
-            Field field = clase.getDeclaredField("id");
+            // Field field = t.getClass().getDeclaredField("id");
+            Field field = findFieldInTopParent(clase, "id");
             field.setAccessible(true);
             int number = (int) field.get(t);
 
@@ -38,7 +39,7 @@ public class XMLDAO<T> {
 
             marshallerObj.marshal(t, file);
 
-        } catch (JAXBException | NoSuchFieldException | IllegalAccessException e) {
+        } catch (JAXBException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }
@@ -154,5 +155,25 @@ public class XMLDAO<T> {
     public XMLDAO<T> setFileName(String fileName) {
         this.fileName = fileName;
         return this;
+    }
+
+    public static Field findFieldInTopParent(Class<?> clazz, String fieldName) {
+        Class<?> current = clazz;
+        do {
+            try {
+                return current.getDeclaredField(fieldName);
+            } catch(Exception e) {}
+        } while((current = current.getSuperclass()) != null);
+        return null;
+    }
+
+    public static Method findMethodInTopParent(Class<?> clazz, String methodName) {
+        Class<?> current = clazz;
+        do {
+            try {
+                return current.getDeclaredMethod(methodName);
+            } catch(Exception e) {}
+        } while((current = current.getSuperclass()) != null);
+        return null;
     }
 }

@@ -1,14 +1,15 @@
 package daoroot;
 
+import daoroot.xml.XMLProyectoDAO;
 import daoroot.xml.XMLSedeDAO;
+import daoroot.xml.XMLVoluntarioDAO;
 
 public class XMLDAOFactory extends DAOFactory {
-    /*
+
     @Override
-    public XMLProyectosDAO getProyectoDAO() {
-        return new XMLProyectosDAO();
+    public XMLProyectoDAO getProyectoDAO() {
+        return new XMLProyectoDAO();
     }
-     */
 
     @Override
     public XMLSedeDAO getSedeDAO() {

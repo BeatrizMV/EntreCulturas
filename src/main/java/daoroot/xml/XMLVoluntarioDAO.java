@@ -5,6 +5,7 @@ import exceptions.DaoException;
 import root.Voluntario;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class XMLVoluntarioDAO extends XMLDAO<Voluntario> implements DAO<Voluntario> {
 
@@ -16,36 +17,37 @@ public class XMLVoluntarioDAO extends XMLDAO<Voluntario> implements DAO<Voluntar
 
     @Override
     protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException {
-        String method = "";
+        String methodName = "";
         switch (field) {
             case 0:
                 throw new DaoException("El ID no se puede modificar");
             case 1:
-                method = "setNombre";
+                methodName = "setNombre";
                 break;
             case 2:
-                method = "setApellido1";
+                methodName = "setApellido1";
                 break;
             case 3:
-                method = "setApellido2";
+                methodName = "setApellido2";
                 break;
             case 4:
-                method = "setDireccion";
+                methodName = "setDireccion";
                 break;
-            case 5: 
-                method = "setTelefono";
+            case 5:
+                methodName = "setTelefono";
                 break;
             case 6:
-                method = "setEmail";
+                methodName = "setEmail";
                 break;
             case 7:
-                method = "setUsuario";
+                methodName = "setUsuario";
             case 8:
-                method = "setPassword";
+                methodName = "setPassword";
                 break;
         }
 
-        t.getClass().getMethod(method, String.class).invoke(t, value);
+        Method method = findMethodInTopParent(clase, methodName);
+        method.invoke(t, value);
         crearNuevoArchivo((Voluntario) t);
     }
 }

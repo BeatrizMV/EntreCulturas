@@ -8,9 +8,7 @@ public abstract class DAOFactory {
     public static final int XML = 1;
 
     public abstract DAO<Sede> getSedeDAO();
-    /*
     public abstract DAO<Proyecto> getProyectoDAO();
-    */
     public abstract DAO<Voluntario> getVoluntarioDAO();
 
 
