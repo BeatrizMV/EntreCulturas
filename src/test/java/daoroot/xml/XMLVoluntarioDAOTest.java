@@ -4,6 +4,7 @@ import daoroot.DAO;
 import daoroot.DAOFactory;
 import exceptions.DaoException;
 import org.junit.jupiter.api.*;
+import others.Helper;
 import root.Voluntario;
 import enums.Rol;
 
@@ -69,7 +70,8 @@ public class XMLVoluntarioDAOTest {
         Optional<Voluntario> dataOptional = voluntarioDAO.obtenerDatos("1");
         t = dataOptional.get();
 
-        Field fieldToCheck = t.getClass().getDeclaredField("nombre");
+        Class cls = t.getClass();
+        Field fieldToCheck = Helper.findFieldInTopParent(cls,"nombre");
         fieldToCheck.setAccessible(true);
 
         String testValue = (String) fieldToCheck.get(t);

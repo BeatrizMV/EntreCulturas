@@ -2,6 +2,7 @@ package daoroot.xml;
 
 import daoroot.DAO;
 import exceptions.DaoException;
+import others.Helper;
 import root.Voluntario;
 
 import java.lang.reflect.InvocationTargetException;
@@ -46,7 +47,7 @@ public class XMLVoluntarioDAO extends XMLDAO<Voluntario> implements DAO<Voluntar
                 break;
         }
 
-        Method method = findMethodInTopParent(clase, methodName);
+        Method method = Helper.findMethodInTopParent(clase, methodName, String.class);
         method.invoke(t, value);
         crearNuevoArchivo((Voluntario) t);
     }
