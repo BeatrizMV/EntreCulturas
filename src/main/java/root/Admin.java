@@ -82,6 +82,8 @@ public class Admin {
         Integer[] availableOptions = setMaxAvailableOptions(6);
         int optionSelected = 0;
 
+        Helper.clearScreen();
+
         System.out.println("Por favor, introduce el número de la acción que deseas realizar: ");
         System.out.println("1 - Ver proyecto por ID");
         System.out.println("2 - Ver todos los proyectos //No implementado");
@@ -106,7 +108,8 @@ public class Admin {
                 if (optionalProyecto.isPresent()) {
                     Proyecto proyecto = optionalProyecto.get();
                     System.out.println("Nombre: " + proyecto.getNombreProyecto());
-
+                } else {
+                    System.out.println("El proyecto no existe.");
                 }
                 String entrada = "";
 
@@ -119,15 +122,15 @@ public class Admin {
                 // No implementado
                 break;
             case 3:
-                System.out.println("Por favor, indica los siguientes datos: \n");
+                System.out.println("Por favor, indica los siguientes datos:");
 
-                System.out.println("Cual es el id del proyecto: \n");
+                System.out.println("Cual es el id del proyecto:");
                 Integer proyectId = Integer.parseInt(reader.readLine());
 
-                System.out.println("Cual es el nombre del proyecto: \n");
+                System.out.println("Cual es el nombre del proyecto:");
                 String proyectName = reader.readLine();
 
-                System.out.println("Cual es la linea de acción del proyecto: \n0. COOPERACION_DESARROLLO\n1. ACCION_HUMANITARIA\n2. FORTALECIMIENTO_INSTITUCIONAL\n3. EDUCACION_DESARROLLO \n");
+                System.out.println("Cual es la linea de acción del proyecto: \n0. COOPERACION_DESARROLLO\n1. ACCION_HUMANITARIA\n2. FORTALECIMIENTO_INSTITUCIONAL\n3. EDUCACION_DESARROLLO");
                 Integer[] lineaAccionOptions = setMaxAvailableOptions(4);
                 optionSelected = selectMenuOption(lineaAccionOptions);
                 LineaAccion lineaAccion = null;
@@ -175,6 +178,12 @@ public class Admin {
 
                 Proyecto proyecto = new Proyecto(proyectId, proyectName, lineaAccion, date, socioLocal, acciones, via, nombreVia, numero, provincia, codigoPostal, pais, observaciones);
                 proyectoDAO.crearNuevoArchivo(proyecto);
+
+                System.out.println("Proyecto creado. Apreta enter para volver al menú.");
+
+                do {
+                    entrada = reader.readLine();
+                } while (!entrada.equals(""));
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + option);
