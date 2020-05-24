@@ -1,9 +1,9 @@
 package root;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -14,7 +14,7 @@ import others.LocalDateAdapter;
 
 @XmlRootElement
 public class Proyecto {
-    private int codigoProyecto;
+    private int id;
     private String nombreProyecto;
     private Direccion localizacion;
     private LineaAccion lineaAccion;
@@ -25,8 +25,8 @@ public class Proyecto {
     private String accionesRealizar;
     private List<MiembroEquipo> miembrosEquipo;
 
-    public Proyecto(int codigoProyecto, String nombreProyecto, LineaAccion lineaAccion, LocalDate fechaInicio, String socioLocal, String accionesRealizar, List<MiembroEquipo> miembrosEquipo, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
-        setCodigoProyecto(codigoProyecto);
+    public Proyecto(int id, String nombreProyecto, LineaAccion lineaAccion, LocalDate fechaInicio, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
+        setCodigoProyecto(id);
         setNombreProyecto(nombreProyecto);
         setLineaAccion(lineaAccion);
         setFechaInicio(fechaInicio);
@@ -40,11 +40,11 @@ public class Proyecto {
 
     @XmlElement
     public int getCodigoProyecto() {
-        return codigoProyecto;
+        return id;
     }
 
-    public Proyecto setCodigoProyecto(int codigoProyecto) {
-        this.codigoProyecto = codigoProyecto;
+    public Proyecto setCodigoProyecto(int id) {
+        this.id = id;
         return this;
     }
 

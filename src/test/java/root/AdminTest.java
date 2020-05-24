@@ -1,4 +1,5 @@
 package root;
+import enums.Rol;
 import org.junit.jupiter.api.Test;
 
 import root.Admin;
@@ -10,12 +11,12 @@ import javax.xml.bind.JAXBException;
 class AdminTest {
     @Test
     public void adminInitialization() throws JAXBException {
-        int firstUserType = 0;
-        int secondUserType = 1;
+        Rol firstUserType = Rol.ADMIN;
+        Rol secondUserType = Rol.USER;
         Admin firstAdmin = new Admin(firstUserType);
         Admin secondAdmin = new Admin(secondUserType);
 
-        assertEquals(0, firstAdmin.getUserType());
-        assertEquals(1, secondAdmin.getUserType());
+        assertEquals(Rol.ADMIN, firstAdmin.getUserType());
+        assertEquals(Rol.USER, secondAdmin.getUserType());
     }
 }

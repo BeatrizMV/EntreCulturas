@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<proyecto>
+    <accionesRealizar>Ninguna</accionesRealizar>
+    <codigoProyecto>1</codigoProyecto>
+    <fechaInicio>1994-01-06</fechaInicio>
+    <lineaAccion>COOPERACION_DESARROLLO</lineaAccion>
+    <localizacion>
+        <codigoPostal>8820</codigoPostal>
+        <num>33</num>
+        <observaciones>Ninguna</observaciones>
+        <pais>España</pais>
+        <provincia>Barcelona</provincia>
+        <tipoVia>Calle</tipoVia>
+        <via>Castella</via>
+    </localizacion>
+    <nombreProyecto>erik</nombreProyecto>
+    <socioLocal>Yo</socioLocal>
+</proyecto>

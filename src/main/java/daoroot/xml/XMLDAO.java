@@ -11,6 +11,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +38,7 @@ public class XMLDAO<T> {
 
             marshallerObj.marshal(t, file);
 
-        } catch (JAXBException | IllegalAccessException e) {
+        } catch (JAXBException | IllegalAccessException | NullPointerException e) {
             e.printStackTrace();
         }
     }
@@ -106,7 +107,9 @@ public class XMLDAO<T> {
     private String extraerId(String fileName) {
         if (fileName != null && !fileName.isEmpty()) {
             String[] splitRes = fileName.split(ID_SEPARATOR);
-            return splitRes[1];
+            fileName = splitRes[1];
+            splitRes = fileName.split("\\.");
+            return splitRes[0];
         }
         return "";
     }
