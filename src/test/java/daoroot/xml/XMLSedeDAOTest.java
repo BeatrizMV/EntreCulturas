@@ -78,25 +78,4 @@ class XMLSedeDAOTest {
 
         assertTrue(testValue.equals(value));
     }
-
-    @Test
-    public void XMLGetsBoolUpdated() throws DaoException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NoSuchFieldException, InstantiationException {
-        sedeDAO.crearNuevoArchivo(sede);
-
-        Object t = null;
-        int field = 5;
-        String value = "false";
-        sedeDAO.actualizarArchivo(field, value, 1);
-
-        Optional<Sede> dataOptional = sedeDAO.obtenerDatos("1");
-        t = dataOptional.get();
-
-        Field fieldToCheck = t.getClass().getDeclaredField("central");
-        fieldToCheck.setAccessible(true);
-
-        Boolean boolValue = valueOf(value);
-        Boolean testValue = (Boolean) fieldToCheck.get(t);
-
-        assertTrue(boolValue == testValue);
-    }
 }
