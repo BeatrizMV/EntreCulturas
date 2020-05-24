@@ -1,20 +1,22 @@
 package daoroot.xml;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import daoroot.DAO;
 import daoroot.DAOFactory;
 import exceptions.DaoException;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import root.Sede;
-
-import static java.lang.Boolean.valueOf;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
+
+import static java.lang.Boolean.valueOf;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class XMLSedeDAOTest {
 
