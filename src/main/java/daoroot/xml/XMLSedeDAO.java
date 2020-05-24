@@ -30,8 +30,6 @@ public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
     @Override
     protected void updateFile(Object t, int field, String value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, DaoException, NoSuchFieldException {
         String method = "";
-        Class typeClass = null;
-        Field fieldType;
         Class<?> type;
 
         switch (field) {

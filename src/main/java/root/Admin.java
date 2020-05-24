@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import daoroot.DAO;
@@ -34,7 +36,7 @@ public class Admin {
         setUserType(userType);
     }
 
-    public void menu(Rol userType) throws IOException, ParseException, DaoException {
+    public void menu(Rol userType) throws IOException, ParseException, DaoException, NoSuchMethodException, NoSuchFieldException, InstantiationException, IllegalAccessException, InvocationTargetException {
         int option;
         Integer[] availableOptions = setMaxAvailableOptions(5);
 
@@ -51,12 +53,12 @@ public class Admin {
         System.out.println("Por favor, introduce el número de la acción que deseas realizar: ");
         System.out.println("1 - Menu socios //No implementado");
         System.out.println("2 - Menu proyectos.");
-        System.out.println("3 - Menu sedes.");
-        System.out.println("4 - Menu trabajadores.");
+        System.out.println("3 - Menu sedes. //No implementado");
+        System.out.println("4 - Menu trabajadores. //No implementado");
         System.out.println("0 - Cerrar aplicación.");
     }
 
-    private void enterMenuOption(int option) throws IOException, ParseException, DaoException {
+    private void enterMenuOption(int option) throws IOException, ParseException, DaoException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
         Helper.clearScreen();
         switch (option) {
             case 0:
@@ -77,19 +79,22 @@ public class Admin {
         }
     }
 
-    private void menuProyecto() throws IOException, DaoException, ParseException {
+    private void menuProyecto() throws IOException, DaoException, ParseException, NoSuchMethodException, NoSuchFieldException, InstantiationException, IllegalAccessException, InvocationTargetException {
         int option;
         Integer[] availableOptions = setMaxAvailableOptions(6);
-        int optionSelected = 0;
+        String entrada = "";
+        String valor = "";
 
         Helper.clearScreen();
 
         System.out.println("Por favor, introduce el número de la acción que deseas realizar: ");
         System.out.println("1 - Ver proyecto por ID");
-        System.out.println("2 - Ver todos los proyectos //No implementado");
-        System.out.println("3 - Crear proyecto");
-        System.out.println("4 - Actualizar proyecto");
-        System.out.println("5 - Eliminar proyecto proyecto");
+        System.out.println("2 - Ver todos los proyectos");
+        if (userType == ADMIN) {
+            System.out.println("3 - Crear proyecto");
+            System.out.println("4 - Actualizar proyecto");
+            System.out.println("5 - Eliminar proyecto proyecto");
+        }
         System.out.println("0 - Volver a menu principal.");
 
         option = selectMenuOption(availableOptions);
@@ -102,84 +107,168 @@ public class Admin {
                 menu(userType);
                 break;
             case 1:
+            case 4:
                 System.out.println("Cual es el id del proyecto?");
                 String id = reader.readLine();
                 Optional<Proyecto> optionalProyecto = proyectoDAO.obtenerDatos(id);
                 if (optionalProyecto.isPresent()) {
                     Proyecto proyecto = optionalProyecto.get();
-                    System.out.println("Nombre: " + proyecto.getNombreProyecto());
+
+                    showProyectInfo(proyecto);
                 } else {
                     System.out.println("El proyecto no existe.");
+                    option = 1;
                 }
-                String entrada = "";
+
+                do {
+                    System.out.println("Haz click en enter para continuar.");
+                    entrada = reader.readLine();
+                } while (!entrada.equals(""));
+
+                if (option == 1) {
+                    break;
+                }
+
+                if (userType == ADMIN) {
+
+                    boolean seguirModificando = false;
+                    do {
+                        System.out.println("Que campo quieres modificar:");
+                        System.out.println("1. Nombre proyecto");
+                        System.out.println("2. Dirección //No implementado");
+                        System.out.println("3. Linea de acción");
+                        System.out.println("4. Sublinea de acción");
+                        System.out.println("5. Fecha de inicio");
+                        System.out.println("6. Fecha de fin");
+                        System.out.println("7. Socio local");
+                        System.out.println("8. Acciones a realizar");
+                        Integer seleccion = Integer.parseInt(reader.readLine());
+
+                        switch (seleccion) {
+                            case 3:
+                                LineaAccion lineaAccion = selectLineaAccion();
+                                valor = lineaAccion.name();
+                                break;
+                            case 5:
+                            case 6:
+                                System.out.println("Recuerda que las fechas tienen que estar en formato dd/MM/yyyy");
+                            default:
+                                System.out.println("Cual es el nuevo valor que quieres introducir?");
+                                valor = reader.readLine();
+                                break;
+                        }
+                        proyectoDAO.actualizarArchivo(seleccion, valor, Integer.parseInt(id));
+                        System.out.println("Se ha modificado el archivo.");
+                        System.out.println("Quieres modificar algún dato más? (Y,N)");
+                        String next = reader.readLine();
+                        do {
+                            if (next.equals("Y") || next.equals("y")) {
+                                seguirModificando = true;
+                            } else if (next.equals("N") || next.equals("n")) {
+                                seguirModificando = false;
+                            } else {
+                                System.out.println("Tienes que poner Y o N");
+                            }
+                        } while (!next.equals("Y") && !next.equals("N") && !next.equals("y") && !next.equals("n"));
+                    } while (seguirModificando);
+                } else {
+                    System.out.println("No tienes acceso a esta opción");
+                }
+                break;
+
+            case 2:
+                List<Proyecto> optionalProyectos = proyectoDAO.obtenerDatos();
+                if (!optionalProyectos.isEmpty()) {
+                    for (Proyecto proyecto : optionalProyectos) {
+                        showProyectInfo(proyecto);
+                        System.out.println();
+                    }
+                } else {
+                    System.out.println("No existe ningún proyecto");
+                }
 
                 do {
                     entrada = reader.readLine();
                 } while (!entrada.equals(""));
                 break;
 
-            case 2:
-                // No implementado
-                break;
             case 3:
-                System.out.println("Por favor, indica los siguientes datos:");
+                if (userType == ADMIN) {
+                    System.out.println("Por favor, indica los siguientes datos:");
 
-                System.out.println("Cual es el id del proyecto:");
-                Integer proyectId = Integer.parseInt(reader.readLine());
+                    Integer proyectId;
+                    boolean idExists;
+                    do {
+                        idExists = false;
+                        System.out.println("Cual es el ID del proyecto:");
+                        proyectId = Integer.parseInt(reader.readLine());
 
-                System.out.println("Cual es el nombre del proyecto:");
-                String proyectName = reader.readLine();
+                        List<Proyecto> proyectos = proyectoDAO.obtenerDatos();
+                        for (Proyecto proyecto : proyectos) {
+                            if (proyecto.getCodigoProyecto() == proyectId) {
+                                idExists = true;
+                                System.out.println("Este ID de proyecto ya existe.");
+                                break;
+                            }
+                        }
+                    } while (idExists);
 
-                System.out.println("Cual es la linea de acción del proyecto: \n0. COOPERACION_DESARROLLO\n1. ACCION_HUMANITARIA\n2. FORTALECIMIENTO_INSTITUCIONAL\n3. EDUCACION_DESARROLLO");
-                Integer[] lineaAccionOptions = setMaxAvailableOptions(4);
-                optionSelected = selectMenuOption(lineaAccionOptions);
-                LineaAccion lineaAccion = null;
-                switch (optionSelected) {
-                    case 1:
-                        lineaAccion = LineaAccion.COOPERACION_DESARROLLO;
-                        break;
-                    case 2:
-                        lineaAccion = LineaAccion.ACCION_HUMANITARIA;
-                        break;
-                    case 3:
-                        lineaAccion = LineaAccion.FORTALECIMIENTO_INSTITUCIONAL;
-                        break;
-                    case 4:
-                        lineaAccion = LineaAccion.EDUCACION_DESARROLLO;
-                        break;
+                    System.out.println("Cual es el nombre del proyecto:");
+                    String proyectName = reader.readLine();
+
+                    LineaAccion lineaAccion = selectLineaAccion();
+
+                    System.out.println("Cual es la fecha de inicio del proyecto (Formato es dd/MM/yyyy)");
+                    String fecha = reader.readLine();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    LocalDate date = LocalDate.parse(fecha, formatter);
+
+                    System.out.println("Quien es el socio local del proyecto:");
+                    String socioLocal = reader.readLine();
+
+                    System.out.println("Cuales son las acciones a realizar:");
+                    String acciones = reader.readLine();
+
+                    System.out.println("A continuación, vamos a rellenar la dirección:");
+                    System.out.println("Tipo via: ");
+                    String via = reader.readLine();
+                    System.out.println("Nombre via: ");
+                    String nombreVia = reader.readLine();
+                    System.out.println("Numero: ");
+                    Integer numero = Integer.parseInt(reader.readLine());
+                    System.out.println("Provincia: ");
+                    String provincia = reader.readLine();
+                    System.out.println("Codigo postal: ");
+                    Integer codigoPostal = Integer.parseInt(reader.readLine());
+                    System.out.println("Pais: ");
+                    String pais = reader.readLine();
+                    System.out.println("Observaciones: ");
+                    String observaciones = reader.readLine();
+
+                    Proyecto proyecto = new Proyecto(proyectId, proyectName, lineaAccion, date, socioLocal, acciones, via, nombreVia, numero, provincia, codigoPostal, pais, observaciones);
+                    proyectoDAO.crearNuevoArchivo(proyecto);
+
+                    System.out.println("Proyecto creado. Apreta enter para volver al menú.");
+                } else {
+                    System.out.println("No tienes acceso a esta opción");
                 }
+                do {
+                    entrada = reader.readLine();
+                } while (!entrada.equals(""));
 
-                System.out.println("Cual es la fecha de inicio del proyecto (Formato es dd/MM/yyyy)");
-                String fecha = reader.readLine();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-                LocalDate date = LocalDate.parse(fecha, formatter);
-
-                System.out.println("Quien es el socio local del proyecto:");
-                String socioLocal = reader.readLine();
-
-                System.out.println("Cuales son las acciones a realizar:");
-                String acciones = reader.readLine();
-
-                System.out.println("A continuación, vamos a rellenar la dirección:");
-                System.out.println("Tipo via: ");
-                String via = reader.readLine();
-                System.out.println("Nombre via: ");
-                String nombreVia = reader.readLine();
-                System.out.println("Numero: ");
-                Integer numero = Integer.parseInt(reader.readLine());
-                System.out.println("Provincia: ");
-                String provincia = reader.readLine();
-                System.out.println("Codigo postal: ");
-                Integer codigoPostal = Integer.parseInt(reader.readLine());
-                System.out.println("Pais: ");
-                String pais = reader.readLine();
-                System.out.println("Observaciones: ");
-                String observaciones = reader.readLine();
-
-                Proyecto proyecto = new Proyecto(proyectId, proyectName, lineaAccion, date, socioLocal, acciones, via, nombreVia, numero, provincia, codigoPostal, pais, observaciones);
-                proyectoDAO.crearNuevoArchivo(proyecto);
-
-                System.out.println("Proyecto creado. Apreta enter para volver al menú.");
+                break;
+            case 5:
+                if (userType == ADMIN) {
+                    System.out.println("Cual es el id del proyecto que quieres eliminar?");
+                    Integer deleteId = Integer.parseInt(reader.readLine());
+                    if (proyectoDAO.obtenerDatos(String.valueOf(deleteId)).isPresent()) {
+                        proyectoDAO.borrarArchivo(String.valueOf(deleteId));
+                    } else {
+                        System.out.println("El proyecto no existe");
+                    }
+                } else {
+                    System.out.println("No tienes acceso a esta opción");
+                }
 
                 do {
                     entrada = reader.readLine();
@@ -192,13 +281,79 @@ public class Admin {
         menuProyecto();
     }
 
+    private void showProyectInfo(Proyecto proyecto) {
+        if (!proyecto.getNombreProyecto().equals("")) {
+            System.out.println("Nombre: " + proyecto.getNombreProyecto());
+        } else {
+            System.out.println("No existe nombre para el proyecto");
+        }
+
+        if (proyecto.getLineaAccion() == null) {
+            System.out.println("No existe linea de acción para el proyecto");
+        } else {
+            System.out.println("Linea de accion: " + proyecto.getLineaAccion().name());
+        }
+
+        if (proyecto.getSublineaAccion() == null) {
+            System.out.println("No existe sublinea de acción para el proyecto");
+        } else {
+            System.out.println("Subinea de accion: " + proyecto.getSublineaAccion().name());
+        }
+
+        if (proyecto.getFechaInicio() == null) {
+            System.out.println("No existe fecha de inicio para el proyecto");
+        } else {
+            System.out.println("Fecha de inicio: " + proyecto.getFechaInicio().toString());
+        }
+
+        if (proyecto.getFechaFin() == null) {
+            System.out.println("No existe fecha de fin para el proyecto");
+        } else {
+            System.out.println("Fecha de fin: " + proyecto.getFechaFin().toString());
+        }
+
+        if (!proyecto.getSocioLocal().equals("")) {
+            System.out.println("Socio local: " + proyecto.getSocioLocal());
+        } else {
+            System.out.println("No existe socio local para el proyecto");
+        }
+
+        if (!proyecto.getAccionesRealizar().equals("")) {
+            System.out.println("Acciones a realizar: " + proyecto.getAccionesRealizar());
+        } else {
+            System.out.println("No existen acciones a realizar para el proyecto");
+        }
+    }
+
+    private LineaAccion selectLineaAccion() throws IOException {
+        System.out.println("Cual es la linea de acción del proyecto? \n0. COOPERACION_DESARROLLO\n1. ACCION_HUMANITARIA\n2. FORTALECIMIENTO_INSTITUCIONAL\n3. EDUCACION_DESARROLLO");
+        Integer[] lineaAccionOptions = setMaxAvailableOptions(4);
+        int optionSelected = selectMenuOption(lineaAccionOptions);
+        LineaAccion lineaAccion = null;
+        switch (optionSelected) {
+            case 1:
+                lineaAccion = LineaAccion.COOPERACION_DESARROLLO;
+                break;
+            case 2:
+                lineaAccion = LineaAccion.ACCION_HUMANITARIA;
+                break;
+            case 3:
+                lineaAccion = LineaAccion.FORTALECIMIENTO_INSTITUCIONAL;
+                break;
+            case 4:
+                lineaAccion = LineaAccion.EDUCACION_DESARROLLO;
+                break;
+        }
+
+        return lineaAccion;
+    }
+
     private int selectMenuOption(Integer[] options) throws IOException {
         int optionSelected = 10000;
         do {
             try {
                 optionSelected = Integer.parseInt(reader.readLine());
             } catch (NumberFormatException nfe) {
-                nfe.printStackTrace();
             }
 
             if (!Arrays.asList(options).contains(optionSelected)) {

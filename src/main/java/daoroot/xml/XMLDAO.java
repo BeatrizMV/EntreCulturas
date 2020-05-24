@@ -77,8 +77,6 @@ public class XMLDAO<T> {
     }
 
     public final void actualizarArchivo(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
-        // TODO: Get file and update it
-
         Object t = null;
 
         Optional<T> dataOptional = obtenerDatos(Integer.toString(idArchivo));

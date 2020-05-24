@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <proyecto>
-    <accionesRealizar>Ayudar</accionesRealizar>
+    <accionesRealizar>Muchas</accionesRealizar>
     <codigoProyecto>2</codigoProyecto>
-    <fechaInicio>2020-05-20</fechaInicio>
+    <fechaInicio>2020-05-21</fechaInicio>
     <lineaAccion>COOPERACION_DESARROLLO</lineaAccion>
     <localizacion>
-        <codigoPostal>8902</codigoPostal>
-        <num>3</num>
+        <codigoPostal>8901</codigoPostal>
+        <num>100</num>
         <observaciones></observaciones>
         <pais>España</pais>
         <provincia>Barcelona</provincia>
         <tipoVia>Calle</tipoVia>
-        <via>Gran via</via>
+        <via>Concell de cent</via>
     </localizacion>
-    <nombreProyecto>Covid</nombreProyecto>
-    <socioLocal>Gobierno</socioLocal>
+    <nombreProyecto>Covid-20</nombreProyecto>
+    <socioLocal>Generalitat</socioLocal>
 </proyecto>

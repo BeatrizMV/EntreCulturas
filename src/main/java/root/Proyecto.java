@@ -20,7 +20,7 @@ public class Proyecto {
     private LineaAccion lineaAccion;
     private SublineaAccion sublineaAccion;
     private LocalDate fechaInicio;
-    private LocalDate FechaFin;
+    private LocalDate fechaFin;
     private String SocioLocal;
     private String accionesRealizar;
     private List<MiembroEquipo> miembrosEquipo;
@@ -100,12 +100,13 @@ public class Proyecto {
     }
 
     @XmlElement
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getFechaFin() {
-        return FechaFin;
+        return fechaFin;
     }
 
     public Proyecto setFechaFin(LocalDate fechaFin) {
-        FechaFin = fechaFin;
+        this.fechaFin = fechaFin;
         return this;
     }
 

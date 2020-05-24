@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<voluntario>
+    <apellido1>Martinez</apellido1>
+    <apellido2>Ve</apellido2>
+    <dni>00000000T</dni>
+    <email>bmartinezve@uoc.edu</email>
+    <id>1</id>
+    <nombre>Beatriz</nombre>
+    <password>uoc2020</password>
+    <rol>USER</rol>
+    <telefono>666666666</telefono>
+    <usuario>bmartinezve</usuario>
+</voluntario>
