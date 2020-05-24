@@ -16,10 +16,10 @@ public class XMLDAOFactory extends DAOFactory {
         return new XMLSedeDAO();
     }
 
-    
+
     @Override
-     public XMLVoluntarioDAO getVoluntarioDAO() {
+    public XMLVoluntarioDAO getVoluntarioDAO() {
         return new XMLVoluntarioDAO();
     }
-    
+
 }
