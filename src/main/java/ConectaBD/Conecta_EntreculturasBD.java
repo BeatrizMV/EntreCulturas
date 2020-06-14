@@ -1,6 +1,6 @@
 package ConectaBD;
-import java.sql.*;
 
+import java.sql.*;
 
 public class Conecta_EntreculturasBD {
 
@@ -8,13 +8,13 @@ public class Conecta_EntreculturasBD {
 		// TODO Auto-generated method stub
 		
 		try {
-			// Creación de conexión
+			// Creacion de conexion
 			Connection conexionBD = DriverManager.getConnection("jdb:mysql://localhost:3306/entreculturas", "root", "");
 			
 			//Creacion de objeto statement
 			Statement statementBD = conexionBD.createStatement();
 			
-			//Ejecución de instrucción SQL
+			//Ejecucion de instruccion SQL
 			ResultSet resultSetBD =  statementBD.executeQuery("SELECT*FROM VOLUNTARIO");
 			
 			//Recorrido del Resultset

@@ -6,3 +6,5 @@ bin
 output/proyectos/*
 output/sedes/*
 output/voluntarios/*
+/.settings/
+/.vscode/
