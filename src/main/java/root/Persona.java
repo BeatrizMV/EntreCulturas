@@ -7,16 +7,22 @@ public class Persona {
     /* Atributos
      */
     protected int id;
-    protected String dni;
-    protected String nombre;
-    protected String apellido1;
-    protected String apellido2;
-    protected Direccion direccion;
-    protected int telefono;
-    protected String email;
-    protected String usuario;
-    protected String password;
-    protected Rol rol;
+    protected static String dni;
+    protected static String nombre;
+    protected static String apellido1;
+    protected static String apellido2;
+    protected static String tipoVia;
+    protected static String via;
+    protected static int num;
+    protected static String provincia;
+    protected static int codigoPostal;
+    protected static String pais;
+    protected static String observaciones;
+    protected static String telefono;
+    protected static String email;
+    protected static String usuario;
+    protected static String password;
+    protected static Rol rol;
 
     /*Método constructor
      * @idPersona alberga el número de identificación interno
@@ -36,14 +42,20 @@ public class Persona {
 
     public Persona(final int id, final String dni, final String nombre, final String apellido1,
             final String apellido2, final String tipoVia, final String via, final int num, final String provincia,
-            final int codigoPostal, final String pais, final String observaciones, final int telefono,
+            final int codigoPostal, final String pais, final String observaciones, final String telefono,
             final String email, final String usuario, final String password, final Rol rol) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
-        this.direccion = direccion;
+        this.tipoVia = tipoVia;
+        this.via = via;
+        this.num = num;
+        this.provincia = provincia;
+        this.codigoPostal = cp;
+        this.pais = pais;
+        this.observaciones = observaciones;
         this.telefono = telefono;
         this.email = email;
         this.usuario = usuario;
@@ -63,7 +75,7 @@ public class Persona {
      *
      * @return retorna idPersona
      */
-    public int getId() {
+    public static int getId() {
         return id;
     }
 
@@ -77,35 +89,77 @@ public class Persona {
     /**
      * @return retorna nombre
      */
-    public String getNombre() {
+    public static String getNombre() {
         return nombre;
     }
 
     /**
      * @return retorna apellido1
      */
-    public String getApellido1() {
+    public static String getApellido1() {
         return apellido1;
     }
 
     /**
      * @return retorna apellido2
      */
-    public String getApellido2() {
+    public static String getApellido2() {
         return apellido2;
     }
 
     /**
-     * @return retorna direccion
+     * @return retorna tipoVia
      */
-    public Direccion getDireccion() {
-        return direccion;
+    public static String getTipoVia() {
+        return tipoVia;
+    }
+    
+    /**
+     * @return retorna Via
+     */
+    public static String getVia() {
+        return via;
+    }
+    
+    /**
+     * @return retorna num
+     */
+    public static int getNum() {
+        return num;
+    }
+    
+    /**
+     * @return retorna provincia
+     */
+    public static String getProvincia() {
+        return provincia;
+    }
+    
+    /**
+     * @return retorna cp
+     */
+    public static int getCP() {
+        return codigoPostal;
+    }
+    
+    /**
+     * @return retorna pais
+     */
+    public static String getPais() {
+        return pais;
+    }
+    
+    /**
+     * @return retorna observaciones
+     */
+    public static String getObservaciones() {
+        return observaciones;
     }
 
     /**
      * @return retorna telefono
      */
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -199,7 +253,7 @@ public class Persona {
      *
      * @param telefono modifica el teléfono
      */
-    public void setTelefono(final int telefono) {
+    public void setTelefono(final String telefono) {
         this.telefono = telefono;
     }
 
