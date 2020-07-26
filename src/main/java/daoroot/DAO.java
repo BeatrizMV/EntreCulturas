@@ -1,8 +1,6 @@
 package daoroot;
 
         import exceptions.DaoException;
-        import root.Sede;
-
         import java.lang.reflect.InvocationTargetException;
         import java.util.List;
         import java.util.Optional;

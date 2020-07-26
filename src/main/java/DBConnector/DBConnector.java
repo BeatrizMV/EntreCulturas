@@ -3,16 +3,22 @@ package DBConnector;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
 
-public class DBConnector implements DataBase {
+public class DBConnector {
 
-    @Override
+    private static final String RUTA= "jdbc:mysql://localhost:3306/entreCulturas";
+    private static final String USUARIO= "root";
+    private static final String PASS= "root";
+
+    /**
+     * Se conecta a la base de datos
+     * @return connection
+     */
     public Connection connect() {
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection(RUTA, "root", "root");
+            connection = DriverManager.getConnection(RUTA, USUARIO, PASS);
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("No se ha podido conectar a la base de datos");
@@ -20,7 +26,10 @@ public class DBConnector implements DataBase {
         return connection;
     }
 
-    @Override
+    /**
+     * Se desconecta de la base de datos
+     * @param connection
+     */
     public void disconnect(Connection connection) {
         try {
             System.out.println("Cerrado la conexion");
@@ -28,28 +37,5 @@ public class DBConnector implements DataBase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    //Obtener los datos de la base de datos
-    @Override
-    public List getData(Connection connection) {
-        return null;
-    }
-
-    //Actualizar los datos de la base de datos
-    @Override
-    public void updateData(Connection connection) {
-
-    }
-
-    //Eliminar los datos de la base de datos
-    @Override
-    public void removeData(Connection connection) {
-    }
-
-    //Insertar los datos a la base de datos
-    @Override
-    public void insertData(Connection connection) {
-
     }
 }

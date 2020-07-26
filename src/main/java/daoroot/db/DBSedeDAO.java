@@ -1,12 +1,12 @@
 package daoroot.db;
 
 import DBConnector.DBConnector;
-import root.Proyecto;
+import root.Sede;
 
 import java.sql.Connection;
 import java.util.List;
 
-public class DbProyectoDao implements  DBDAO<Proyecto> {
+public class DBSedeDAO implements DBDAO<Sede> {
 
     private DBConnector conexion = new DBConnector();
 
@@ -16,17 +16,17 @@ public class DbProyectoDao implements  DBDAO<Proyecto> {
     }
 
     @Override
-    public void updateData(Connection connection, Proyecto data) {
+    public void updateData(Connection connection, Sede data) {
 
     }
 
     @Override
-    public void removeData(Connection connection, Proyecto data) {
+    public void removeData(Connection connection, Sede data) {
 
     }
 
     @Override
-    public void insertData(Connection connection, Proyecto data) {
+    public void insertData(Connection connection, Sede data) {
 
     }
 }
