@@ -6,3 +6,6 @@ bin
 output/proyectos/*
 output/sedes/*
 output/voluntarios/*
+output/sede/
+output/sedes/
+output/voluntarios/
