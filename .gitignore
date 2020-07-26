@@ -9,3 +9,5 @@ output/voluntarios/*
 output/sede/
 output/sedes/
 output/voluntarios/
+/.settings/
+/.vscode/

@@ -19,7 +19,7 @@ import java.util.Optional;
 
 import static java.lang.Boolean.valueOf;
 
-public class XMLSedeDAO extends XMLDAO<Sede> implements DAO<Sede> {
+public class XMLSedeDAO extends XMLDAO<Sede> {
 
     public XMLSedeDAO() {
         this.subfolderPrefixFile = "sede/sede";

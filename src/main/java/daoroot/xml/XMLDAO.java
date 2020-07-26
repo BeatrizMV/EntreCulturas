@@ -1,5 +1,6 @@
 package daoroot.xml;
 
+import daoroot.DAO;
 import exceptions.DaoException;
 import others.Helper;
 
@@ -15,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class XMLDAO<T> {
+public class XMLDAO<T> implements DAO<T> {
     private static final String INITIAL_OUTPUT_DIR_PATH = "output/";
     private static final String SUFFIX_FILE = ".xml";
     private static final String ID_SEPARATOR = "_";

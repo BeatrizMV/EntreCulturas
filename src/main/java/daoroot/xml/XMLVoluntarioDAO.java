@@ -8,7 +8,7 @@ import root.Voluntario;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class XMLVoluntarioDAO extends XMLDAO<Voluntario> implements DAO<Voluntario> {
+public class XMLVoluntarioDAO extends XMLDAO<Voluntario> {
 
     public XMLVoluntarioDAO() {
         this.subfolderPrefixFile = "voluntario/voluntario";

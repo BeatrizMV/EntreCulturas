@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class XMLProyectoDAO extends XMLDAO<Proyecto> implements DAO<Proyecto> {
+public class XMLProyectoDAO extends XMLDAO<Proyecto> {
 
     public XMLProyectoDAO() {
         this.subfolderPrefixFile = "proyecto/proyecto";
