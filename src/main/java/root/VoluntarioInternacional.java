@@ -20,7 +20,7 @@ public class VoluntarioInternacional extends MiembroEquipo {
      * @param password  alberga la contraseña para el usuario
      * @param rol       alberga el rol del usuario
      */
-    public VoluntarioInternacional(int idPersona, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, int telefono, String email, String usuario, String password, Rol rol) {
+    public VoluntarioInternacional(int idPersona, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, String telefono, String email, String usuario, String password, Rol rol) {
         super (idPersona, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
     }
 

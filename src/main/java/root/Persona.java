@@ -6,23 +6,24 @@ public class Persona {
 
     /* Atributos
      */
-    protected int id;
-    protected static String dni;
-    protected static String nombre;
-    protected static String apellido1;
-    protected static String apellido2;
-    protected static String tipoVia;
-    protected static String via;
-    protected static int num;
-    protected static String provincia;
-    protected static int codigoPostal;
-    protected static String pais;
-    protected static String observaciones;
-    protected static String telefono;
-    protected static String email;
-    protected static String usuario;
-    protected static String password;
-    protected static Rol rol;
+    private int id;
+    private String dni;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String tipoVia;
+    private String via;
+    private int num;
+    private String provincia;
+    private int cp;
+    private String pais;
+    private String observaciones;
+    private String telefono;
+    private String email;
+    private String usuario;
+    private String password;
+    private Rol rol;
+    private Direccion direccion;
 
     /*Método constructor
      * @idPersona alberga el número de identificación interno
@@ -40,10 +41,23 @@ public class Persona {
 
     public Persona(){}
 
-    public Persona(final int id, final String dni, final String nombre, final String apellido1,
-            final String apellido2, final String tipoVia, final String via, final int num, final String provincia,
-            final int codigoPostal, final String pais, final String observaciones, final String telefono,
-            final String email, final String usuario, final String password, final Rol rol) {
+    public Persona(final int id,
+                   final String dni,
+                   final String nombre,
+                   final String apellido1,
+                   final String apellido2,
+                   final String tipoVia,
+                   final String via,
+                   final int num,
+                   final String provincia,
+                   final int cp,
+                   final String pais,
+                   final String observaciones,
+                   final String telefono,
+                   final String email,
+                   final String usuario,
+                   final String password,
+                   final Rol rol) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -53,8 +67,34 @@ public class Persona {
         this.via = via;
         this.num = num;
         this.provincia = provincia;
-        this.codigoPostal = cp;
+        this.cp = cp;
         this.pais = pais;
+        this.observaciones = observaciones;
+        this.telefono = telefono;
+        this.email = email;
+        this.usuario = usuario;
+        this.password = password;
+        this.rol = rol;
+    }
+
+    public Persona (final int id,
+                    final String dni,
+                    final String nombre,
+                    final String apellido1,
+                    final String apellido2,
+                    final Direccion direccion,
+                    final String observaciones,
+                    final String telefono,
+                    final String email,
+                    final String usuario,
+                    final String password,
+                    final Rol rol) {
+        this.id = id;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.direccion = direccion;
         this.observaciones = observaciones;
         this.telefono = telefono;
         this.email = email;
@@ -75,7 +115,7 @@ public class Persona {
      *
      * @return retorna idPersona
      */
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -89,70 +129,70 @@ public class Persona {
     /**
      * @return retorna nombre
      */
-    public static String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
     /**
      * @return retorna apellido1
      */
-    public static String getApellido1() {
+    public String getApellido1() {
         return apellido1;
     }
 
     /**
      * @return retorna apellido2
      */
-    public static String getApellido2() {
+    public String getApellido2() {
         return apellido2;
     }
 
     /**
      * @return retorna tipoVia
      */
-    public static String getTipoVia() {
+    public String getTipoVia() {
         return tipoVia;
     }
     
     /**
      * @return retorna Via
      */
-    public static String getVia() {
+    public String getVia() {
         return via;
     }
     
     /**
      * @return retorna num
      */
-    public static int getNum() {
+    public int getNum() {
         return num;
     }
     
     /**
      * @return retorna provincia
      */
-    public static String getProvincia() {
+    public String getProvincia() {
         return provincia;
     }
     
     /**
      * @return retorna cp
      */
-    public static int getCP() {
-        return codigoPostal;
+    public int getCP() {
+        return cp;
     }
     
     /**
      * @return retorna pais
      */
-    public static String getPais() {
+    public String getPais() {
         return pais;
     }
     
     /**
      * @return retorna observaciones
      */
-    public static String getObservaciones() {
+    public String getObservaciones() {
         return observaciones;
     }
 
@@ -238,14 +278,22 @@ public class Persona {
     }
 
     /**
-     * método para modificar la dirección
-     *
-     * @param direccion modifica la dirección
+     * metodo para cambiar la direccion
+     * @param tipoVia
+     * @param via
+     * @param num
+     * @param provincia
+     * @param codigoPostal
+     * @param pais
+     * @param observaciones
      */
-    public Persona setDireccion(final String tipoVia, final String via, final int num, final String provincia,
+    public void setDireccion(final String tipoVia, final String via, final int num, final String provincia,
             final int codigoPostal, final String pais, final String observaciones) {
         direccion = new Direccion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
-        return this;
+    }
+
+    public void setDireccion(final Direccion direccion){
+        this.direccion = direccion;
     }
 
     /**

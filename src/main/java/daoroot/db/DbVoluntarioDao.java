@@ -12,7 +12,8 @@ import daoroot.DAOException;
 import exceptions.DaoException;
 import root.Persona;
 
-public class DbVoluntarioDao<T> implements DAO<T> {
+public class DbVoluntarioDao<T> /*implements DAO<T> */ {
+	/*
 	final String INSERT = "INSERT INTO personas (idPersona, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, cp, pais, observaciones, telefono, email, usuario, password, fk_rol, fk_miembroEquipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	final String UPDATE = "UPDATE personas SET dni = ?, apellido1 = ?, apellido2 = ?, tipoVia = ?, via = ?, num = ?, provincia = ?, cp = ?, pais = ?, observaciones = ?, telefono = ?, email = ?, usuario = ?, password = ?, fk_rol = ?, fk_miembroEquipo = ? WHERE idPersona = ?";
 	final String DELETE = "DELETE FROM personas WHERE idPersona = ?";
@@ -90,5 +91,5 @@ public class DbVoluntarioDao<T> implements DAO<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+*/
 }

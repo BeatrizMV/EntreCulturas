@@ -22,7 +22,7 @@ public class Empleado extends MiembroEquipo {
      * @param rol       alberga el rol del usuario
      * @param salario   alberga el salario del empleado
      */
-    public Empleado(int idPersona, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, int telefono, String email, String usuario, String password, Rol rol) {
+    public Empleado(int idPersona, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, String telefono, String email, String usuario, String password, Rol rol) {
         super (idPersona, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
         this.salario = salario;
     }

@@ -11,7 +11,7 @@ public class DbProyectoDao implements  DBDAO<Proyecto> {
     private DBConnector conexion = new DBConnector();
 
     @Override
-    public List getData(Connection connection) {
+    public List<Proyecto> getData(Connection connection) {
         return null;
     }
 
