@@ -1,11 +1,14 @@
 package daoroot.db;
 
 import DBConnector.DBConnector;
+import enums.LineaAccion;
 import root.Proyecto;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DbProyectoDao implements  DBDAO<Proyecto> {
@@ -14,7 +17,35 @@ public class DbProyectoDao implements  DBDAO<Proyecto> {
 
     @Override
     public List<Proyecto> getData(Connection connection) {
-        return null;
+        List<Proyecto> listaProyectos = new ArrayList<>();
+
+        try {
+            Statement stmt = connection.createStatement();
+            String query = "Select * from " + TABLA_PROYECTOS;
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                Proyecto p = new Proyecto(rs.getInt(PROYECTOS_ID),
+                        rs.getString(PROYECTOS_NOMBRE),
+                        LineaAccion.values()[rs.getInt(PROYECTOS_LINEACCION) - 1],
+                        rs.getDate(PROYECTOS_FECHAINCIO).toLocalDate(),
+                        rs.getString(PROYECTOS_SOCIOLOCAL),
+                        rs.getString(PROYECTOS_ACCIONES),
+                        rs.getString(PROYECTOS_TIPOVIA),
+                        rs.getString(PROYECTOS_VIA),
+                        rs.getInt(PROYECTOS_NUM),
+                        rs.getString(PROYECTOS_PROVINCIA),
+                        rs.getInt(PROYECTOS_CP),
+                        rs.getString(PROYECTOS_PAIS),
+                        rs.getString(PROYECTOS_OBSERVACIONES));
+                listaProyectos.add(p);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("No se pudo mostrar la lista de proyectos");
+        }
+
+        return listaProyectos;
     }
 
     @Override
