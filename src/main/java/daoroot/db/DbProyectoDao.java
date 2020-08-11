@@ -50,7 +50,31 @@ public class DbProyectoDao implements  DBDAO<Proyecto> {
 
     @Override
     public void updateData(Connection connection, Proyecto data) {
-
+        try {
+            Statement stmt = connection.createStatement();
+            String query = "Update "+TABLA_PROYECTOS+" "
+                    + "set "+PROYECTOS_ID+"='"+data.getCodigoProyecto()+"', "
+                    +PROYECTOS_NOMBRE+"='"+data.getNombreProyecto()+"', "
+                    +PROYECTOS_TIPOVIA+"="+data.getLocalizacion().getTipoVia()+"', "
+                    +PROYECTOS_VIA+"='"+data.getLocalizacion().getVia()+"', "
+                    +PROYECTOS_NUM+"='"+data.getLocalizacion().getNum()+"', "
+                    +PROYECTOS_PROVINCIA+"='"+data.getLocalizacion().getProvincia()+"', "
+                    +PROYECTOS_CP+"='"+data.getLocalizacion().getCodigoPostal()+"', "
+                    +PROYECTOS_PAIS+"='"+data.getLocalizacion().getPais()+"', "
+                    +PROYECTOS_OBSERVACIONES+"='"+data.getLocalizacion().getObservaciones()+"', "
+                    +PROYECTOS_FECHAINCIO+"='"+data.getFechaInicio()+"', "
+                    +PROYECTOS_SOCIOLOCAL+"='"+data.getSocioLocal()+"', "
+                    +PROYECTOS_ACCIONES+"='"+data.getAccionesRealizar()+"', "
+                    +PROYECTOS_LINEACCION+"='"+data.getLineaAccion()+"', "
+                    +PROYECTOS_SUBLINEA+"="+data.getSublineaAccion()+" "
+                    + "where "+PROYECTOS_ID+"="+data.getCodigoProyecto();
+            stmt.executeUpdate(query);
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            System.out.println("no se pudo modificar el proyecto");
+        }
     }
 
     @Override
