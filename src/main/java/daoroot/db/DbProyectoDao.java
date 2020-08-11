@@ -25,6 +25,14 @@ public class DbProyectoDao implements  DBDAO<Proyecto> {
     @Override
     public void removeData(Connection connection, Proyecto data) {
 
+        try {
+            Statement stmt = connection.createStatement();
+            String query = "delete from " + TABLA_PROYECTOS + " where " + PROYECTOS_ID + "=" + data.getCodigoProyecto() + "";
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("No se pudo borrar el proyecto");
+        }
     }
 
     @Override
