@@ -28,4 +28,10 @@ public class Voluntario extends MiembroEquipo {
     public Voluntario(int id, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, String telefono, String email, String usuario, String password, Rol rol) {
         super (id, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
     }
+
+	public Voluntario(int int1, String string, String string2, String string3, String string4, String string5,
+			String string6, int int2, String string7, int int3, String string8, String string9, String string10,
+			String string11) {
+		// TODO Auto-generated constructor stub
+	}
 }
