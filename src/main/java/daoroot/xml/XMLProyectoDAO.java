@@ -1,16 +1,11 @@
 package daoroot.xml;
 
-import daoroot.DAO;
 import enums.LineaAccion;
 import enums.SublineaAccion;
 import exceptions.DaoException;
 import root.Proyecto;
-import root.Sede;
 
-import javax.sound.sampled.Line;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -77,6 +72,6 @@ public class XMLProyectoDAO extends XMLDAO<Proyecto> {
                 break;
         }
 
-        crearNuevoArchivo((Proyecto) t);
+        create((Proyecto) t);
     }
 }

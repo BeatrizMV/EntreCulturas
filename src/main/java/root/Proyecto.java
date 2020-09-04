@@ -25,11 +25,13 @@ public class Proyecto {
     private String accionesRealizar;
     private List<MiembroEquipo> miembrosEquipo;
 
-    public Proyecto(int id, String nombreProyecto, LineaAccion lineaAccion, LocalDate fechaInicio, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
+    public Proyecto(int id, String nombreProyecto, LineaAccion lineaAccion, SublineaAccion sublineaAccion, LocalDate fechaInicio, LocalDate fechaFin, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
         setCodigoProyecto(id);
         setNombreProyecto(nombreProyecto);
         setLineaAccion(lineaAccion);
+        setSublineaAccion(sublineaAccion);
         setFechaInicio(fechaInicio);
+        setFechaFin(fechaFin);
         setSocioLocal(socioLocal);
         setAccionesRealizar(accionesRealizar);
         setLocalizacion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
@@ -84,7 +86,11 @@ public class Proyecto {
     }
 
     public Proyecto setSublineaAccion(SublineaAccion sublineaAccion) {
-        this.sublineaAccion = sublineaAccion;
+        if(sublineaAccion == null) {
+            this.sublineaAccion = SublineaAccion.NINGUNA;
+        } else {
+            this.sublineaAccion = sublineaAccion;
+        }
         return this;
     }
 

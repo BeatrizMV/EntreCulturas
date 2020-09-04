@@ -1,21 +1,9 @@
 package daoroot.xml;
 
-import daoroot.DAO;
 import exceptions.DaoException;
-import root.Proyecto;
 import root.Sede;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Type;
-import java.util.List;
-import java.util.Optional;
 
 import static java.lang.Boolean.valueOf;
 
@@ -66,6 +54,6 @@ public class XMLSedeDAO extends XMLDAO<Sede> {
                 break;
         }
 
-        crearNuevoArchivo((Sede) t);
+        create((Sede) t);
     }
 }

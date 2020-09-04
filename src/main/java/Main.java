@@ -1,12 +1,12 @@
-import javax.xml.bind.JAXBException;
-
+import DBConnector.DBConnector;
 import daoroot.DAO;
 import daoroot.DAOFactory;
-import daoroot.xml.XMLVoluntarioDAO;
+import daoroot.db.DbProyectoDao;
 import enums.Rol;
 import exceptions.DaoException;
 import others.Helper;
 import root.Admin;
+import root.Proyecto;
 import root.Voluntario;
 
 import java.io.BufferedReader;
@@ -27,16 +27,18 @@ public class Main {
         Rol userType = null;
         boolean isLogged = false;
 
-        DAOFactory xmlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.XML);
-        DAO<Voluntario> voluntarioDAO = xmlDAOFactory.getVoluntarioDAO();
-
         Helper.clearScreen();
 
         System.out.println("************");
         System.out.println("ONG MANAGER");
         System.out.println("************\n");
 
-        ArrayList<Voluntario> listaDeVoluntarios = (ArrayList<Voluntario>) voluntarioDAO.obtenerDatos();
+        DAOFactory daoFactory = menuDaoFactory(reader);
+        // OJO: descomentar esta linea y borrar la siguiente cuando este hecho el DAO de usuarios. Ahora mismo siempre usa el de XML para el login
+//        DAO<Voluntario> voluntarioDAO = daoFactory.getVoluntarioDAO();
+        DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
+
+        ArrayList<Voluntario> listaDeVoluntarios = (ArrayList<Voluntario>) voluntarioDAO.listAll();
 
         do {
             System.out.println("Por favor, introduce tu usuario: ");
@@ -46,9 +48,6 @@ public class Main {
 
             // TODO: Cambiar el if para que coja el usuario con el DAO. Seguramente habrá que hacer un método para que recorra el XML.
             for(Voluntario voluntario: listaDeVoluntarios){
-                String loggedUser = voluntario.getUsuario();
-                String loggedPassword = voluntario.getPassword();
-
                 if(voluntario.getUsuario().equals(user) && voluntario.getPassword().equals(password)){
                     isLogged = true;
                     userType = voluntario.getRol();
@@ -59,7 +58,16 @@ public class Main {
             Helper.clearScreen();
         } while (!isLogged);
 
-        Admin admin = new Admin(userType);
+        Admin admin = new Admin(userType, daoFactory);
         admin.menu(admin.getUserType());
+    }
+
+    private static DAOFactory menuDaoFactory(BufferedReader reader) throws IOException {
+        System.out.println("Por favor, introduce conexion:");
+        System.out.println(DAOFactory.XML+") XML");
+        System.out.println(DAOFactory.DB+") MySql");
+
+        int daoType = Integer.parseInt(reader.readLine());
+        return DAOFactory.getDAOFactory(daoType);
     }
 }

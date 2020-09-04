@@ -1,6 +1,5 @@
 package daoroot.xml;
 
-import daoroot.DAO;
 import exceptions.DaoException;
 import others.Helper;
 import root.Voluntario;
@@ -49,6 +48,6 @@ public class XMLVoluntarioDAO extends XMLDAO<Voluntario> {
 
         Method method = Helper.findMethodInTopParent(clase, methodName, String.class);
         method.invoke(t, value);
-        crearNuevoArchivo((Voluntario) t);
+        create((Voluntario) t);
     }
 }
