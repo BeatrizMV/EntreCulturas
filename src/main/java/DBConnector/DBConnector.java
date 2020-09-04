@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnector {
 
-    private static final String RUTA= "jdbc:mysql://localhost:3306/entreCulturas";
+    private static final String RUTA= "jdbc:mysql://localhost:3306/entreCulturas?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String USUARIO= "root";
     private static final String PASS= "root";
 
@@ -32,8 +32,7 @@ public class DBConnector {
      */
     public void disconnect(Connection connection) {
         try {
-            System.out.println("Cerrado la conexion");
-            connection.close();
+            if (connection != null) connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

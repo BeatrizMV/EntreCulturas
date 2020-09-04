@@ -1,36 +1,41 @@
 package daoroot.db;
 
 import DBConnector.DBConnector;
+import daoroot.DAO;
+import exceptions.DaoException;
 import root.Sede;
 
-import java.sql.Connection;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Optional;
 
-public class DBSedeDAO implements DBDAO<Sede> {
+public class DbSedeDao implements DAO<Sede>, DbConstants {
 
-    private DBConnector conexion = new DBConnector();
+    private final DBConnector dbConnector;
+
+    public DbSedeDao(DBConnector dbConnector) {
+        this.dbConnector = dbConnector;
+    }
 
     @Override
-    public List getData(Connection connection) {
+    public List<Sede> listAll() throws DaoException {
         return null;
     }
 
     @Override
-    public void updateData(Connection connection, Sede data) {
-
+    public Optional<Sede> findById(int id) throws DaoException {
+        return Optional.empty();
     }
 
     @Override
-    public void removeData(Connection connection, Sede data) {
-
-
-
+    public void updateFieldById(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
     }
 
     @Override
-    public void insertData(Connection connection, Sede data) {
+    public void deleteById(int id) throws DaoException {
+    }
 
-
-
+    @Override
+    public void create(Sede data) throws DaoException {
     }
 }
