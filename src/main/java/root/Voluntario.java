@@ -26,8 +26,13 @@ public class Voluntario extends MiembroEquipo {
      * @param password  alberga la contraseña para el usuario
      * @param rol       alberga el rol del usuario
      */
-    public Voluntario(int id, String dni, String nombre, String apellido1, String apellido2, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones, String telefono, String email, String usuario, String password, Rol rol) {
-        super (id, dni, nombre, apellido1, apellido2, tipoVia, via, num, provincia, codigoPostal, pais, observaciones, telefono, email, usuario, password, rol);
+    public Voluntario(int id, String dni, String nombre, String apellido1, String apellido2,
+					  String tipoVia, String via, int num, String provincia, int codigoPostal,
+					  String pais, String observaciones, String telefono, String email,
+					  String usuario, String password, Rol rol) {
+        super (id, dni, nombre, apellido1, apellido2,
+				tipoVia, via, num, provincia, codigoPostal, pais, observaciones,
+				telefono, email, usuario, password, rol);
     }
 
 	public Voluntario(int int1, String string, String string2, String string3, String string4, String string5,

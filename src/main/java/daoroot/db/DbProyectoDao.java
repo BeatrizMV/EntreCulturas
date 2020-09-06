@@ -82,7 +82,14 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
                     proyecto.setNombreProyecto(value);
                     break;
                 case 2:
-                    // no implementado
+                    String[] params = value.split(DIR_STR_SEPARATOR);
+                    proyecto.setLocalizacion(params[0],
+                            params[1],
+                            Integer.parseInt(params[2]),
+                            params[3],
+                            Integer.parseInt(params[4]),
+                            params[5],
+                            params[6]);
                     break;
                 case 3:
                     LineaAccion lineaAccion = LineaAccion.valueOf(value);

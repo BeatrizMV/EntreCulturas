@@ -86,7 +86,7 @@ public class DbSedeDao implements DAO<Sede>, DbConstants {
                 	sede.setEmail(value);
                     break;
                 case 5:
-                	sede.isCentral(value);
+                	sede.setCentral(value);
                     break;
 
             }
@@ -128,7 +128,7 @@ public class DbSedeDao implements DAO<Sede>, DbConstants {
             stmt.setString(n++, data.getDireccion().getObservaciones());
             stmt.setString(n++, data.getTelefono());
             stmt.setString(n++, data.getEmail());
-            stmt.setString(n++, data.isCentral());
+            stmt.setString(n++, data.isCentral() ? null : "false");
            
             // where
             stmt.setInt(n++, data.getId());
@@ -189,7 +189,7 @@ public class DbSedeDao implements DAO<Sede>, DbConstants {
             stmt.setString(n++, data.getDireccion().getObservaciones());
             stmt.setString(n++, data.getTelefono());
             stmt.setString(n++, data.getEmail());
-            stmt.setString(n++, data.isCentral());
+            stmt.setString(n++, data.isCentral() ? null : "false");
             
             int updated = stmt.executeUpdate();
         } catch (SQLException e) {

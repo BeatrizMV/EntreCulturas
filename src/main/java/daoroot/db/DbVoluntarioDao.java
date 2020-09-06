@@ -247,15 +247,6 @@ public class DbVoluntarioDao implements DAO<Voluntario>, DbConstants {
     }
 
     private Voluntario resultSetToVoluntario(ResultSet rs) throws SQLException {
-        MiembroEquipo miembroEquipo = null;
-        try {
-            String smiembroEquipo = rs.getString(PERSONAS_MIEMBROEQUIPO);
-            //restar 1 al array del enum miembroequipo, porque en bbdd empiezan desde el indice 1, y en el enum del 0
-            miembroEquipo = smiembroEquipo != null && !smiembroEquipo.equals("") ? MiembroEquipo.values()[Integer.parseInt(smiembroEquipo) - 1]: null;
-        } catch (NullPointerException e) {
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         Rol rol = null;
         try {
@@ -269,20 +260,22 @@ public class DbVoluntarioDao implements DAO<Voluntario>, DbConstants {
 
         return new Voluntario(
                 rs.getInt(PERSONAS_ID),
-                rs.getInt(PERSONAS_DNI),
+                rs.getString(PERSONAS_DNI),
                 rs.getString(PROYECTOS_NOMBRE),
-                rs.getInt(PERSONAS_APELLIDO1),
-                rs.getInt(PERSONAS_APELLIDO2),
-                miembroEquipo,
-                rol,
-                rs.getInt(PERSONAS_USUARIO),
-                rs.getInt(PERSONAS_PASSWORD),
+                rs.getString(PERSONAS_APELLIDO1),
+                rs.getString(PERSONAS_APELLIDO2),
                 rs.getString(PERSONAS_TIPOVIA),
                 rs.getString(PERSONAS_VIA),
                 rs.getInt(PERSONAS_NUM),
                 rs.getString(PERSONAS_PROVINCIA),
                 rs.getInt(PERSONAS_CP),
                 rs.getString(PERSONAS_PAIS),
-                rs.getString(PERSONAS_OBSERVACIONES));
+                rs.getString(PERSONAS_OBSERVACIONES),
+                rs.getString(PERSONAS_TELEFONO),
+                rs.getString(PERSONAS_EMAIL),
+                rs.getString(PERSONAS_USUARIO),
+                rs.getString(PERSONAS_PASSWORD),
+                rol
+                );
     }
 }

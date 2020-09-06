@@ -2,6 +2,8 @@ package root;
 
 import enums.Rol;
 
+import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
+
 public class Persona {
 
     /* Atributos
@@ -296,6 +298,17 @@ public class Persona {
         this.direccion = direccion;
     }
 
+    public void setDireccion(final String direccion){
+        String[] params = direccion.split(DIR_STR_SEPARATOR);
+        this.setDireccion(params[0],
+                params[1],
+                Integer.parseInt(params[2]),
+                params[3],
+                Integer.parseInt(params[4]),
+                params[5],
+                params[6]);
+    }
+
     /**
      * método para modificar el teléfono
      *
@@ -330,6 +343,10 @@ public class Persona {
      */
     public void setRol(final Rol rol) {
         this.rol = rol;
+    }
+
+    public void setRol(final String rol) {
+        this.rol = Rol.values()[Integer.parseInt(rol)];
     }
 
     /**

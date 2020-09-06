@@ -19,6 +19,7 @@ import enums.SublineaAccion;
 import exceptions.DaoException;
 import others.Helper;
 
+import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 import static enums.Rol.ADMIN;
 
 public class Admin {
@@ -135,7 +136,7 @@ public class Admin {
                     do {
                         System.out.println("Que campo quieres modificar:");
                         System.out.println("1. Nombre proyecto");
-                        System.out.println("2. Dirección //No implementado");
+                        System.out.println("2. Dirección");
                         System.out.println("3. Linea de acción");
                         System.out.println("4. Sublinea de acción");
                         System.out.println("5. Fecha de inicio");
@@ -145,6 +146,31 @@ public class Admin {
                         Integer seleccion = Integer.parseInt(reader.readLine());
 
                         switch (seleccion) {
+                            case 2:
+                                System.out.println("Tipo via: ");
+                                String via = reader.readLine();
+                                System.out.println("Nombre via: ");
+                                String nombreVia = reader.readLine();
+                                System.out.println("Numero: ");
+                                Integer numero = Integer.parseInt(reader.readLine());
+                                System.out.println("Provincia: ");
+                                String provincia = reader.readLine();
+                                System.out.println("Codigo postal: ");
+                                Integer codigoPostal = Integer.parseInt(reader.readLine());
+                                System.out.println("Pais: ");
+                                String pais = reader.readLine();
+                                System.out.println("Observaciones: ");
+                                String observaciones = reader.readLine();
+                                proyectoDAO.updateFieldById(seleccion,
+                                        "" + via +
+                                                DIR_STR_SEPARATOR + nombreVia +
+                                                DIR_STR_SEPARATOR + numero +
+                                                DIR_STR_SEPARATOR + provincia +
+                                                DIR_STR_SEPARATOR + codigoPostal +
+                                                DIR_STR_SEPARATOR + pais +
+                                                DIR_STR_SEPARATOR + observaciones,
+                                        Integer.parseInt(id));
+                                break;
                             case 3:
                                 LineaAccion lineaAccion = selectLineaAccion();
                                 valor = lineaAccion.name();

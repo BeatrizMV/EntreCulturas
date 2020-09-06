@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
+
 @XmlRootElement(name="sede")
 public class Sede {
     private int id;
@@ -56,6 +58,18 @@ public class Sede {
         return this;
     }
 
+    public Sede setDireccion(String concatenated) {
+        String[] params = concatenated.split(DIR_STR_SEPARATOR);
+        this.setDireccion(params[0],
+                params[1],
+                Integer.parseInt(params[2]),
+                params[3],
+                Integer.parseInt(params[4]),
+                params[5],
+                params[6]);
+        return this;
+    }
+
     public String getTelefono() {
         return telefono;
     }
@@ -80,6 +94,15 @@ public class Sede {
 
     public Sede setCentral(boolean central) {
         this.central = central;
+        return this;
+    }
+
+    public Sede setCentral(String isCentralStr) {
+        if(isCentralStr == null) {
+            this.central = true;
+        } else {
+            this.central = false;
+        }
         return this;
     }
 }
