@@ -58,6 +58,7 @@ public interface DbConstants {
     String ROLES_NOMBRE="nombreRol";
 
     String TABLA_SEDES="sedes";
+    String SEDES_ID="idSede";
     String SEDES_NOMBRE="nombreSede";
     String SEDES_TIPOVIA="tipoVia";
     String SEDES_VIA="via";

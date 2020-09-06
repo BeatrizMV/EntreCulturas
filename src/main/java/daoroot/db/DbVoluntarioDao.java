@@ -1,24 +1,20 @@
 package daoroot.db;
 
 import DBConnector.DBConnector;
-
-import enums.LineaAccion;
-import root.Voluntario;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
 import daoroot.DAO;
-import exceptions.DaoException;
+import root.Proyecto;
 import root.Voluntario;
+import root.MiembroEquipo;
+import enums.Rol;
 
 import java.lang.reflect.InvocationTargetException;
-
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import exceptions.DaoException;
+
 
 public class DbVoluntarioDao implements DAO<Voluntario>, DbConstants {
 
@@ -31,53 +27,161 @@ public class DbVoluntarioDao implements DAO<Voluntario>, DbConstants {
     @Override
     public List<Voluntario> listAll() throws DaoException {
         List<Voluntario> listaVoluntarios = new ArrayList<>();
-
+        Connection connection = null;
         try {
-            Statement stmt = dbConnector.connect().createStatement();
+            connection = dbConnector.connect();
+
+            Statement stmt = connection.createStatement();
             String query = "Select * from " + TABLA_PERSONAS;
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
-                Voluntario v = new Voluntario(rs.getInt(PERSONAS_ID),
-                        rs.getString(PERSONAS_NOMBRE),
-                        //LineaAccion.values()[rs.getInt(PROYECTOS_LINEACCION) - 1],
-                        rs.getString(PERSONAS_DNI),
-                        rs.getString(PERSONAS_APELLIDO1),
-                        rs.getString(PERSONAS_APELLIDO2),
-                        rs.getString(PERSONAS_TIPOVIA),
-                        rs.getString(PERSONAS_VIA),
-                        rs.getInt(PERSONAS_NUM),
-                        rs.getString(PERSONAS_PROVINCIA),
-                        rs.getInt(PERSONAS_CP),
-                        rs.getString(PERSONAS_PAIS),
-                        rs.getString(PERSONAS_OBSERVACIONES),
-                        rs.getString(PERSONAS_TELEFONO),
-                        rs.getString(PERSONAS_EMAIL));
+                Voluntario v = resultSetToVoluntario(rs);
                 listaVoluntarios.add(v);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("No se pudo mostrar la lista de voluntarios");
+            throw new DaoException(e);
+        } finally {
+            dbConnector.disconnect(connection);
         }
-
         return listaVoluntarios;
     }
 
     @Override
     public Optional<Voluntario> findById(int id) throws DaoException {
-        return Optional.empty();
+        Voluntario voluntario = null;
+        Connection connection = null;
+        try {
+            connection = dbConnector.connect();
+
+            PreparedStatement stmt = connection.prepareStatement("Select * from " + TABLA_PERSONAS+ " where "+PERSONAS_ID+ " = ? LIMIT 1");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                voluntario = resultSetToVoluntario(rs);
+            }
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            dbConnector.disconnect(connection);
+        }
+        return Optional.ofNullable(voluntario);
     }
 
     @Override
     public void updateFieldById(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
+        Optional<Voluntario> v = findById(idArchivo);
+            if (v.isPresent()) {
+            Voluntario voluntario = v.get();
+            switch (field) {
+                case 0:
+                    throw new DaoException("El ID no se puede modificar");
+                case 1:
+                    voluntario.setDni(value);
+                    break;
+                case 2:
+                	voluntario.setNombre(value);
+                    break;
+                case 3:
+                	voluntario.setApellido1(value);
+                    break;
+                case 4:
+                	voluntario.setApellido2(value);
+                    break;
+                case 5:
+                	voluntario.setDireccion(value);
+                    break;
+                case 6:
+                	voluntario.setTelefono(value);
+                    break;
+                case 7:
+                	voluntario.setEmail(value);
+                    break;
+                case 8:
+                	voluntario.setUsuario(value);
+                    break;
+                case 9:
+                	voluntario.setPassword(value);
+                    break;
+                case 10:
+                	voluntario.setRol(value);
+                    break;   
+                case 11:
+                	voluntario.setMiembroEquipo(value);
+                    break; 
+                
+            }
+
+            update(voluntario);
+        }
+    }
+
+    public void update(Voluntario data) throws DaoException {
+        Connection connection = null;
+        try {
+            connection = dbConnector.connect();
+            PreparedStatement stmt = connection.prepareStatement("Update "+TABLA_PERSONAS+" set "+
+                    PERSONAS_DNI +" = ?," +
+                    PERSONAS_NOMBRE +" = ?," +
+                    PERSONAS_APELLIDO1 +" = ?," +
+                    PERSONAS_APELLIDO2 +" = ?," +
+                    PERSONAS_TIPOVIA +" = ?," +
+                    PERSONAS_VIA +" = ?," +
+                    PERSONAS_NUM +" = ?," +
+                    PERSONAS_PROVINCIA +" = ?," +
+                    PERSONAS_CP +" = ?," +
+                    PERSONAS_PAIS +" = ?," +
+                    PERSONAS_OBSERVACIONES +" = ?," +
+                    PERSONAS_TELEFONO +" = ?," +
+                    PERSONAS_EMAIL +" = ?, " +
+                    PERSONAS_USUARIO +" = ? " +
+                    PERSONAS_PASSWORD +" = ? " +
+                    PERSONAS_ROL +" = ? " +
+                    PERSONAS_MIEMBROEQUIPO +" = ? " +
+                    " where "+PROYECTOS_ID+"= ?");
+
+            int n = 1;
+            // campos, respetar el orden
+
+            
+            stmt.setInt(n++, data.getId());
+            stmt.setString(n++, data.getDni());
+            stmt.setString(n++, data.getNombre());
+            stmt.setString(n++, data.getApellido1());
+            stmt.setString(n++, data.getApellido2());
+            stmt.setString(n++, data.getDireccion().getTipoVia());
+            stmt.setString(n++, data.getDireccion().getVia());
+            stmt.setInt(n++, data.getDireccion().getNum());
+            stmt.setString(n++, data.getDireccion().getProvincia());
+            stmt.setInt(n++, data.getDireccion().getCP());
+            stmt.setString(n++, data.getDireccion().getPais());
+            stmt.setString(n++, data.getDireccion().getObservaciones());
+            stmt.setString(n++, data.getTelefono());
+            stmt.setString(n++, data.getEmail());
+            stmt.setString(n++, data.getUsuario());
+            stmt.setString(n++, data.getPassword());
+            stmt.setString(n++, data.getRol()!= null ? data.getRol().name() : "");
+            stmt.setString(n++, data.getMiembroEquipo()!= null ? data.getMiembroEquipo().name() : "");
+            
+            // where
+            stmt.setInt(n++, data.getId());
+            int updated = stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            dbConnector.disconnect(connection);
+        }
     }
 
     @Override
     public void deleteById(int id) throws DaoException {
+        Connection connection = null;
         try {
-            Statement stmt = dbConnector.connect().createStatement();
-            String query = "delete from " + TABLA_PERSONAS + " where " + PERSONAS_ID + "=" + id + "";
-            stmt.executeUpdate(query);
+            connection = dbConnector.connect();
+            PreparedStatement stmt = connection.prepareStatement("delete from " + TABLA_PERSONAS + " where " + PERSONAS_ID + "= ?");
+            stmt.setInt(1, id);
+            int updated = stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("No se pudo borrar el voluntario");
@@ -86,116 +190,99 @@ public class DbVoluntarioDao implements DAO<Voluntario>, DbConstants {
 
     @Override
     public void create(Voluntario data) throws DaoException {
+        Connection connection = null;
         try {
-            Statement stmt = dbConnector.connect().createStatement();
-            String query = "insert into " + TABLA_PERSONAS + "(" + PERSONAS_ID + ", " + PERSONAS_NOMBRE + ","
-                    + PERSONAS_APELLIDO1 + "," + PERSONAS_APELLIDO2 + "," + PERSONAS_TIPOVIA + "," + PERSONAS_VIA + "," + PERSONAS_NUM + "," + PERSONAS_PROVINCIA
-                    + "," + PERSONAS_CP + "," + PERSONAS_PAIS + "," + PERSONAS_OBSERVACIONES + "," + PERSONAS_TELEFONO + ","
-                    + PERSONAS_EMAIL + "," + PERSONAS_USUARIO + "," + PERSONAS_PASSWORD + "," + PERSONAS_ROL + ") values ('"
-                    + data.getId() + "', '" + data.getNombre() + "' , '" + data.getApellido1() + "" + data.getApellido2() + "" + data.getTipoVia() + "' , '"
-                    + data.getVia() + "','" + data.getNum() + "','" + data.getProvincia() + "'.'"
-                    + data.getCP() + "','" + data.getPais() + "','" + data.getObservaciones() + "','"
-                    + data.getTelefono() + "','" + data.getEmail() + "','" + data.getUsuario() + "','" + data.getPassword() + "','" + data.getRol() + ")";
-            stmt.executeUpdate(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("No se pudo insertar el voluntario");
-        }
+            connection = dbConnector.connect();
+            PreparedStatement stmt = connection.prepareStatement("insert into "+TABLA_PERSONAS+" ("+
+                    // campos, respetar el orden
+                    PERSONAS_ID+", "+
+                    PERSONAS_DNI+", "+
+                    PERSONAS_NOMBRE+", "+
+                    PERSONAS_APELLIDO1+", "+
+                    PERSONAS_APELLIDO2+", "+
+                    PERSONAS_TIPOVIA+", "+
+                    PERSONAS_VIA+", "+
+                    PERSONAS_NUM+", "+
+                    PERSONAS_PROVINCIA+", "+
+                    PERSONAS_CP+", "+
+                    PERSONAS_PAIS+", "+
+                    PERSONAS_OBSERVACIONES+", "+
+                    PERSONAS_TELEFONO+", "+
+                    PERSONAS_EMAIL+", "+
+                    PERSONAS_USUARIO+", "+
+                    PERSONAS_PASSWORD+", "+
+                    PERSONAS_ROL+", "+
+                    PERSONAS_MIEMBROEQUIPO+") "+
+                    " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
+            int n = 1;
+            // datos, respetar el orden
+
+        
+            stmt.setInt(n++, data.getId());
+            stmt.setString(n++, data.getDni());
+            stmt.setString(n++, data.getNombre());
+            stmt.setString(n++, data.getApellido1());
+            stmt.setString(n++, data.getApellido2());
+            stmt.setString(n++, data.getDireccion().getTipoVia());
+            stmt.setString(n++, data.getDireccion().getVia());
+            stmt.setInt(n++, data.getDireccion().getNum());
+            stmt.setString(n++, data.getDireccion().getProvincia());
+            stmt.setInt(n++, data.getDireccion().getCP());
+            stmt.setString(n++, data.getDireccion().getPais());
+            stmt.setString(n++, data.getDireccion().getObservaciones());
+            stmt.setString(n++, data.getTelefono());
+            stmt.setString(n++, data.getEmail());
+            stmt.setString(n++, data.getUsuario());
+            stmt.setString(n++, data.getPassword());
+            stmt.setString(n++, data.getRol()!= null ? data.getRol().name() : "");
+            stmt.setString(n++, data.getMiembroEquipo()!= null ? data.getMiembroEquipo().name() : "");
+            
+            int updated = stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        } finally {
+            dbConnector.disconnect(connection);
+        }
     }
 
-    /* public List<Voluntario> getData(Connection connection) {
-        List<Voluntario> listaVoluntarios = new ArrayList<>();
-
+    private Voluntario resultSetToVoluntario(ResultSet rs) throws SQLException {
+        MiembroEquipo miembroEquipo = null;
         try {
-            Statement stmt = connection.createStatement();
-            String query = "Select * from " + TABLA_PERSONAS;
-            ResultSet rs = stmt.executeQuery(query);
-
-            while (rs.next()) {
-                Voluntario v = new Voluntario(rs.getInt(PERSONAS_ID),
-                        rs.getString(PERSONAS_NOMBRE),
-                        //LineaAccion.values()[rs.getInt(PROYECTOS_LINEACCION) - 1],
-                        rs.getString(PERSONAS_DNI),
-                        rs.getString(PERSONAS_APELLIDO1),
-                        rs.getString(PERSONAS_APELLIDO2),
-                        rs.getString(PERSONAS_TIPOVIA),
-                        rs.getString(PERSONAS_VIA),
-                        rs.getInt(PERSONAS_NUM),
-                        rs.getString(PERSONAS_PROVINCIA),
-                        rs.getInt(PERSONAS_CP),
-                        rs.getString(PERSONAS_PAIS),
-                        rs.getString(PERSONAS_OBSERVACIONES),
-                        rs.getString(PERSONAS_TELEFONO),
-                        rs.getString(PERSONAS_EMAIL));
-                listaVoluntarios.add(v);
-            }
-        } catch (SQLException e) {
+            String smiembroEquipo = rs.getString(PERSONAS_MIEMBROEQUIPO);
+            //restar 1 al array del enum miembroequipo, porque en bbdd empiezan desde el indice 1, y en el enum del 0
+            miembroEquipo = smiembroEquipo != null && !smiembroEquipo.equals("") ? MiembroEquipo.values()[Integer.parseInt(smiembroEquipo) - 1]: null;
+        } catch (NullPointerException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("No se pudo mostrar la lista de voluntarios");
         }
 
-        return listaVoluntarios;
-    } */
-
-    /*public void updateData(Connection connection, Voluntario data) {
+        Rol rol = null;
         try {
-            Statement stmt = connection.createStatement();
-            String query = "Update "+TABLA_PERSONAS+" "
-                    + "set "+PERSONAS_ID+"='"+data.getId()+"', "
-                    +PERSONAS_NOMBRE+"='"+data.getNombre()+"', "
-                    +PERSONAS_APELLIDO1+"='"+data.getApellido1()+"', "
-                    +PERSONAS_APELLIDO2+"='"+data.getApellido2()+"', "
-                    +PERSONAS_TIPOVIA+"="+data.getLocalizacion().getTipoVia()+"', "
-                    +PERSONAS_VIA+"='"+data.getLocalizacion().getVia()+"', "
-                    +PERSONAS_NUM+"='"+data.getLocalizacion().getNum()+"', "
-                    +PERSONAS_PROVINCIA+"='"+data.getLocalizacion().getProvincia()+"', "
-                    +PERSONAS_CP+"='"+data.getLocalizacion().getCodigoPostal()+"', "
-                    +PERSONAS_PAIS+"='"+data.getLocalizacion().getPais()+"', "
-                    +PERSONAS_OBSERVACIONES+"='"+data.getLocalizacion().getObservaciones()+"', "
-                    +PERSONAS_TELEFONO+"='"+data.getTelefono()+"', "
-                    +PERSONAS_EMAIL+"='"+data.getEmail()+"', "
-                    +PERSONAS_USUARIO+"='"+data.getUsuario()+"', "
-                    +PERSONAS_PASSWORD+"='"+data.getPassword()+"', "
-                    +PERSONAS_ROL+"="+data.getRol()+" "
-                    + "where "+PERSONAS_ID+"="+data.getId();
-            stmt.executeUpdate(query);
-        }
-        catch (SQLException e)
-        {
+            String srol = rs.getString(PERSONAS_ROL);
+            //restar 1 al array del enum ROL, porque en bbdd empiezan desde el indice 1, y en el enum del 0
+            rol = srol != null && !srol.equals("") ? Rol.values()[Integer.parseInt(srol) - 1]: null;
+        } catch (NullPointerException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("no se pudo modificar el voluntario");
         }
-    }*/
 
-    /*public void insertData(Connection connection, Voluntario data) {
-
-        try {
-            Statement stmt = connection.createStatement();
-            String query = "insert into " + TABLA_PERSONAS + "(" + PERSONAS_ID + ", " + PERSONAS_NOMBRE + ","
-                    + PERSONAS_APELLIDO1 + "," + PERSONAS_APELLIDO2 + "," + PERSONAS_TIPOVIA + "," + PERSONAS_VIA + "," + PERSONAS_NUM + "," + PERSONAS_PROVINCIA
-                    + "," + PERSONAS_CP + "," + PERSONAS_PAIS + "," + PERSONAS_OBSERVACIONES + "," + PERSONAS_TELEFONO + ","
-                    + PERSONAS_EMAIL + "," + PERSONAS_USUARIO + "," + PERSONAS_PASSWORD + "," + PERSONAS_ROL + ") values ('"
-                    + data.getId() + "', '" + data.getNombre() + "' , '" + data.getApellido1() + "" + data.getApellido2() + "" + data.getLocalizacion().getTipoVia() + "' , '"
-                    + data.getLocalizacion().getVia() + "','" + data.getLocalizacion().getNum() + "','" + data.getLocalizacion().getProvincia() + "'.'"
-                    + data.getLocalizacion().getCodigoPostal() + "','" + data.getLocalizacion().getPais() + "','" + data.getLocalizacion().getObservaciones() + "','"
-                    + data.getTelefono() + "','" + data.getEmail() + "','" + data.getUsuario() + "','" + data.getPassword() + "','" + data.getRol() + ")";
-            stmt.executeUpdate(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("No se pudo insertar el voluntario");
-        }
-    }*/
-
-    /*public void removeData(Connection connection, Voluntario data) {
-
-        try {
-            Statement stmt = connection.createStatement();
-            String query = "delete from " + TABLA_PERSONAS + " where " + PERSONAS_ID + "=" + data.getId() + "";
-            stmt.executeUpdate(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("No se pudo borrar el voluntario");
-        }
-    }*/
+        return new Voluntario(
+                rs.getInt(PERSONAS_ID),
+                rs.getInt(PERSONAS_DNI),
+                rs.getString(PROYECTOS_NOMBRE),
+                rs.getInt(PERSONAS_APELLIDO1),
+                rs.getInt(PERSONAS_APELLIDO2),
+                miembroEquipo,
+                rol,
+                rs.getInt(PERSONAS_USUARIO),
+                rs.getInt(PERSONAS_PASSWORD),
+                rs.getString(PERSONAS_TIPOVIA),
+                rs.getString(PERSONAS_VIA),
+                rs.getInt(PERSONAS_NUM),
+                rs.getString(PERSONAS_PROVINCIA),
+                rs.getInt(PERSONAS_CP),
+                rs.getString(PERSONAS_PAIS),
+                rs.getString(PERSONAS_OBSERVACIONES));
+    }
 }

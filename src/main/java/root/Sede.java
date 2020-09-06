@@ -24,7 +24,12 @@ public class Sede {
         setCentral(central);
     }
 
-    public int getId() {
+    public Sede(int int1, String string, String string2, String string3, int int2, String string4, int int3,
+			String string5, String string6, String string7, String string8, String string9) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getId() {
         return id;
     }
 

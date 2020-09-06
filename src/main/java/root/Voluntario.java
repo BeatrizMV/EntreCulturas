@@ -1,5 +1,6 @@
 package root;
 
+import enums.LineaAccion;
 import enums.Rol;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -33,5 +34,20 @@ public class Voluntario extends MiembroEquipo {
 			String string6, int int2, String string7, int int3, String string8, String string9, String string10,
 			String string11) {
 		// TODO Auto-generated constructor stub
+	}
+
+	public void setMiembroEquipo(String value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public Persona getDireccion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Enum<LineaAccion> getMiembroEquipo() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
