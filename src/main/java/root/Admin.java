@@ -292,6 +292,7 @@ public class Admin {
                     Integer deleteId = Integer.parseInt(reader.readLine());
                     if (proyectoDAO.findById(deleteId).isPresent()) {
                         proyectoDAO.deleteById(deleteId);
+                        System.out.println("Proyecto borrado. Pulsa enter para volver al menú.");
                     } else {
                         System.out.println("El proyecto no existe");
                     }
@@ -362,16 +363,16 @@ public class Admin {
         int optionSelected = selectMenuOption(lineaAccionOptions);
         LineaAccion lineaAccion = null;
         switch (optionSelected) {
-            case 1:
+            case 0:
                 lineaAccion = LineaAccion.COOPERACION_DESARROLLO;
                 break;
-            case 2:
+            case 1:
                 lineaAccion = LineaAccion.ACCION_HUMANITARIA;
                 break;
-            case 3:
+            case 2:
                 lineaAccion = LineaAccion.FORTALECIMIENTO_INSTITUCIONAL;
                 break;
-            case 4:
+            case 3:
                 lineaAccion = LineaAccion.EDUCACION_DESARROLLO;
                 break;
         }

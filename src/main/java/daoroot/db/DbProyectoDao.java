@@ -82,21 +82,25 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
                     proyecto.setNombreProyecto(value);
                     break;
                 case 2:
-                    String[] params = value.split(DIR_STR_SEPARATOR);
-                    proyecto.setLocalizacion(params[0],
-                            params[1],
-                            Integer.parseInt(params[2]),
-                            params[3],
-                            Integer.parseInt(params[4]),
-                            params[5],
-                            params[6]);
+                    if(value != null && !value.equals("")){
+                        String[] params = value.split(DIR_STR_SEPARATOR);
+
+                        proyecto.setLocalizacion(params[0],
+                                params[1],
+                                Integer.parseInt(params[2]),
+                                params[3],
+                                Integer.parseInt(params[4]),
+                                params[5],
+                                params[6]);
+                    }
                     break;
                 case 3:
                     LineaAccion lineaAccion = LineaAccion.valueOf(value);
                     proyecto.setLineaAccion(lineaAccion);
                     break;
                 case 4:
-                    SublineaAccion sublineaAccion = SublineaAccion.valueOf(value);
+                    //SublineaAccion sublineaAccion = SublineaAccion.valueOf(value);
+                    SublineaAccion sublineaAccion = SublineaAccion.NINGUNA;
                     proyecto.setSublineaAccion(sublineaAccion);
                     break;
                 case 5:
@@ -159,8 +163,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             stmt.setDate(n++, fechaFin);
             stmt.setString(n++, data.getSocioLocal());
             stmt.setString(n++, data.getAccionesRealizar());
-            stmt.setString(n++, data.getLineaAccion() != null ? data.getLineaAccion().name() : "");
-            stmt.setString(n++, data.getSublineaAccion() != null ? data.getSublineaAccion().name() : "");
+            stmt.setInt(n++, data.getLineaAccion() != null ? data.getLineaAccion().ordinal() + 1 : 1);
+            stmt.setInt(n++, data.getSublineaAccion() != null ? data.getSublineaAccion().ordinal() + 1 : 1);
 
             // where
             stmt.setInt(n++, data.getCodigoProyecto());
@@ -229,8 +233,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             stmt.setDate(n++, fechaFin);
             stmt.setString(n++, data.getSocioLocal());
             stmt.setString(n++, data.getAccionesRealizar());
-            stmt.setString(n++, data.getLineaAccion() != null ? data.getLineaAccion().name() : "");
-            stmt.setString(n++, data.getSublineaAccion() != null ? data.getSublineaAccion().name() : "");
+            stmt.setInt(n++, data.getLineaAccion() != null ? data.getLineaAccion().ordinal() + 1 : 1);
+            stmt.setInt(n++, data.getSublineaAccion() != null ? data.getSublineaAccion().ordinal() + 1 : 1);
 
             int updated = stmt.executeUpdate();
         } catch (SQLException e) {
