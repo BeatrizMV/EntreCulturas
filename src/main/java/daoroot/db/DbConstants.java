@@ -74,7 +74,4 @@ public interface DbConstants {
     String TABLA_SUBLINEAACION="sublieaaccion";
     String SUBLINEAACCION_ID="idSublineaAccion";
     String SUBLINEAACCION_NOMBRE="nombre";
-
-
-
 }

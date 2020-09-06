@@ -246,7 +246,7 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
 
         SublineaAccion sublineaAccion = null;
 
-        // OJO: Descomentar cuando esten las sublineas
+        // OJO: Descomentar cuando en el futuro se decida añadir las sublineas
 //        try {
 //            String ssublineaAccion = rs.getString(PROYECTOS_SUBLINEA);
 //            sublineaAccion = ssublineaAccion != null && !ssublineaAccion.equals("") ? SublineaAccion.valueOf(ssublineaAccion): null;
