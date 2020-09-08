@@ -37,6 +37,17 @@ public class Proyecto {
         setLocalizacion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
     }
 
+    public Proyecto(String nombreProyecto, LineaAccion lineaAccion, SublineaAccion sublineaAccion, LocalDate fechaInicio, LocalDate fechaFin, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
+        setNombreProyecto(nombreProyecto);
+        setLineaAccion(lineaAccion);
+        setSublineaAccion(sublineaAccion);
+        setFechaInicio(fechaInicio);
+        setFechaFin(fechaFin);
+        setSocioLocal(socioLocal);
+        setAccionesRealizar(accionesRealizar);
+        setLocalizacion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
+    }
+
     public Proyecto() {
     }
 

@@ -197,7 +197,6 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             connection = dbConnector.connect();
             PreparedStatement stmt = connection.prepareStatement("insert into "+TABLA_PROYECTOS+" ("+
                     // campos, respetar el orden
-                    PROYECTOS_ID+", "+
                     PROYECTOS_NOMBRE+", "+
                     PROYECTOS_TIPOVIA+", "+
                     PROYECTOS_VIA+", "+
@@ -212,15 +211,14 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
                     PROYECTOS_ACCIONES+", "+
                     PROYECTOS_LINEACCION+", "+
                     PROYECTOS_SUBLINEA+") "+
-                    " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+                    " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
             int n = 1;
             // datos, respetar el orden
 
-            Date fechaInicio = data.getFechaInicio() != null ? new java.sql.Date(Date.from(data.getFechaInicio().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()) : null;
-            Date fechaFin = data.getFechaFin() != null ? new java.sql.Date(Date.from(data.getFechaFin().atStartOfDay(ZoneId.systemDefault()).toInstant()).getTime()) : null;
+            Date fechaInicio = data.getFechaInicio() != null ? java.sql.Date.valueOf(data.getFechaInicio()) : null;
+            Date fechaFin = data.getFechaFin() != null ? java.sql.Date.valueOf(data.getFechaFin()) : null;
 
-            stmt.setInt(n++, data.getCodigoProyecto());
             stmt.setString(n++, data.getNombreProyecto());
             stmt.setString(n++, data.getLocalizacion().getTipoVia());
             stmt.setString(n++, data.getLocalizacion().getVia());

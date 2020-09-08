@@ -12,6 +12,7 @@ public abstract class DAOFactory {
     public abstract DAO<Proyecto> getProyectoDAO();
     public abstract DAO<Voluntario> getVoluntarioDAO();
 
+    public static int selectedDaoType;
 
     public static DAOFactory getDAOFactory(int whichFactory) {
 

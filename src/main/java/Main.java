@@ -34,8 +34,7 @@ public class Main {
         System.out.println("************\n");
 
         DAOFactory daoFactory = menuDaoFactory(reader);
-        // OJO: descomentar esta linea y borrar la siguiente cuando este hecho el DAO de usuarios. Ahora mismo siempre usa el de XML para el login
-//        DAO<Voluntario> voluntarioDAO = daoFactory.getVoluntarioDAO();
+
         DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
 
         ArrayList<Voluntario> listaDeVoluntarios = (ArrayList<Voluntario>) voluntarioDAO.listAll();
@@ -46,7 +45,7 @@ public class Main {
             System.out.println("Por favor, introduce tu contraseña: ");
             password = reader.readLine();
 
-            // TODO: Cambiar el if para que coja el usuario con el DAO. Seguramente habrá que hacer un método para que recorra el XML.
+
             for(Voluntario voluntario: listaDeVoluntarios){
                 if(voluntario.getUsuario().equals(user) && voluntario.getPassword().equals(password)){
                     isLogged = true;
@@ -63,11 +62,12 @@ public class Main {
     }
 
     private static DAOFactory menuDaoFactory(BufferedReader reader) throws IOException {
-        System.out.println("Por favor, introduce conexion:");
+        System.out.println("Por favor, introduce la conexión:");
         System.out.println(DAOFactory.XML+") XML");
         System.out.println(DAOFactory.DB+") MySql");
 
         int daoType = Integer.parseInt(reader.readLine());
+        DAOFactory.selectedDaoType = daoType;
         return DAOFactory.getDAOFactory(daoType);
     }
 }

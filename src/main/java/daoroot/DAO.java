@@ -11,7 +11,8 @@ public interface DAO<T> {
 
     public Optional<T> findById(int id) throws DaoException;
 
-    public void updateFieldById(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException;
+    public void updateFieldById(int field, String value, int idArchivo) throws DaoException,
+            NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException;
 
     public void deleteById(int id) throws DaoException;
 
