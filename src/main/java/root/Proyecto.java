@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -71,7 +73,7 @@ public class Proyecto {
         return this;
     }
 
-    @XmlElement
+    //@XmlElement(name = "localizacion")
     public Direccion getLocalizacion() {
         return localizacion;
     }
@@ -80,6 +82,11 @@ public class Proyecto {
         localizacion = new Direccion(tipoVia, via, num, provincia, codigoPostal, pais, observaciones);
         return this;
     }
+
+    /*public Proyecto setLocalizacion(Direccion direccion) {
+        localizacion = direccion;
+        return this;
+    }*/
 
     @XmlElement
     public LineaAccion getLineaAccion() {

@@ -219,9 +219,9 @@ public class Admin {
                 if (userType == ADMIN) {
                     System.out.println("Por favor, indica los siguientes datos:");
 
-                    Integer proyectId;
+                    int proyectId = 0;
                     boolean idExists;
-                    if(DAOFactory.selectedDaoType == 1){
+                    if(DAOFactory.selectedDaoType == DAOFactory.XML){
                         do {
                             idExists = false;
                             System.out.println("Cual es el ID del proyecto:");
@@ -276,7 +276,12 @@ public class Admin {
                     System.out.println("Observaciones: ");
                     String observaciones = reader.readLine();
 
-                    Proyecto proyecto = new Proyecto(proyectName, lineaAccion, sublineaAccion, dateInicio, dateFin, socioLocal, acciones, via, nombreVia, numero, provincia, codigoPostal, pais, observaciones);
+                    Proyecto proyecto =
+                            DAOFactory.selectedDaoType == DAOFactory.XML
+                                    ? new Proyecto(proyectId, proyectName, lineaAccion, sublineaAccion, dateInicio, dateFin, socioLocal, acciones, via, nombreVia, numero, provincia, codigoPostal, pais, observaciones)
+                                    : new Proyecto(proyectName, lineaAccion, sublineaAccion, dateInicio, dateFin, socioLocal, acciones, via, nombreVia, numero, provincia, codigoPostal, pais, observaciones);
+
+
                     proyectoDAO.create(proyecto);
 
                     System.out.println("Proyecto creado. Apreta enter para volver al menú.");
