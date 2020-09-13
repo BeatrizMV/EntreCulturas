@@ -78,23 +78,27 @@ public class Main {
         if (respuesta.equals("s")) {
             XMLDAOFactory xmlFactory = (XMLDAOFactory) DAOFactory.getDAOFactory(DAOFactory.XML);
             XMLProyectoDAO pDao = xmlFactory.getProyectoDAO();
-            XMLSedeDAO sDao = xmlFactory.getSedeDAO();
-            XMLVoluntarioDAO vDao = xmlFactory.getVoluntarioDAO();
+            //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+            //XMLSedeDAO sDao = xmlFactory.getSedeDAO();
+            //XMLVoluntarioDAO vDao = xmlFactory.getVoluntarioDAO();
 
             DbDAOFactory dbFactory = (DbDAOFactory) DAOFactory.getDAOFactory(DAOFactory.DB);
             DbProyectoDao pbDao = dbFactory.getProyectoDAO();
-            DbSedeDao sbDao = dbFactory.getSedeDAO();
-            DbVoluntarioDao vbDao = dbFactory.getVoluntarioDAO();
+            //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+            //DbSedeDao sbDao = dbFactory.getSedeDAO();
+            //DbVoluntarioDao vbDao = dbFactory.getVoluntarioDAO();
 
             List<Proyecto> proyectos = null;
-            List<Sede> sedes = null;
-            List<Voluntario> voluntarios = null;
+            //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+            //List<Sede> sedes = null;
+            //List<Voluntario> voluntarios = null;
 
             //leemos todos los xml
             try {
                 proyectos = pDao.listAll();
-                sedes = sDao.listAll();
-                voluntarios = vDao.listAll();
+                //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+                //sedes = sDao.listAll();
+                //voluntarios = vDao.listAll();
             } catch (DaoException e) {
                 e.printStackTrace();
             }
@@ -107,8 +111,8 @@ public class Main {
             } catch (DaoException e) {
                 e.printStackTrace();
             }
-
-            try {
+            //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+            /*try {
                 for (Sede s : sedes) {
                     sbDao.create(s);
                 }
@@ -123,7 +127,7 @@ public class Main {
             } catch (DaoException e) {
                 e.printStackTrace();
             }
-
+         */
             System.out.println("Archivos volcados");
 
         }else {
