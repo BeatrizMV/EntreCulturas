@@ -362,7 +362,20 @@ public class Admin {
         } else {
             System.out.println("Acciones a realizar: No existen acciones a realizar para el proyecto");
         }
+        if (proyecto.getLocalizacion()!=null){
+            System.out.println("Direccion: "+
+                    proyecto.getLocalizacion().getTipoVia()+ " " +
+                    proyecto.getLocalizacion().getVia()+ " " +
+                    proyecto.getLocalizacion().getNum()+ " " +
+                    proyecto.getLocalizacion().getProvincia()+ " " +
+                    proyecto.getLocalizacion().getCodigoPostal()+ " " +
+                    proyecto.getLocalizacion().getPais()+ " " +
+                    proyecto.getLocalizacion().getObservaciones()+ " ");
+        }else{
+            System.out.println("Dirección: No hay");
+        }
     }
+
 
     private LineaAccion selectLineaAccion() throws IOException {
         System.out.println("¿Cuál es la línea de acción del proyecto? \n0. COOPERACION_DESARROLLO\n1. ACCION_HUMANITARIA\n2. FORTALECIMIENTO_INSTITUCIONAL\n3. EDUCACION_DESARROLLO");

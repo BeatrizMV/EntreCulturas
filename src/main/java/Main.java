@@ -72,7 +72,8 @@ public class Main {
     }
 
     private static void menuVolcado (BufferedReader reader) throws IOException {
-        System.out.println ( "¿Quieres volcar los ficheros XML guardados en la BD? (s/n) ");
+        System.out.println ( "¿Quieres volcar los ficheros XML guardados en la BBDD? (s/n) ");
+        System.out.println ( "Para su correcto funcionamiento la BBDD deberá estar vacía ");
         String respuesta = reader.readLine();
 
         if (respuesta.equals("s")) {
