@@ -220,13 +220,23 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             Date fechaFin = data.getFechaFin() != null ? java.sql.Date.valueOf(data.getFechaFin()) : null;
 
             stmt.setString(n++, data.getNombreProyecto());
-            stmt.setString(n++, data.getLocalizacion().getTipoVia());
-            stmt.setString(n++, data.getLocalizacion().getVia());
-            stmt.setInt(n++, data.getLocalizacion().getNum());
-            stmt.setString(n++, data.getLocalizacion().getProvincia());
-            stmt.setInt(n++, data.getLocalizacion().getCodigoPostal());
-            stmt.setString(n++, data.getLocalizacion().getPais());
-            stmt.setString(n++, data.getLocalizacion().getObservaciones());
+            if (data.getLocalizacion() != null){
+                stmt.setString(n++, data.getLocalizacion().getTipoVia());
+                stmt.setString(n++, data.getLocalizacion().getVia());
+                stmt.setInt(n++, data.getLocalizacion().getNum());
+                stmt.setString(n++, data.getLocalizacion().getProvincia());
+                stmt.setInt(n++, data.getLocalizacion().getCodigoPostal());
+                stmt.setString(n++, data.getLocalizacion().getPais());
+                stmt.setString(n++, data.getLocalizacion().getObservaciones());
+            } else {
+                stmt.setString(n++, "No especificado");
+                stmt.setString(n++,"No especificado");
+                stmt.setInt(n++,0);
+                stmt.setString(n++, "No especificado");
+                stmt.setInt(n++, 0);
+                stmt.setString(n++, "No especificado");
+                stmt.setString(n++, "No especificado");
+            }
             stmt.setDate(n++, fechaInicio);
             stmt.setDate(n++, fechaFin);
             stmt.setString(n++, data.getSocioLocal());
