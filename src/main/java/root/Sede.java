@@ -10,7 +10,7 @@ import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 public class Sede {
     private int id;
     private String nombreSede;
-    private Direccion direccion;
+    private Direccion direccion = new Direccion();
     private String telefono;
     private String email;
     private boolean central;

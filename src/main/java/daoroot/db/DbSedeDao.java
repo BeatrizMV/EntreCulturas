@@ -180,13 +180,23 @@ public class DbSedeDao implements DAO<Sede>, DbConstants {
 
             stmt.setInt(n++, data.getId());
             stmt.setString(n++, data.getNombreSede());
-            stmt.setString(n++, data.getDireccion().getTipoVia());
-            stmt.setString(n++, data.getDireccion().getVia());
-            stmt.setInt(n++, data.getDireccion().getNum());
-            stmt.setString(n++, data.getDireccion().getProvincia());
-            stmt.setInt(n++, data.getDireccion().getCodigoPostal());
-            stmt.setString(n++, data.getDireccion().getPais());
-            stmt.setString(n++, data.getDireccion().getObservaciones());
+            if (data.getDireccion() != null) {
+                stmt.setString(n++, data.getDireccion().getTipoVia());
+                stmt.setString(n++, data.getDireccion().getVia());
+                stmt.setInt(n++, data.getDireccion().getNum());
+                stmt.setString(n++, data.getDireccion().getProvincia());
+                stmt.setInt(n++, data.getDireccion().getCodigoPostal());
+                stmt.setString(n++, data.getDireccion().getPais());
+                stmt.setString(n++, data.getDireccion().getObservaciones());
+            }else{
+                stmt.setString(n++, "No especificado");
+                stmt.setString(n++,"No especificado");
+                stmt.setInt(n++,0);
+                stmt.setString(n++, "No especificado");
+                stmt.setInt(n++, 0);
+                stmt.setString(n++, "No especificado");
+                stmt.setString(n++, "No especificado");
+            }
             stmt.setString(n++, data.getTelefono());
             stmt.setString(n++, data.getEmail());
             stmt.setString(n++, data.isCentral() ? null : "false");

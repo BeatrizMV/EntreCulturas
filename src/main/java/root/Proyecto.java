@@ -18,7 +18,7 @@ import others.LocalDateAdapter;
 public class Proyecto {
     private int id;
     private String nombreProyecto;
-    private Direccion localizacion;
+    private Direccion localizacion = new Direccion();
     private LineaAccion lineaAccion;
     private SublineaAccion sublineaAccion;
     private LocalDate fechaInicio;
@@ -73,7 +73,7 @@ public class Proyecto {
         return this;
     }
 
-    //@XmlElement(name = "localizacion")
+    @XmlElement(name = "localizacion")
     public Direccion getLocalizacion() {
         return localizacion;
     }
@@ -83,10 +83,10 @@ public class Proyecto {
         return this;
     }
 
-    /*public Proyecto setLocalizacion(Direccion direccion) {
+    public Proyecto setLocalizacion(Direccion direccion) {
         localizacion = direccion;
         return this;
-    }*/
+    }
 
     @XmlElement
     public LineaAccion getLineaAccion() {

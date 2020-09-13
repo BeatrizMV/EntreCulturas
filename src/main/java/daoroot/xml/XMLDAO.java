@@ -66,6 +66,7 @@ public abstract class XMLDAO<T> implements DAO<T> {
         File outDir = new File(prefixPath);
         String[] fileNameList = outDir.list();
         List<T> retList = new ArrayList<>();
+        if(fileNameList == null) return new ArrayList<>();
         for (String fileName : fileNameList) {
             int id = extraerId(fileName);
             Optional<T> retOpt = this.findById(id);

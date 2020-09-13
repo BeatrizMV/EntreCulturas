@@ -218,25 +218,35 @@ public class DbVoluntarioDao implements DAO<Voluntario>, DbConstants {
             int n = 1;
             // datos, respetar el orden
 
-        
-            stmt.setInt(n++, data.getId());
-            stmt.setString(n++, data.getDni());
-            stmt.setString(n++, data.getNombre());
-            stmt.setString(n++, data.getApellido1());
-            stmt.setString(n++, data.getApellido2());
-            stmt.setString(n++, data.getDireccion().getTipoVia());
-            stmt.setString(n++, data.getDireccion().getVia());
-            stmt.setInt(n++, data.getDireccion().getNum());
-            stmt.setString(n++, data.getDireccion().getProvincia());
-            stmt.setInt(n++, data.getDireccion().getCP());
-            stmt.setString(n++, data.getDireccion().getPais());
-            stmt.setString(n++, data.getDireccion().getObservaciones());
+                stmt.setInt(n++, data.getId());
+                stmt.setString(n++, data.getDni());
+                stmt.setString(n++, data.getNombre());
+                stmt.setString(n++, data.getApellido1());
+                stmt.setString(n++, data.getApellido2());
+            if (data.getDireccion() != null) {
+                stmt.setString(n++, data.getDireccion().getTipoVia());
+                stmt.setString(n++, data.getDireccion().getVia());
+                stmt.setInt(n++, data.getDireccion().getNum());
+                stmt.setString(n++, data.getDireccion().getProvincia());
+                stmt.setInt(n++, data.getDireccion().getCP());
+                stmt.setString(n++, data.getDireccion().getPais());
+                stmt.setString(n++, data.getDireccion().getObservaciones());
+            }else {
+                stmt.setString(n++, "No especificado");
+                stmt.setString(n++,"No especificado");
+                stmt.setInt(n++,0);
+                stmt.setString(n++, "No especificado");
+                stmt.setInt(n++, 0);
+                stmt.setString(n++, "No especificado");
+                stmt.setString(n++, "No especificado");
+            }
+
             stmt.setString(n++, data.getTelefono());
             stmt.setString(n++, data.getEmail());
             stmt.setString(n++, data.getUsuario());
             stmt.setString(n++, data.getPassword());
-            stmt.setString(n++, data.getRol()!= null ? data.getRol().name() : "");
-            stmt.setString(n++, data.getMiembroEquipo()!= null ? data.getMiembroEquipo().name() : "");
+            stmt.setInt(n++, data.getRol()!= null ? data.getRol().ordinal() + 1 : 1);
+            stmt.setInt(n++, data.getMiembroEquipo()!= null ? data.getMiembroEquipo().ordinal() + 1 : 1);
             
             int updated = stmt.executeUpdate();
         } catch (SQLException e) {

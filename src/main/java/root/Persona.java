@@ -25,7 +25,7 @@ public class Persona {
     private String usuario;
     private String password;
     private Rol rol;
-    private Direccion direccion;
+    private Direccion direccion = new Direccion();
 
     /*Método constructor
      * @idPersona alberga el número de identificación interno
