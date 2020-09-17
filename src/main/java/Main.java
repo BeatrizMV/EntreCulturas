@@ -1,34 +1,15 @@
-import DBConnector.DBConnector;
-import daoroot.DAO;
-import daoroot.DAOFactory;
-import daoroot.DbDAOFactory;
-import daoroot.XMLDAOFactory;
-import daoroot.db.DbProyectoDao;
-import daoroot.db.DbSedeDao;
-import daoroot.db.DbVoluntarioDao;
-import daoroot.xml.XMLProyectoDAO;
-import daoroot.xml.XMLSedeDAO;
-import daoroot.xml.XMLVoluntarioDAO;
-import enums.Rol;
-import exceptions.DaoException;
-import others.Helper;
-import root.Admin;
-import root.Proyecto;
-import root.Sede;
-import root.Voluntario;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.InvocationTargetException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 
-public class Main {
 
-    public static void main(String[] args) throws IOException, DaoException, ParseException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
+
+public class Main extends Application {
+
+    /*public static void main(String[] args) throws IOException, DaoException, ParseException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
         BufferedReader reader = new BufferedReader(new InputStreamReader((System.in)));
         String user;
         String password;
@@ -141,5 +122,18 @@ public class Main {
         int daoType = Integer.parseInt(reader.readLine());
         DAOFactory.selectedDaoType = daoType;
         return DAOFactory.getDAOFactory(daoType);
+    }
+    */
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("fx.fx.fxml"));
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.show();
+    }
+
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
