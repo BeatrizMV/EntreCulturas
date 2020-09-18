@@ -1,15 +1,20 @@
+import exceptions.DaoException;
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.text.ParseException;
+
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import view.bootstrapView;
 
+public class Main {
 
+    public static void main(String[] args) throws IOException, DaoException, ParseException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
 
-
-public class Main extends Application {
-
-    /*public static void main(String[] args) throws IOException, DaoException, ParseException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
+        bootstrapView.startView(args);
+    }
+}
+        /*
         BufferedReader reader = new BufferedReader(new InputStreamReader((System.in)));
         String user;
         String password;
@@ -123,7 +128,7 @@ public class Main extends Application {
         DAOFactory.selectedDaoType = daoType;
         return DAOFactory.getDAOFactory(daoType);
     }
-    */
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("fx.fx.fxml"));
@@ -136,4 +141,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-}
+    */
