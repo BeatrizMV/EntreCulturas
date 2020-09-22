@@ -10,7 +10,10 @@ public class bootstrapView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fx.fxml"));
+        //TODO Esta es la línea que tenemos que conseguir hacer que funcione que es donde se enlaza el fxml
+        //Parent root = FXMLLoader.load(getClass().getResource("fx.fxml"));
+
+        //TODO Con esta linea compila pero al no estar enlazado el fxml no se ve el contenido de la interfaz pero si el scenario. Cuando funcione la de arriba boirrar esta
         StackPane root = new StackPane();
 
         primaryStage.setTitle("Entreculturas");

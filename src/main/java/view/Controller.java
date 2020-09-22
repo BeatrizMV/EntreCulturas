@@ -1,4 +1,4 @@
-package fx;
+package view;
 
 public class Controller {
 }
