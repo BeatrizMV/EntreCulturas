@@ -2,13 +2,12 @@ package view;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class bootstrapView extends Application {
 
-    @Override
+   /* @Override
     public void start(Stage stage) throws Exception {
 
         TextField mainText = new TextField();
@@ -21,8 +20,29 @@ public class bootstrapView extends Application {
         stage.setScene(scene);
         stage.show();
     }
+   */
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Entreculturas");
+
+
+        StackPane root = new StackPane();
+        primaryStage.setScene(new Scene(root, 500, 450));
+        primaryStage.show();
+    }
+
 
     public static void startView(String args[]){
         Application.launch(args);
     }
+
+
 }
+
+
+
+
+
+
+
