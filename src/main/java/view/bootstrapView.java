@@ -7,27 +7,13 @@ import javafx.stage.Stage;
 
 public class bootstrapView extends Application {
 
-   /* @Override
-    public void start(Stage stage) throws Exception {
-
-        TextField mainText = new TextField();
-
-        BorderPane pane = new BorderPane();
-        pane.setTop(mainText);
-
-        Scene scene = new Scene(pane);
-        stage.setTitle("Calculator");
-        stage.setScene(scene);
-        stage.show();
-    }
-   */
 
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Entreculturas");
-
-
+    public void start(Stage primaryStage) throws Exception{
+        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fx.fxml"));
         StackPane root = new StackPane();
+
+        primaryStage.setTitle("Entreculturas");
         primaryStage.setScene(new Scene(root, 500, 450));
         primaryStage.show();
     }
