@@ -3,7 +3,7 @@ package daoroot.db;
 import DBConnector.DBConnector;
 import daoroot.DAO;
 import exceptions.DaoException;
-import root.Sede;
+import model.Sede;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;

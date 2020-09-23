@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
     <children>
         <AnchorPane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -15,7 +15,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                   <ImageView fitHeight="51.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/usuario.png" />
+                        <Image url="@images/usuario.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -24,7 +24,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                   <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/leer.png" />
+                        <Image url="@images/leer.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -33,7 +33,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                   <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="61.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/insertar.png" />
+                        <Image url="@images/insertar.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -42,7 +42,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                   <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="112.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/modificar.png" />
+                        <Image url="@images/modificar.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -51,7 +51,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                   <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/borrar.png" />
+                        <Image url="@images/borrar.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -60,7 +60,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                   <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="214.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/salida.png" />
+                        <Image url="@images/salida.png" />
                      </image>
                      <HBox.margin>
                         <Insets top="10.0" />
@@ -97,7 +97,7 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane layoutY="100.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutY="100.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="41.0" layoutY="71.0" prefHeight="25.0" prefWidth="274.0" text="Introduzca el Id del proyecto" textAlignment="CENTER" textFill="#f8f5f5">
                <font>
@@ -119,7 +119,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/check.png" />
+                        <Image url="@images/check.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -130,7 +130,7 @@
               </content>
             </ScrollPane>
          </children></AnchorPane>
-      <AnchorPane layoutY="102.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutY="102.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="220.0" layoutY="14.0" text="Nuevo Proyecto" textAlignment="CENTER" textFill="#f8f5f5" underline="true">
                <font>
@@ -212,7 +212,7 @@
             <TextField layoutX="447.0" layoutY="137.0" prefHeight="25.0" prefWidth="61.0" />
             <ChoiceBox layoutX="162.0" layoutY="137.0" prefHeight="25.0" prefWidth="101.0" />
          </children></AnchorPane>
-      <AnchorPane layoutX="-4.0" layoutY="111.0" prefHeight="299.0" prefWidth="614.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutX="-4.0" layoutY="111.0" prefHeight="299.0" prefWidth="614.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="220.0" layoutY="6.0" text="Modificar Proyecto" textAlignment="CENTER" textFill="#f8f5f5" underline="true">
                <font>
@@ -303,13 +303,13 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/check.png" />
+                        <Image url="@images/check.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="10.0" layoutY="111.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane layoutX="10.0" layoutY="111.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="42.0" layoutY="54.0" prefHeight="25.0" prefWidth="274.0" text="Introduzca el Id del proyecto" textAlignment="CENTER" textFill="#f8f5f5">
                <font>
@@ -326,7 +326,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/check.png" />
+                        <Image url="@images/check.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -341,27 +341,27 @@
       </AnchorPane>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="54.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/flecha.png" />
+            <Image url="@images/flecha.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="148.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/flecha.png" />
+            <Image url="@images/flecha.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="241.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/flecha.png" />
+            <Image url="@images/flecha.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="330.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/flecha.png" />
+            <Image url="@images/flecha.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="428.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/flecha.png" />
+            <Image url="@images/flecha.png" />
          </image>
       </ImageView>
     </children>

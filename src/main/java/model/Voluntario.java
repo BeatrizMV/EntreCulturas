@@ -1,4 +1,4 @@
-package root;
+package model;
 
 import enums.LineaAccion;
 import enums.Rol;

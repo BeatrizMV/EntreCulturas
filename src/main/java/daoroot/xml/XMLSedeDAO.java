@@ -1,7 +1,7 @@
 package daoroot.xml;
 
 import exceptions.DaoException;
-import root.Sede;
+import model.Sede;
 
 import java.lang.reflect.InvocationTargetException;
 

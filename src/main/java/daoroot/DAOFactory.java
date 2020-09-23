@@ -1,8 +1,8 @@
 package daoroot;
 
-import root.Proyecto;
-import root.Sede;
-import root.Voluntario;
+import model.Proyecto;
+import model.Sede;
+import model.Voluntario;
 
 public abstract class DAOFactory {
     public static final int XML = 1;

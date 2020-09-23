@@ -2,7 +2,7 @@ package daoroot.xml;
 
 import exceptions.DaoException;
 import others.Helper;
-import root.Voluntario;
+import model.Voluntario;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
