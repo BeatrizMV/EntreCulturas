@@ -32,13 +32,9 @@ public class bootstrapView extends Application {
             @Override
             public void handle(MouseEvent event) {
                 primaryStage.setX(event.getSceneX() - xOffset);
-                primaryStage.setY(event.getSceneY() - xOffset);
+                primaryStage.setY(event.getSceneY() - yOffset);
             }
         });
-
-
-
-
 
         //Con esta line hacemos que lo blanco de nuestro menu sea transparente
         primaryStage.initStyle(StageStyle.TRANSPARENT);
@@ -47,9 +43,9 @@ public class bootstrapView extends Application {
         //cremos una scena para darle el color transparente
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
-        //con esta linea creamos la escena que nos coja el diseño que tenemos, en caso de querer dar un tamaño concreto usamos (new Scene(root, 500, 450));
+        //con esta linea creamos la escena que nos coja el diseño que tenemos,
+        // en caso de querer dar un tamaño concreto usamos (new Scene(root, 500, 450));
         primaryStage.setScene(scene);
-        //primaryStage.setScene(new Scene(root, 500, 450));
         primaryStage.show();
     }
 
