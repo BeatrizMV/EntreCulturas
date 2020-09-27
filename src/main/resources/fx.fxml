@@ -215,7 +215,7 @@
             <TextField layoutX="407.0" layoutY="208.0" prefHeight="25.0" prefWidth="101.0" />
             <TextField layoutX="369.0" layoutY="137.0" prefHeight="25.0" prefWidth="42.0" />
             <TextField layoutX="447.0" layoutY="137.0" prefHeight="25.0" prefWidth="61.0" />
-            <ChoiceBox layoutX="162.0" layoutY="137.0" prefHeight="25.0" prefWidth="101.0" />
+            <ChoiceBox fx:id="choiceBoxAcciones" layoutX="162.0" layoutY="137.0" prefHeight="25.0" prefWidth="101.0" />
          </children></AnchorPane>
       <AnchorPane fx:id="updatePanel" layoutX="-4.0" layoutY="111.0" prefHeight="299.0" prefWidth="614.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
@@ -297,7 +297,7 @@
             <TextField layoutX="407.0" layoutY="225.0" prefHeight="25.0" prefWidth="101.0" />
             <TextField layoutX="369.0" layoutY="154.0" prefHeight="25.0" prefWidth="42.0" />
             <TextField layoutX="447.0" layoutY="154.0" prefHeight="25.0" prefWidth="61.0" />
-            <ChoiceBox layoutX="162.0" layoutY="152.0" prefWidth="101.0" />
+            <ChoiceBox fx:id="choiceBoxModificar" layoutX="162.0" layoutY="152.0" prefWidth="101.0" />
             <Label layoutX="24.0" layoutY="42.0" prefHeight="25.0" prefWidth="287.0" text="Introduzca el Id del proyecto a modificar" textAlignment="CENTER" textFill="#f8f5f5">
                <font>
                   <Font size="14.0" />

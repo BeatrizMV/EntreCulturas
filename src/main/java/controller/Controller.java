@@ -1,12 +1,19 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller implements Initializable {
 
     //id de las imagenes de las flechas para que queden enlazadas
     @FXML private ImageView userArrow;
@@ -20,6 +27,24 @@ public class Controller {
     @FXML private AnchorPane insertPanel;
     @FXML private AnchorPane updatePanel;
     @FXML private AnchorPane deletePanel;
+    //id para los choiceBox del panel insertar y modificar
+    @FXML private ChoiceBox <String> choiceBoxAcciones;
+    @FXML private ChoiceBox <String> choiceBoxModificar;
+
+    ObservableList<String> choiceBoxIDContent =
+            FXCollections.observableArrayList(
+                    "Cooperacion desarrollo",
+                    "Accion humanitaria",
+                    "Fortalecimiento institucional",
+                            "Educacion desarrollo"
+            );
+
+    //Metodo para poder inicializar todos nuestros atributos graficos
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        choiceBoxAcciones.setItems(choiceBoxIDContent);
+        choiceBoxModificar.setItems(choiceBoxIDContent);
+    }
 
     //boton de salida de la aplicacion
     public void onExitButtonClicked(MouseEvent event){
@@ -134,6 +159,7 @@ public class Controller {
         updateArrow.setVisible(false);
 
     }
+
 
 
 }
