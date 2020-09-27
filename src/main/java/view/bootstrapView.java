@@ -1,19 +1,45 @@
 package view;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class bootstrapView extends Application {
 
+    private double xOffset;
+    private double yOffset;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         //con esta linea unimos con fxml
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fx.fxml"));
+
+        /** Metodos para mover la aplicacion **/
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneY();
+                yOffset = event.getSceneY();
+            }
+        });
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getSceneX() - xOffset);
+                primaryStage.setY(event.getSceneY() - xOffset);
+            }
+        });
+
+
+
+
+
         //Con esta line hacemos que lo blanco de nuestro menu sea transparente
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         //con esta linea le damos el nombre

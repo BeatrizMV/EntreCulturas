@@ -13,7 +13,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="56.0" onMouseClicked="#onUserButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/usuario.png" />
                      </image>
@@ -22,7 +22,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#onListButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/leer.png" />
                      </image>
@@ -31,7 +31,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="61.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="61.0" layoutY="10.0" onMouseClicked="#onInsertButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/insertar.png" />
                      </image>
@@ -40,7 +40,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="112.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="112.0" layoutY="10.0" onMouseClicked="#onUpdateButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/modificar.png" />
                      </image>
@@ -49,7 +49,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="163.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="163.0" layoutY="10.0" onMouseClicked="#onDeleteButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/borrar.png" />
                      </image>
@@ -58,7 +58,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="214.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="214.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#onExitButtonClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/salida.png" />
                      </image>
@@ -69,7 +69,7 @@
                   <Separator prefWidth="200.0" visible="false" />
                </children></HBox>
          </children></AnchorPane>
-      <AnchorPane prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="userPanel" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <TextField layoutX="276.0" layoutY="61.0" />
             <TextField layoutX="276.0" layoutY="104.0" />
@@ -102,7 +102,7 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane layoutY="100.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="listPanel" layoutY="100.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="41.0" layoutY="71.0" prefHeight="25.0" prefWidth="274.0" text="Introduzca el Id del proyecto" textAlignment="CENTER" textFill="#f8f5f5">
                <font>
@@ -135,7 +135,7 @@
               </content>
             </ScrollPane>
          </children></AnchorPane>
-      <AnchorPane layoutY="102.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="insertPanel" layoutY="102.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="220.0" layoutY="14.0" text="Nuevo Proyecto" textAlignment="CENTER" textFill="#f8f5f5" underline="true">
                <font>
@@ -217,7 +217,7 @@
             <TextField layoutX="447.0" layoutY="137.0" prefHeight="25.0" prefWidth="61.0" />
             <ChoiceBox layoutX="162.0" layoutY="137.0" prefHeight="25.0" prefWidth="101.0" />
          </children></AnchorPane>
-      <AnchorPane layoutX="-4.0" layoutY="111.0" prefHeight="299.0" prefWidth="614.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="updatePanel" layoutX="-4.0" layoutY="111.0" prefHeight="299.0" prefWidth="614.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="220.0" layoutY="6.0" text="Modificar Proyecto" textAlignment="CENTER" textFill="#f8f5f5" underline="true">
                <font>
@@ -314,7 +314,7 @@
                </graphic></Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="10.0" layoutY="111.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="deletePanel" layoutX="10.0" layoutY="111.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="42.0" layoutY="54.0" prefHeight="25.0" prefWidth="274.0" text="Introduzca el Id del proyecto" textAlignment="CENTER" textFill="#f8f5f5">
                <font>
@@ -344,27 +344,27 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="54.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="userArrow" fitHeight="26.0" fitWidth="30.0" layoutX="54.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/flecha.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="148.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="listArrow" fitHeight="26.0" fitWidth="30.0" layoutX="148.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/flecha.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="241.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="insertArrow" fitHeight="26.0" fitWidth="30.0" layoutX="241.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/flecha.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="330.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="updateArrow" fitHeight="26.0" fitWidth="30.0" layoutX="330.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/flecha.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="428.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="deleteArrow" fitHeight="26.0" fitWidth="30.0" layoutX="428.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@images/flecha.png" />
          </image>
