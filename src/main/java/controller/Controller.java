@@ -5,7 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +32,53 @@ public class Controller implements Initializable {
     //id para los choiceBox del panel insertar y modificar
     @FXML private ChoiceBox <String> choiceBoxAcciones;
     @FXML private ChoiceBox <String> choiceBoxModificar;
+    //id casillas a rellenar usuario
+    @FXML private TextField userText;
+    @FXML private TextField passText;
+    //id casillas a rellenar listado
+    @FXML private TextField listIdText;
+    //@FXML private TextField listProyectos;
+    //id casillas a rellenar insertar
+    @FXML private TextField insertNombre;
+    @FXML private TextField insertSocio;
+    @FXML private TextField insertObservaciones;
+    @FXML private TextField insertTipoVia;
+    @FXML private TextField insertNombreVia;
+    @FXML private TextField insertProvincia;
+    @FXML private TextField insertPais;
+    @FXML private TextField insertNumero;
+    @FXML private TextField insertCP;
+    //id casillas a rellenar update
+    @FXML private TextField updateID;
+    @FXML private TextField updateNombre;
+    @FXML private TextField updateSocio;
+    @FXML private TextField updateObservaciones;
+    @FXML private TextField updateTipoVia;
+    @FXML private TextField updateNombreVia;
+    @FXML private TextField updateProvincia;
+    @FXML private TextField updatePais;
+    @FXML private TextField updateNumero;
+    @FXML private TextField updateCP;
+    //id casillas a rellenar delate
+    @FXML private TextField deleteID;
+    //@FXML private TextField deleteProyecto;
+    //id botones usuario
+    @FXML private Button userButtonEnviar;
+    //id botones listar
+    @FXML private Button listIDButton;
+    @FXML private Button listButtonProyectos;
+    //id botones insertar
+    @FXML private Button insertButton;
+    //id botones modificar
+    @FXML private Button updateButton;
+    @FXML private Button updateIDButton;
+    //id botones delete
+    @FXML private Button deleteButtonID;
+    @FXML private Button deleteButtonEliminar;
+    //id data insertar
+    //insertDateInicio
+    //insertDateFinal
+    //id data modificar
 
     ObservableList<String> choiceBoxIDContent =
             FXCollections.observableArrayList(
