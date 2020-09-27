@@ -71,14 +71,14 @@
          </children></AnchorPane>
       <AnchorPane prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField layoutX="276.0" layoutY="54.0" />
-            <TextField layoutX="276.0" layoutY="102.0" />
-            <Label layoutX="106.0" layoutY="57.0" text="Usuario" textFill="#f8f5f5">
+            <TextField layoutX="276.0" layoutY="61.0" />
+            <TextField layoutX="276.0" layoutY="104.0" />
+            <Label layoutX="106.0" layoutY="61.0" text="Usuario" textFill="#f8f5f5">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="107.0" layoutY="96.0" text="Contraseña" textFill="#f8f5f5">
+            <Label layoutX="107.0" layoutY="101.0" text="Contraseña" textFill="#f8f5f5">
                <font>
                   <Font size="18.0" />
                </font>
@@ -94,6 +94,11 @@
             <Label layoutX="148.0" layoutY="211.0" text="Para su correcto funcionamiento la BBDD deberá estar vacía" textFill="#f8f5f5">
                <font>
                   <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="223.0" layoutY="1.0" text="Entreculturas" textAlignment="CENTER" textFill="#f8f5f5" underline="true">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Label>
          </children></AnchorPane>

@@ -4,45 +4,32 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class bootstrapView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //TODO Esta es la línea que tenemos que conseguir hacer que funcione que es donde se enlaza el fxml
+        //con esta linea unimos con fxml
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fx.fxml"));
-
-        //TODO Con esta linea compila pero al no estar enlazado el fxml no se ve el contenido de la interfaz pero si el scenario. Cuando funcione la de arriba boirrar esta
-        // StackPane root = new StackPane();
-
+        //Con esta line hacemos que lo blanco de nuestro menu sea transparente
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
         //con esta linea le damos el nombre
         primaryStage.setTitle("Entreculturas");
-
+        //cremos una scena para darle el color transparente
+        Scene scene = new Scene(root);
+        scene.setFill(Color.TRANSPARENT);
+        //con esta linea creamos la escena que nos coja el diseño que tenemos, en caso de querer dar un tamaño concreto usamos (new Scene(root, 500, 450));
+        primaryStage.setScene(scene);
+        //primaryStage.setScene(new Scene(root, 500, 450));
         primaryStage.show();
-
-        //TODO Lineas a descomentar cuando consigamos que funcione el código
-
-        //Con esta line hacemos que lo blanco de la ventana sea transparente
-        //primaryStage.initStyle(StageStyle.TRANSPARENT);
-
-        //con esta linea le damos un color trasparente
-        //Scene scene = new Scene(root);
-        //scene.setFill(Color.TRANSPARENT);
-
-        primaryStage.setScene(new Scene(root, 500, 450));
-        //Cuando funcione eliminamos la linea de arriba y ponemos la de abajo
-        //primaryStage.setScene(scene);
-
-
     }
-
 
     public static void startView(String args[]){
         Application.launch(args);
     }
-
 
 }
 
