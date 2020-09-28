@@ -3,12 +3,11 @@ package controller;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -19,14 +18,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-
-    //id de las imagenes de las flechas para que queden enlazadas
+    //enlazar imagenes del fxml con los id
+    //id de las imagenes de las flechas
     @FXML private ImageView userArrow;
     @FXML private ImageView listArrow;
     @FXML private ImageView insertArrow;
     @FXML private ImageView updateArrow;
     @FXML private ImageView deleteArrow;
-    //id de las imagenes de los paneles para que queden enlazadas
+    //id de las imagenes de los paneles
     @FXML private AnchorPane userPanel;
     @FXML private AnchorPane listPanel;
     @FXML private AnchorPane insertPanel;
@@ -40,7 +39,7 @@ public class Controller implements Initializable {
     @FXML private TextField passText;
     //id casillas a rellenar listado
     @FXML private TextField listIdText;
-    //@FXML private TextField listProyectos;
+    @FXML private ScrollPane listProyectos;
     //id casillas a rellenar insertar
     @FXML private TextField insertNombre;
     @FXML private TextField insertSocio;
@@ -64,7 +63,7 @@ public class Controller implements Initializable {
     @FXML private TextField updateCP;
     //id casillas a rellenar delate
     @FXML private TextField deleteID;
-    //@FXML private TextField deleteProyecto;
+    @FXML private ScrollPane deleteProyecto;
     //id botones usuario
     @FXML private Button userButtonEnviar;
     //id botones listar
@@ -79,12 +78,17 @@ public class Controller implements Initializable {
     @FXML private Button deleteButtonID;
     @FXML private Button deleteButtonEliminar;
     //id data insertar
-    //insertDateInicio
-    //insertDateFinal
+    @FXML private DatePicker insertDateInicio;
+    @FXML private DatePicker insertDateFinal;
     //id data modificar
+    @FXML private DatePicker updateDateInicio;
+    @FXML private DatePicker updateDateFinal;
 
+    //las opciones que aparecedaran en nuestro choiceBox
     ObservableList<String> choiceBoxIDContent =
             FXCollections.observableArrayList(
+
+
                     "Cooperacion desarrollo",
                     "Accion humanitaria",
                     "Fortalecimiento institucional",
@@ -290,5 +294,94 @@ public class Controller implements Initializable {
             }
         }
     };
+
+    //botones de enviar panel usuario
+    public void onSaveButtonCliked(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (userText.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Guardar datos");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }
+
+    }
+
+    //botones de enviar panel idList
+    public void onSaveButtonClikedList(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (listIdText.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Guardar datos");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }
+    }
+
+    //botones de enviar panel insert
+    public void onSaveButtonClikedInsert(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (insertNombre.getText().isEmpty()
+            || insertSocio.getText().isEmpty()
+            || insertObservaciones.getText().isEmpty()
+            || insertTipoVia.getText().isEmpty()
+            || insertNombreVia.getText().isEmpty()
+            || insertNumero.getText().isEmpty()
+            || insertCP.getText().isEmpty()
+            || insertPais.getText().isEmpty()
+            || insertProvincia.getText().isEmpty()
+            || choiceBoxAcciones.getValue() == null
+            || insertDateInicio.getValue() == null
+            || insertDateFinal.getValue() == null
+        ){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Guardar datos");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }
+    }
+    //botones de modificar panel update
+    public void onSaveButtonClikedUpdate(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (updateNombre.getText().isEmpty()
+                || updateSocio.getText().isEmpty()
+                || updateObservaciones.getText().isEmpty()
+                || updateTipoVia.getText().isEmpty()
+                || updateNombreVia.getText().isEmpty()
+                || updateNumero.getText().isEmpty()
+                || updateCP.getText().isEmpty()
+                || updatePais.getText().isEmpty()
+                || updateProvincia.getText().isEmpty()
+                || choiceBoxModificar.getValue() == null
+                || updateDateInicio.getValue() == null
+                || updateDateFinal.getValue() == null
+        ){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Guardar datos");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }
+    }
+    //botones de enviar panel idUpdate
+    public void onSaveButtonClikedIdUpdate(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (updateID.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Guardar datos");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }
+    }
+
+    //botones de enviar panel idDelete
+    public void onSaveButtonClikedIdDelete(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (deleteID.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Guardar datos");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }
+    }
 
 }
