@@ -1,4 +1,4 @@
-package root;
+package model;
 
 public class Direccion {
     private String tipoVia;

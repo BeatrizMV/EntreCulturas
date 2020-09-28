@@ -3,7 +3,7 @@ package daoroot.xml;
 import enums.LineaAccion;
 import enums.SublineaAccion;
 import exceptions.DaoException;
-import root.Proyecto;
+import model.Proyecto;
 
 import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;

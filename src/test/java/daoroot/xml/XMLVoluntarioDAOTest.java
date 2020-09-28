@@ -6,7 +6,7 @@ import daoroot.DAOFactory;
 import exceptions.DaoException;
 import org.junit.jupiter.api.*;
 import others.Helper;
-import root.Voluntario;
+import model.Voluntario;
 import enums.Rol;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
