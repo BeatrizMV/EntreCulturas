@@ -1,8 +1,8 @@
-package root;
-
-import java.time.LocalDate;
+package model;
 
 import enums.ProcedenciaPublico;
+
+import java.time.LocalDate;
 
 public class IngresoPublico extends Ingreso {
 

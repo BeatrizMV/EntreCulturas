@@ -3,7 +3,7 @@ package root;
 import enums.Rol;
 import org.junit.jupiter.api.Test;
 
-import root.Admin;
+import model.Admin;
 
 import static org.junit.jupiter.api.Assertions.*;
 

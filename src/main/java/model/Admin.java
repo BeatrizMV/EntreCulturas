@@ -1,4 +1,12 @@
-package root;
+package model;
+
+import daoroot.DAO;
+import daoroot.DAOFactory;
+import enums.LineaAccion;
+import enums.Rol;
+import enums.SublineaAccion;
+import exceptions.DaoException;
+import others.Helper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,14 +18,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
-import daoroot.DAO;
-import daoroot.DAOFactory;
-import enums.LineaAccion;
-import enums.Rol;
-import enums.SublineaAccion;
-import exceptions.DaoException;
-import others.Helper;
 
 import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 import static enums.Rol.ADMIN;

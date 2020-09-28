@@ -1,8 +1,8 @@
-package root;
-
-import java.util.Date;
+package model;
 
 import enums.TipoCuota;
+
+import java.util.Date;
 
 public class CuotaSocio {
     //Atributos

@@ -2,9 +2,7 @@ package daoroot.db;
 
 import DBConnector.DBConnector;
 import daoroot.DAO;
-import root.Proyecto;
-import root.Voluntario;
-import root.MiembroEquipo;
+import model.Voluntario;
 import enums.Rol;
 
 import java.lang.reflect.InvocationTargetException;

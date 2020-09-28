@@ -1,8 +1,6 @@
-package root;
+package model;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 
