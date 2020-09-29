@@ -2,10 +2,12 @@ package model;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import java.io.Serializable;
+
 import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 
 @XmlRootElement(name="sede")
-public class Sede {
+public class Sede implements Serializable {
     private int id;
     private String nombreSede;
     private Direccion direccion = new Direccion();

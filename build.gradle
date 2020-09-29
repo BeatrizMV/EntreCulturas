@@ -51,6 +51,7 @@ sourceSets {
 dependencies {
     implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
     implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    implementation 'org.hibernate:hibernate-java8:5.4.21.Final'
     compile(group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.2') {
         exclude group: 'jakarta.activation', module: 'jakarta.activation-api'
     }

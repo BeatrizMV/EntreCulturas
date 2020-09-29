@@ -2,9 +2,12 @@ package model;
 
 import enums.Rol;
 
+import java.io.Serializable;
+
 import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 
-public class Persona {
+public class Persona implements Serializable {
+
 
     /* Atributos
      */

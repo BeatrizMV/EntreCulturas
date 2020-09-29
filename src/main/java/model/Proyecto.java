@@ -4,23 +4,44 @@ import enums.LineaAccion;
 import enums.SublineaAccion;
 import others.LocalDateAdapter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @XmlRootElement
-public class Proyecto {
+@Entity
+@Table(name = "proyectos")
+public class Proyecto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @Column (name = "idCodigoProyecto")
     private int id;
+    @Column(name = "nombreProyecto")
     private String nombreProyecto;
+    @Column (name = "localizacion")
     private Direccion localizacion = new Direccion();
+    @Column (name = "fk_lineaAccion")
     private LineaAccion lineaAccion;
+    @Column (name = "fk_subLineaAccion")
     private SublineaAccion sublineaAccion;
+    @Column (name = "fechaInicio")
     private LocalDate fechaInicio;
+    @Column (name = "fechaFinal")
     private LocalDate fechaFin;
+    @Column (name = "socioLocal")
     private String SocioLocal;
+    @Column (name = "accionesRealizar")
     private String accionesRealizar;
+
     private List<MiembroEquipo> miembrosEquipo;
 
     public Proyecto(int id, String nombreProyecto, LineaAccion lineaAccion, SublineaAccion sublineaAccion, LocalDate fechaInicio, LocalDate fechaFin, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
