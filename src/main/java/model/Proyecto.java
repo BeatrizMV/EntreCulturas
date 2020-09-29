@@ -19,7 +19,7 @@ public class Proyecto {
     private SublineaAccion sublineaAccion;
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private String SocioLocal;
+    private String socioLocal;
     private String accionesRealizar;
     private List<MiembroEquipo> miembrosEquipo;
 
@@ -132,11 +132,11 @@ public class Proyecto {
 
     @XmlElement
     public String getSocioLocal() {
-        return SocioLocal;
+        return socioLocal;
     }
 
     public Proyecto setSocioLocal(String socioLocal) {
-        SocioLocal = socioLocal;
+        this.socioLocal = socioLocal;
         return this;
     }
 
@@ -158,5 +158,25 @@ public class Proyecto {
     public Proyecto setMiembrosEquipo(List<MiembroEquipo> miembrosEquipo) {
         this.miembrosEquipo = miembrosEquipo;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        String bloqueId = this.id == 0 ? "" : "Id: " + this.id + "\n";
+        return bloqueId +
+                "Nombre proyecto: " +
+                this.nombreProyecto +
+                "\nLinea de accion: " +
+                this.lineaAccion +
+                "\nFecha de inicio: " +
+                this.fechaInicio.toString() +
+                "\nFecha fin: " +
+                this.fechaFin.toString() +
+                "\nSocio local: " +
+                this.socioLocal +
+                "\nAcciones a realizar: " +
+                this.accionesRealizar +
+                "\nDireccion: " +
+                this.localizacion.toString();
     }
 }

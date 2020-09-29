@@ -1,5 +1,8 @@
 package controller;
 
+import daoroot.DAO;
+import daoroot.DAOFactory;
+import exceptions.DaoException;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,8 +16,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.Proyecto;
+import model.Voluntario;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -63,7 +69,7 @@ public class Controller implements Initializable {
     @FXML private TextField updateCP;
     //id casillas a rellenar delate
     @FXML private TextField deleteID;
-    @FXML private ScrollPane deleteProyecto;
+    @FXML private TextArea deleteProyecto;
     //id botones usuario
     @FXML private Button userButtonEnviar;
     //id botones listar
@@ -83,6 +89,10 @@ public class Controller implements Initializable {
     //id data modificar
     @FXML private DatePicker updateDateInicio;
     @FXML private DatePicker updateDateFinal;
+
+    //instanciamos los DAOFactory
+    private DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
+    private DAO<Proyecto> proyectoDAO = DAOFactory.getDAOFactory(DAOFactory.DB).getProyectoDAO();
 
     //las opciones que aparecedaran en nuestro choiceBox
     ObservableList<String> choiceBoxIDContent =
@@ -367,7 +377,7 @@ public class Controller implements Initializable {
         //si el usuario se deja algún campo vacio
         if (updateID.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            alert.setTitle("Obtener proyecto por Id");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
         }
@@ -377,10 +387,50 @@ public class Controller implements Initializable {
     public void onSaveButtonClikedIdDelete(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (deleteID.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Guardar datos");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else{
+            try {
+                //cogemos el id del proyecto
+                Optional<Proyecto> p = proyectoDAO.findById(Integer.parseInt(deleteID.getText()));
+                if (p.isPresent()){
+                    //mostramos el proyecto
+                    Proyecto pro = p.get();
+                    deleteProyecto.setText(pro.toString());
+                } else {
+                    deleteProyecto.setText("No existe proyecto con ese ID");
+                }
+
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error buscando proyecto por ID");
+            }
+        }
+    }
+
+    //botones de eliminar panel delete
+    public void onSaveButtonClikedDelete(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (deleteID.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Eliminar proyecto");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }else {
+            try {
+                //cogemos el id y lo eliminamos
+                proyectoDAO.deleteById(Integer.parseInt(deleteID.getText()));
+                //si el usuario se deja algún campo vacio
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Eliminar proyecto");
+                alert.setContentText("Ha eliminado el proyecto");
+                alert.showAndWait();
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error eliminando proyecto por ID");
+            }
         }
     }
 
