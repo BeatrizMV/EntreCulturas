@@ -20,6 +20,7 @@ import model.Proyecto;
 import model.Voluntario;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -42,10 +43,10 @@ public class Controller implements Initializable {
     @FXML private ChoiceBox <String> choiceBoxModificar;
     //id casillas a rellenar usuario
     @FXML private TextField userText;
-    @FXML private TextField passText;
+    @FXML private PasswordField passText;
     //id casillas a rellenar listado
     @FXML private TextField listIdText;
-    @FXML private ScrollPane listProyectos;
+    @FXML private TextArea listProyect;
     //id casillas a rellenar insertar
     @FXML private TextField insertNombre;
     @FXML private TextField insertSocio;
@@ -316,15 +317,49 @@ public class Controller implements Initializable {
         }
 
     }
-
-    //botones de enviar panel idList
-    public void onSaveButtonClikedList(ActionEvent event){
+    //Panel listar
+    //boton de enviar por id
+    public void buttonIdList(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (listIdText.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            alert.setTitle("Mostrar poryecto por IdD");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else{
+            try {
+                //cogemos el id del proyecto
+                Optional<Proyecto> p = proyectoDAO.findById(Integer.parseInt(listIdText.getText()));
+                if (p.isPresent()){
+                    //mostramos el proyecto
+                    Proyecto pro = p.get();
+                    listProyect.setText(pro.toString());
+                } else {
+                    listProyect.setText("No existe proyecto con ese ID");
+                }
+
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error buscando proyecto por ID");
+            }
+        }
+    }
+
+    //Panel listar
+    //boton de mostrar todos
+    public void buttonListAll(ActionEvent event){
+        try {
+            //mostramos todos los proyectos. Los recogemos en una lista
+            List<Proyecto> lista = proyectoDAO.listAll();
+            String strLista = "";
+            for (Proyecto p : lista){
+                strLista = strLista + p.toString() + "\n------------------------\n";
+            }
+            //mostramos todos los proyectos de la lista
+            listProyect.setText(strLista);
+        } catch (DaoException e) {
+            e.printStackTrace();
+            System.out.println("Error al mostrar todos los proyectos");
         }
     }
 
@@ -383,12 +418,13 @@ public class Controller implements Initializable {
         }
     }
 
-    //botones de enviar panel idDelete
-    public void onSaveButtonClikedIdDelete(ActionEvent event){
+    //Panel delete
+    //botones de enviar id
+    public void buttonIdDelete(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (deleteID.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Guardar datos");
+            alert.setTitle("Id poryecto a borrar");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
         }else{
@@ -410,8 +446,9 @@ public class Controller implements Initializable {
         }
     }
 
-    //botones de eliminar panel delete
-    public void onSaveButtonClikedDelete(ActionEvent event){
+    //Panel delete
+    //botones de eliminar
+    public void buttonDelete(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (deleteID.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
