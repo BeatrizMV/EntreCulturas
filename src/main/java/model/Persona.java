@@ -2,32 +2,73 @@ package model;
 
 import enums.Rol;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 
+@Entity
+@Table (name = "Personas")
 public class Persona implements Serializable {
 
 
     /* Atributos
      */
+
+    @Id
+    @GeneratedValue
+    @Column (name= "idPersonas")
     private int id;
+
+    @Column (name= "dni")
     private String dni;
+
+    @Column (name= "nombre")
     private String nombre;
+
+    @Column (name = "apellido1")
     private String apellido1;
+
+    @Column (name = "apellido2")
     private String apellido2;
+
+    @Column (name = "tipoVia")
     private String tipoVia;
+
+    @Column (name = "via")
     private String via;
+
+    @Column (name = "num")
     private int num;
+
+    @Column (name= "provincia")
     private String provincia;
+
+    @Column (name = "cp")
     private int cp;
+
+    @Column (name = "pais")
     private String pais;
+
+    @Column (name = "observaciones")
     private String observaciones;
+
+    @Column (name = "telefono")
     private String telefono;
+
+    @Column (name = "email")
     private String email;
+
+    @Column (name = "usuario")
     private String usuario;
+
+    @Column (name = "password")
     private String password;
+
+    @Column (name = "rol")
     private Rol rol;
+
+
     private Direccion direccion = new Direccion();
 
     /*Método constructor

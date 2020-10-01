@@ -16,7 +16,7 @@ public class testProyectos {
     public static void main(String[] args){
         //Crea el gestor de persistencia EM
         manager  = emf.createEntityManager();
-        insertInit();
+        //insertInit();
 
         manager.getTransaction().begin();
         Proyecto p =manager.find(Proyecto.class, 10);
