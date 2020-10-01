@@ -2,6 +2,8 @@ package controller;
 
 import daoroot.DAO;
 import daoroot.DAOFactory;
+import enums.LineaAccion;
+import enums.SublineaAccion;
 import exceptions.DaoException;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -51,6 +53,7 @@ public class Controller implements Initializable {
     @FXML private TextField insertNombre;
     @FXML private TextField insertSocio;
     @FXML private TextField insertObservaciones;
+    @FXML private TextField insertAccionesRealizar;
     @FXML private TextField insertTipoVia;
     @FXML private TextField insertNombreVia;
     @FXML private TextField insertProvincia;
@@ -100,10 +103,10 @@ public class Controller implements Initializable {
             FXCollections.observableArrayList(
 
 
-                    "Cooperacion desarrollo",
-                    "Accion humanitaria",
-                    "Fortalecimiento institucional",
-                            "Educacion desarrollo"
+                    "COOPERACION_DESARROLLO",
+                    "ACCION_HUMANITARIA",
+                    "FORTALECIMIENTO_INSTITUCIONAL",
+                            "EDUCACION_DESARROLLO"
             );
 
     //Metodo para poder inicializar todos nuestros atributos graficos
@@ -364,7 +367,7 @@ public class Controller implements Initializable {
     }
 
     //botones de enviar panel insert
-    public void onSaveButtonClikedInsert(ActionEvent event){
+    public void buttonInsert(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (insertNombre.getText().isEmpty()
             || insertSocio.getText().isEmpty()
@@ -383,6 +386,33 @@ public class Controller implements Initializable {
             alert.setTitle("Guardar datos");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        } else {
+            Proyecto proyectoAInsertar = new Proyecto(
+                    insertNombre.getText(),
+                    LineaAccion.valueOf(choiceBoxAcciones.getValue()),
+                    SublineaAccion.NINGUNA,
+                    insertDateInicio.getValue(),
+                    insertDateFinal.getValue(),
+                    insertSocio.getText(),
+                    insertAccionesRealizar.getText(),
+                    insertTipoVia.getText(),
+                    insertNombreVia.getText(),
+                    Integer.parseInt(insertNumero.getText()),
+                    insertProvincia.getText(),
+                    Integer.parseInt(insertCP.getText()),
+                    insertPais.getText(),
+                    insertObservaciones.getText()
+                    );
+            try {
+                proyectoDAO.create(proyectoAInsertar);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Proyecto creado!");
+                alert.setContentText("Proyecto creado correctamente!");
+                alert.showAndWait();
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error insertando nuevo proyecto" + proyectoAInsertar.toString());
+            }
         }
     }
     //botones de modificar panel update
