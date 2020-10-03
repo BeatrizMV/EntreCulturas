@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import model.Proyecto;
 import model.Voluntario;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -65,6 +66,7 @@ public class Controller implements Initializable {
     @FXML private TextField updateNombre;
     @FXML private TextField updateSocio;
     @FXML private TextField updateObservaciones;
+    @FXML private TextField updateAccionesRealizar;
     @FXML private TextField updateTipoVia;
     @FXML private TextField updateNombreVia;
     @FXML private TextField updateProvincia;
@@ -432,19 +434,77 @@ public class Controller implements Initializable {
                 || updateDateFinal.getValue() == null
         ){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            alert.setTitle("Mostrar poryecto por ID");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else {
+
+            try {
+                int id = Integer.parseInt(updateID.getText());
+                String direccion = updateTipoVia.getText() + "#"
+                        + updateNombreVia.getText()+ "#"
+                        + Integer.parseInt(updateNumero.getText()) + "#"
+                        + updateProvincia.getText()  + "#"
+                        + Integer.parseInt(updateCP.getText()) + "#"
+                        + updatePais.getText() + "#"
+                        + updateObservaciones.getText();
+
+                proyectoDAO.updateFieldById(1, updateNombre.getText(), id);
+                proyectoDAO.updateFieldById(2, direccion, id);
+                proyectoDAO.updateFieldById(3, LineaAccion.valueOf(choiceBoxModificar.getValue()).toString(), id);
+                proyectoDAO.updateFieldById(4, null , id);
+                proyectoDAO.updateFieldById(5, updateDateInicio.getValue().toString(), id);
+                proyectoDAO.updateFieldById(6, updateDateFinal.getValue().toString(), id);
+                proyectoDAO.updateFieldById(7, updateSocio.getText(), id);
+                proyectoDAO.updateFieldById(8, updateAccionesRealizar.getText(), id);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Modificar proyecto");
+                alert.setContentText("Proyecto modificado!");
+                alert.showAndWait();
+            } catch (DaoException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException | NoSuchFieldException e) {
+                e.printStackTrace();
+                System.out.println("Error modificando el proyecto");
+            }
         }
+
     }
+
     //botones de enviar panel idUpdate
-    public void onSaveButtonClikedIdUpdate(ActionEvent event){
+    public void buttonIdUpdate(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (updateID.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Obtener proyecto por Id");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else {
+            try {
+                //cogemos el id del proyecto
+                Optional<Proyecto> p = proyectoDAO.findById(Integer.parseInt(updateID.getText()));
+                if (p.isPresent()) {
+                    //mostramos el proyecto
+                    Proyecto pro = p.get();
+                    updateNombre.setText(pro.getNombreProyecto());
+                    choiceBoxModificar.setValue(pro.getLineaAccion().name());
+                    updateDateInicio.setValue(pro.getFechaInicio());
+                    updateDateFinal.setValue(pro.getFechaFin());
+                    updateSocio.setText(pro.getSocioLocal());
+                    updateAccionesRealizar.setText(pro.getAccionesRealizar());
+                    updateTipoVia.setText(pro.getLocalizacion().getTipoVia());
+                    updateNombreVia.setText(pro.getLocalizacion().getVia());
+                    updateNumero.setText(String.valueOf(pro.getLocalizacion().getNum()));
+                    updateProvincia.setText(pro.getLocalizacion().getProvincia());
+                    updateCP.setText(String.valueOf(pro.getLocalizacion().getCodigoPostal()));
+                    updatePais.setText(pro.getLocalizacion().getPais());
+                    updateObservaciones.setText(pro.getLocalizacion().getObservaciones());
+                } else {
+                    listProyect.setText("No existe proyecto con ese ID");
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error buscando proyecto por ID");
+            }
         }
     }
 
