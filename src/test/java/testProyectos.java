@@ -1,14 +1,15 @@
 package test;
 
+/*
 import model.Proyecto;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.GregorianCalendar;
 import java.util.List;
-
+*/
 public class testProyectos {
-
+/*
     private static EntityManager manager;
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
@@ -48,6 +49,5 @@ public class testProyectos {
         for (Proyecto proy:proyectos){
             System.out.println(proy.toString());
         }
-    }
+    }*/
 }
-

@@ -27,10 +27,9 @@ public class Proyecto implements Serializable {
     private String nombreProyecto;
     @Column (name = "localizacion")
     private Direccion localizacion = new Direccion();
-    @OneToMany
-    @Column (name = "lineaAccion")
+    @Enumerated (EnumType.STRING)
     private LineaAccion lineaAccion;
-    @Column (name = "fk_subLineaAccion")
+    @Enumerated (EnumType.STRING)
     private SublineaAccion sublineaAccion;
     @Column (name = "fechaInicio")
     private LocalDate fechaInicio;
@@ -67,6 +66,9 @@ public class Proyecto implements Serializable {
     }
 
     public Proyecto() {
+    }
+
+    public <T> Proyecto(T t) {
     }
 
     @XmlElement

@@ -65,7 +65,7 @@ public class Persona implements Serializable {
     @Column (name = "password")
     private String password;
 
-    @Column (name = "rol")
+    @Enumerated(EnumType.STRING)
     private Rol rol;
 
 

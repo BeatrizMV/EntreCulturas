@@ -20,7 +20,8 @@ public class Sede implements Serializable {
     @Column (name="nombreSede")
     private String nombreSede;
 
-    @Column (name="direccion")
+    @OneToOne (cascade = {CascadeType.ALL})
+    @JoinColumn (name = "direccion")
     private Direccion direccion = new Direccion();
 
     @Column (name="telefono")

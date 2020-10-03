@@ -1,12 +1,30 @@
 package model;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Direccion")
 public class Direccion {
+
+    @Column (name = "tipoVia")
     private String tipoVia;
+    @Id
+    @Column (name = "via")
     private String via;
+    @Column (name = "num")
     private int num;
+    @Column (name = "provincia")
     private String provincia;
+    @Column (name = "cp")
     private int codigoPostal;
+    @Column (name = "pais")
     private String pais;
+    @Column (name = "observaciones")
     private String observaciones;
 
     public Direccion(String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
