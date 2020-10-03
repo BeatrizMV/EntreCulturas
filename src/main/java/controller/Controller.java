@@ -2,6 +2,14 @@ package controller;
 
 import daoroot.DAO;
 import daoroot.DAOFactory;
+import daoroot.DbDAOFactory;
+import daoroot.XMLDAOFactory;
+import daoroot.db.DbProyectoDao;
+import daoroot.db.DbSedeDao;
+import daoroot.db.DbVoluntarioDao;
+import daoroot.xml.XMLProyectoDAO;
+import daoroot.xml.XMLSedeDAO;
+import daoroot.xml.XMLVoluntarioDAO;
 import enums.LineaAccion;
 import enums.Rol;
 import enums.SublineaAccion;
@@ -20,6 +28,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import model.Proyecto;
+import model.Sede;
 import model.Voluntario;
 
 import java.lang.reflect.InvocationTargetException;
@@ -379,13 +388,73 @@ public class Controller implements Initializable {
         }
 
     }
+    //Boton volcado xml en bd
+    public void buttonVolcado(ActionEvent event) {
+        XMLDAOFactory xmlFactory = (XMLDAOFactory) DAOFactory.getDAOFactory(DAOFactory.XML);
+        XMLProyectoDAO pDao = xmlFactory.getProyectoDAO();
+        XMLSedeDAO sDao = xmlFactory.getSedeDAO();
+        XMLVoluntarioDAO vDao = xmlFactory.getVoluntarioDAO();
+
+        DbDAOFactory dbFactory = (DbDAOFactory) DAOFactory.getDAOFactory(DAOFactory.DB);
+        DbProyectoDao pbDao = dbFactory.getProyectoDAO();
+        DbSedeDao sbDao = dbFactory.getSedeDAO();
+        DbVoluntarioDao vbDao = dbFactory.getVoluntarioDAO();
+
+        List<Proyecto> proyectos = null;
+        List<Sede> sedes = null;
+        List<Voluntario> voluntarios = null;
+
+        //leemos todos los xml
+        try {
+            proyectos = pDao.listAll();
+            sedes = sDao.listAll();
+            voluntarios = vDao.listAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+
+        //escribimos en la bd la lectura recogida
+        try {
+            for (Proyecto p : proyectos) {
+                pbDao.create(p);
+            }
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+        try {
+            for (Sede s : sedes) {
+                sbDao.create(s);
+            }
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            for (Voluntario v : voluntarios) {
+                vbDao.create(v);
+            }
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Archivos volcados");
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Volcado");
+        alert.setContentText("Volcado realizado");
+        alert.showAndWait();
+    }
+
+
+
     //Panel listar
     //boton de enviar por id
     public void buttonIdList(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (listIdText.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Mostrar poryecto por IdD");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mostrar proyecto por IdD");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
         }else{
@@ -441,7 +510,7 @@ public class Controller implements Initializable {
             || insertDateInicio.getValue() == null
             || insertDateFinal.getValue() == null
         ){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Guardar datos");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
@@ -490,7 +559,7 @@ public class Controller implements Initializable {
                 || updateDateInicio.getValue() == null
                 || updateDateFinal.getValue() == null
         ){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Mostrar poryecto por ID");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
@@ -531,7 +600,7 @@ public class Controller implements Initializable {
     public void buttonIdUpdate(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (updateID.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Obtener proyecto por Id");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();

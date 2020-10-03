@@ -88,8 +88,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button layoutX="177.0" layoutY="243.0" mnemonicParsing="false" text="Si" />
-            <Button layoutX="337.0" layoutY="243.0" mnemonicParsing="false" text="No" />
+            <Button fx:id="userVolcado" layoutX="249.0" layoutY="243.0" mnemonicParsing="false" onAction="#buttonVolcado" prefHeight="25.0" prefWidth="121.0" text="Iniciar volcado" />
             <Label layoutX="148.0" layoutY="211.0" text="Para su correcto funcionamiento la BBDD deberá estar vacía" textFill="#f8f5f5">
                <font>
                   <Font size="10.0" />
