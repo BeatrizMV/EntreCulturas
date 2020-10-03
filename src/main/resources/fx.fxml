@@ -13,7 +13,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" onMouseClicked="#onUserButtonCliked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="userPanelView" fitHeight="51.0" fitWidth="56.0" onMouseClicked="#onUserButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/usuario.png" />
                      </image>
@@ -22,7 +22,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#onListButtonCliked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="listPanelView" fitHeight="51.0" fitWidth="56.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#onListButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/leer.png" />
                      </image>
@@ -31,7 +31,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="61.0" layoutY="10.0" onMouseClicked="#onInsertButtonCliked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="insertPanelView" fitHeight="51.0" fitWidth="56.0" layoutX="61.0" layoutY="10.0" onMouseClicked="#onInsertButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/insertar.png" />
                      </image>
@@ -40,7 +40,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="112.0" layoutY="10.0" onMouseClicked="#onUpdateButtonCliked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="updatePanelView" fitHeight="51.0" fitWidth="56.0" layoutX="112.0" layoutY="10.0" onMouseClicked="#onUpdateButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/modificar.png" />
                      </image>
@@ -49,7 +49,7 @@
                      </HBox.margin>
                   </ImageView>
                   <Separator prefWidth="200.0" visible="false" />
-                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="163.0" layoutY="10.0" onMouseClicked="#onDeleteButtonCliked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="deletePanelView" fitHeight="51.0" fitWidth="56.0" layoutX="163.0" layoutY="10.0" onMouseClicked="#onDeleteButtonCliked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/borrar.png" />
                      </image>
@@ -100,7 +100,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="userButtonEnviar" layoutX="474.0" layoutY="104.0" mnemonicParsing="false" onAction="#onSaveButtonCliked" text="Enviar" />
+            <Button fx:id="userButtonEnviar" layoutX="474.0" layoutY="104.0" mnemonicParsing="false" onAction="#buttonUser" text="Enviar" />
             <PasswordField fx:id="passText" layoutX="276.0" layoutY="102.0" />
          </children></AnchorPane>
       <AnchorPane fx:id="listPanel" layoutY="100.0" prefHeight="299.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -220,7 +220,7 @@
                </font>
             </Label>
          </children></AnchorPane>
-      <AnchorPane fx:id="updatePanel" layoutY="98.0" prefHeight="309.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="updatePanel" layoutY="98.0" prefHeight="309.0" prefWidth="600.0" style="-fx-background-color: #0e192b;" visible="false" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Label layoutX="220.0" layoutY="1.0" text="Modificar Proyecto" textAlignment="CENTER" textFill="#f8f5f5" underline="true">
                <font>

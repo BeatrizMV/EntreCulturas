@@ -3,6 +3,7 @@ package controller;
 import daoroot.DAO;
 import daoroot.DAOFactory;
 import enums.LineaAccion;
+import enums.Rol;
 import enums.SublineaAccion;
 import exceptions.DaoException;
 import javafx.application.Platform;
@@ -23,6 +24,7 @@ import model.Voluntario;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -96,6 +98,13 @@ public class Controller implements Initializable {
     @FXML private DatePicker updateDateInicio;
     @FXML private DatePicker updateDateFinal;
 
+    //elementos ImageView de los iconos de la cabecera
+    @FXML private ImageView userPanelView;
+    @FXML private ImageView listPanelView;
+    @FXML private ImageView insertPanelView;
+    @FXML private ImageView updatePanelView;
+    @FXML private ImageView deletePanelView;
+
     //instanciamos los DAOFactory
     private DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
     private DAO<Proyecto> proyectoDAO = DAOFactory.getDAOFactory(DAOFactory.DB).getProyectoDAO();
@@ -110,6 +119,9 @@ public class Controller implements Initializable {
                     "FORTALECIMIENTO_INSTITUCIONAL",
                             "EDUCACION_DESARROLLO"
             );
+    //declaramos variables para la sesion de usuario
+    private boolean isLogged = false;
+    private Rol userType = Rol.USER;
 
     //Metodo para poder inicializar todos nuestros atributos graficos
     @Override
@@ -142,6 +154,13 @@ public class Controller implements Initializable {
         //asocia los choiceBox
         choiceBoxAcciones.setItems(choiceBoxIDContent);
         choiceBoxModificar.setItems(choiceBoxIDContent);
+
+        //inicializa los iconos de los paneles a no visibles para despues de hacer login mostrarlos
+        listPanelView.setVisible(false);
+        insertPanelView.setVisible(false);
+        updatePanelView.setVisible(false);
+        deletePanelView.setVisible(false);
+
     }
 
     //boton de salida de la aplicacion
@@ -312,13 +331,51 @@ public class Controller implements Initializable {
     };
 
     //botones de enviar panel usuario
-    public void onSaveButtonCliked(ActionEvent event){
+    public void buttonUser(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (userText.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            alert.setTitle("Registrarse");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else{
+            //con esto cogemos la lista de voluntarios
+            DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
+            try {
+
+                ArrayList<Voluntario> listaDeVoluntarios = (ArrayList<Voluntario>) voluntarioDAO.listAll();
+                    String user = userText.getText();
+                    String password = passText.getText();
+                    for(Voluntario voluntario: listaDeVoluntarios) {
+                        if (voluntario.getUsuario().equals(user) && voluntario.getPassword().equals(password)) {
+                            isLogged = true;
+                            userType = voluntario.getRol();
+                            //si el usuario logueado es de tipo "usuario", esconder ciertos paneles
+                            if(userType.equals(Rol.USER)){
+                                listPanelView.setVisible(true);
+                                insertPanelView.setVisible(false);
+                                updatePanelView.setVisible(false);
+                                deletePanelView.setVisible(false);
+                            } else {
+                                listPanelView.setVisible(true);
+                                insertPanelView.setVisible(true);
+                                updatePanelView.setVisible(true);
+                                deletePanelView.setVisible(true);
+                            }
+                            break;
+                        }
+                    }
+                    if(isLogged == false){
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Usuario y password");
+                        alert.setContentText("Nombre de usuario y password incorrectos");
+                        alert.showAndWait();
+                    }
+
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
+
         }
 
     }
