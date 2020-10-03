@@ -1,5 +1,19 @@
 package controller;
 
+import daoroot.DAO;
+import daoroot.DAOFactory;
+import daoroot.DbDAOFactory;
+import daoroot.XMLDAOFactory;
+import daoroot.db.DbProyectoDao;
+import daoroot.db.DbSedeDao;
+import daoroot.db.DbVoluntarioDao;
+import daoroot.xml.XMLProyectoDAO;
+import daoroot.xml.XMLSedeDAO;
+import daoroot.xml.XMLVoluntarioDAO;
+import enums.LineaAccion;
+import enums.Rol;
+import enums.SublineaAccion;
+import exceptions.DaoException;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,8 +27,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.Proyecto;
+import model.Sede;
+import model.Voluntario;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -36,14 +57,15 @@ public class Controller implements Initializable {
     @FXML private ChoiceBox <String> choiceBoxModificar;
     //id casillas a rellenar usuario
     @FXML private TextField userText;
-    @FXML private TextField passText;
+    @FXML private PasswordField passText;
     //id casillas a rellenar listado
     @FXML private TextField listIdText;
-    @FXML private ScrollPane listProyectos;
+    @FXML private TextArea listProyect;
     //id casillas a rellenar insertar
     @FXML private TextField insertNombre;
     @FXML private TextField insertSocio;
     @FXML private TextField insertObservaciones;
+    @FXML private TextField insertAccionesRealizar;
     @FXML private TextField insertTipoVia;
     @FXML private TextField insertNombreVia;
     @FXML private TextField insertProvincia;
@@ -55,6 +77,7 @@ public class Controller implements Initializable {
     @FXML private TextField updateNombre;
     @FXML private TextField updateSocio;
     @FXML private TextField updateObservaciones;
+    @FXML private TextField updateAccionesRealizar;
     @FXML private TextField updateTipoVia;
     @FXML private TextField updateNombreVia;
     @FXML private TextField updateProvincia;
@@ -63,7 +86,7 @@ public class Controller implements Initializable {
     @FXML private TextField updateCP;
     //id casillas a rellenar delate
     @FXML private TextField deleteID;
-    @FXML private ScrollPane deleteProyecto;
+    @FXML private TextArea deleteProyecto;
     //id botones usuario
     @FXML private Button userButtonEnviar;
     //id botones listar
@@ -84,16 +107,30 @@ public class Controller implements Initializable {
     @FXML private DatePicker updateDateInicio;
     @FXML private DatePicker updateDateFinal;
 
+    //elementos ImageView de los iconos de la cabecera
+    @FXML private ImageView userPanelView;
+    @FXML private ImageView listPanelView;
+    @FXML private ImageView insertPanelView;
+    @FXML private ImageView updatePanelView;
+    @FXML private ImageView deletePanelView;
+
+    //instanciamos los DAOFactory
+    private DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
+    private DAO<Proyecto> proyectoDAO = DAOFactory.getDAOFactory(DAOFactory.DB).getProyectoDAO();
+
     //las opciones que aparecedaran en nuestro choiceBox
     ObservableList<String> choiceBoxIDContent =
             FXCollections.observableArrayList(
 
 
-                    "Cooperacion desarrollo",
-                    "Accion humanitaria",
-                    "Fortalecimiento institucional",
-                            "Educacion desarrollo"
+                    "COOPERACION_DESARROLLO",
+                    "ACCION_HUMANITARIA",
+                    "FORTALECIMIENTO_INSTITUCIONAL",
+                            "EDUCACION_DESARROLLO"
             );
+    //declaramos variables para la sesion de usuario
+    private boolean isLogged = false;
+    private Rol userType = Rol.USER;
 
     //Metodo para poder inicializar todos nuestros atributos graficos
     @Override
@@ -126,6 +163,13 @@ public class Controller implements Initializable {
         //asocia los choiceBox
         choiceBoxAcciones.setItems(choiceBoxIDContent);
         choiceBoxModificar.setItems(choiceBoxIDContent);
+
+        //inicializa los iconos de los paneles a no visibles para despues de hacer login mostrarlos
+        listPanelView.setVisible(false);
+        insertPanelView.setVisible(false);
+        updatePanelView.setVisible(false);
+        deletePanelView.setVisible(false);
+
     }
 
     //boton de salida de la aplicacion
@@ -296,30 +340,162 @@ public class Controller implements Initializable {
     };
 
     //botones de enviar panel usuario
-    public void onSaveButtonCliked(ActionEvent event){
+    public void buttonUser(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (userText.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            alert.setTitle("Registrarse");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else{
+            //con esto cogemos la lista de voluntarios
+            DAO<Voluntario> voluntarioDAO = DAOFactory.getDAOFactory(DAOFactory.XML).getVoluntarioDAO();
+            try {
+
+                ArrayList<Voluntario> listaDeVoluntarios = (ArrayList<Voluntario>) voluntarioDAO.listAll();
+                    String user = userText.getText();
+                    String password = passText.getText();
+                    for(Voluntario voluntario: listaDeVoluntarios) {
+                        if (voluntario.getUsuario().equals(user) && voluntario.getPassword().equals(password)) {
+                            isLogged = true;
+                            userType = voluntario.getRol();
+                            //si el usuario logueado es de tipo "usuario", esconder ciertos paneles
+                            if(userType.equals(Rol.USER)){
+                                listPanelView.setVisible(true);
+                                insertPanelView.setVisible(false);
+                                updatePanelView.setVisible(false);
+                                deletePanelView.setVisible(false);
+                            } else {
+                                listPanelView.setVisible(true);
+                                insertPanelView.setVisible(true);
+                                updatePanelView.setVisible(true);
+                                deletePanelView.setVisible(true);
+                            }
+                            break;
+                        }
+                    }
+                    if(isLogged == false){
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Usuario y password");
+                        alert.setContentText("Nombre de usuario y password incorrectos");
+                        alert.showAndWait();
+                    }
+
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
+
         }
 
     }
+    //Boton volcado xml en bd
+    public void buttonVolcado(ActionEvent event) {
+        XMLDAOFactory xmlFactory = (XMLDAOFactory) DAOFactory.getDAOFactory(DAOFactory.XML);
+        XMLProyectoDAO pDao = xmlFactory.getProyectoDAO();
+        XMLSedeDAO sDao = xmlFactory.getSedeDAO();
+        XMLVoluntarioDAO vDao = xmlFactory.getVoluntarioDAO();
 
-    //botones de enviar panel idList
-    public void onSaveButtonClikedList(ActionEvent event){
+        DbDAOFactory dbFactory = (DbDAOFactory) DAOFactory.getDAOFactory(DAOFactory.DB);
+        DbProyectoDao pbDao = dbFactory.getProyectoDAO();
+        DbSedeDao sbDao = dbFactory.getSedeDAO();
+        DbVoluntarioDao vbDao = dbFactory.getVoluntarioDAO();
+
+        List<Proyecto> proyectos = null;
+        List<Sede> sedes = null;
+        List<Voluntario> voluntarios = null;
+
+        //leemos todos los xml
+        try {
+            proyectos = pDao.listAll();
+            sedes = sDao.listAll();
+            voluntarios = vDao.listAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+
+        //escribimos en la bd la lectura recogida
+        try {
+            for (Proyecto p : proyectos) {
+                pbDao.create(p);
+            }
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        //quedan comentados para cuando en el futuro cuando implementemos sede y voluntario
+        try {
+            for (Sede s : sedes) {
+                sbDao.create(s);
+            }
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            for (Voluntario v : voluntarios) {
+                vbDao.create(v);
+            }
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Archivos volcados");
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Volcado");
+        alert.setContentText("Volcado realizado");
+        alert.showAndWait();
+    }
+
+
+
+    //Panel listar
+    //boton de enviar por id
+    public void buttonIdList(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (listIdText.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mostrar proyecto por IdD");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else{
+            try {
+                //cogemos el id del proyecto
+                Optional<Proyecto> p = proyectoDAO.findById(Integer.parseInt(listIdText.getText()));
+                if (p.isPresent()){
+                    //mostramos el proyecto
+                    Proyecto pro = p.get();
+                    listProyect.setText(pro.toString());
+                } else {
+                    listProyect.setText("No existe proyecto con ese ID");
+                }
+
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error buscando proyecto por ID");
+            }
+        }
+    }
+
+    //Panel listar
+    //boton de mostrar todos
+    public void buttonListAll(ActionEvent event){
+        try {
+            //mostramos todos los proyectos. Los recogemos en una lista
+            List<Proyecto> lista = proyectoDAO.listAll();
+            String strLista = "";
+            for (Proyecto p : lista){
+                strLista = strLista + p.toString() + "\n------------------------\n";
+            }
+            //mostramos todos los proyectos de la lista
+            listProyect.setText(strLista);
+        } catch (DaoException e) {
+            e.printStackTrace();
+            System.out.println("Error al mostrar todos los proyectos");
         }
     }
 
     //botones de enviar panel insert
-    public void onSaveButtonClikedInsert(ActionEvent event){
+    public void buttonInsert(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (insertNombre.getText().isEmpty()
             || insertSocio.getText().isEmpty()
@@ -334,10 +510,37 @@ public class Controller implements Initializable {
             || insertDateInicio.getValue() == null
             || insertDateFinal.getValue() == null
         ){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Guardar datos");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        } else {
+            Proyecto proyectoAInsertar = new Proyecto(
+                    insertNombre.getText(),
+                    LineaAccion.valueOf(choiceBoxAcciones.getValue()),
+                    SublineaAccion.NINGUNA,
+                    insertDateInicio.getValue(),
+                    insertDateFinal.getValue(),
+                    insertSocio.getText(),
+                    insertAccionesRealizar.getText(),
+                    insertTipoVia.getText(),
+                    insertNombreVia.getText(),
+                    Integer.parseInt(insertNumero.getText()),
+                    insertProvincia.getText(),
+                    Integer.parseInt(insertCP.getText()),
+                    insertPais.getText(),
+                    insertObservaciones.getText()
+                    );
+            try {
+                proyectoDAO.create(proyectoAInsertar);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Proyecto creado!");
+                alert.setContentText("Proyecto creado correctamente!");
+                alert.showAndWait();
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error insertando nuevo proyecto" + proyectoAInsertar.toString());
+            }
         }
     }
     //botones de modificar panel update
@@ -356,31 +559,131 @@ public class Controller implements Initializable {
                 || updateDateInicio.getValue() == null
                 || updateDateFinal.getValue() == null
         ){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mostrar poryecto por ID");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else {
+
+            try {
+                int id = Integer.parseInt(updateID.getText());
+                String direccion = updateTipoVia.getText() + "#"
+                        + updateNombreVia.getText()+ "#"
+                        + Integer.parseInt(updateNumero.getText()) + "#"
+                        + updateProvincia.getText()  + "#"
+                        + Integer.parseInt(updateCP.getText()) + "#"
+                        + updatePais.getText() + "#"
+                        + updateObservaciones.getText();
+
+                proyectoDAO.updateFieldById(1, updateNombre.getText(), id);
+                proyectoDAO.updateFieldById(2, direccion, id);
+                proyectoDAO.updateFieldById(3, LineaAccion.valueOf(choiceBoxModificar.getValue()).toString(), id);
+                proyectoDAO.updateFieldById(4, null , id);
+                proyectoDAO.updateFieldById(5, updateDateInicio.getValue().toString(), id);
+                proyectoDAO.updateFieldById(6, updateDateFinal.getValue().toString(), id);
+                proyectoDAO.updateFieldById(7, updateSocio.getText(), id);
+                proyectoDAO.updateFieldById(8, updateAccionesRealizar.getText(), id);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Modificar proyecto");
+                alert.setContentText("Proyecto modificado!");
+                alert.showAndWait();
+            } catch (DaoException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException | NoSuchFieldException e) {
+                e.printStackTrace();
+                System.out.println("Error modificando el proyecto");
+            }
         }
+
     }
+
     //botones de enviar panel idUpdate
-    public void onSaveButtonClikedIdUpdate(ActionEvent event){
+    public void buttonIdUpdate(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (updateID.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Obtener proyecto por Id");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else {
+            try {
+                //cogemos el id del proyecto
+                Optional<Proyecto> p = proyectoDAO.findById(Integer.parseInt(updateID.getText()));
+                if (p.isPresent()) {
+                    //mostramos el proyecto
+                    Proyecto pro = p.get();
+                    updateNombre.setText(pro.getNombreProyecto());
+                    choiceBoxModificar.setValue(pro.getLineaAccion().name());
+                    updateDateInicio.setValue(pro.getFechaInicio());
+                    updateDateFinal.setValue(pro.getFechaFin());
+                    updateSocio.setText(pro.getSocioLocal());
+                    updateAccionesRealizar.setText(pro.getAccionesRealizar());
+                    updateTipoVia.setText(pro.getLocalizacion().getTipoVia());
+                    updateNombreVia.setText(pro.getLocalizacion().getVia());
+                    updateNumero.setText(String.valueOf(pro.getLocalizacion().getNum()));
+                    updateProvincia.setText(pro.getLocalizacion().getProvincia());
+                    updateCP.setText(String.valueOf(pro.getLocalizacion().getCodigoPostal()));
+                    updatePais.setText(pro.getLocalizacion().getPais());
+                    updateObservaciones.setText(pro.getLocalizacion().getObservaciones());
+                } else {
+                    listProyect.setText("No existe proyecto con ese ID");
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error buscando proyecto por ID");
+            }
         }
     }
 
-    //botones de enviar panel idDelete
-    public void onSaveButtonClikedIdDelete(ActionEvent event){
+    //Panel delete
+    //botones de enviar id
+    public void buttonIdDelete(ActionEvent event){
         //si el usuario se deja algún campo vacio
         if (deleteID.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Guardar datos");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Id poryecto a borrar");
             alert.setContentText("Existen campos vacios");
             alert.showAndWait();
+        }else{
+            try {
+                //cogemos el id del proyecto
+                Optional<Proyecto> p = proyectoDAO.findById(Integer.parseInt(deleteID.getText()));
+                if (p.isPresent()){
+                    //mostramos el proyecto
+                    Proyecto pro = p.get();
+                    deleteProyecto.setText(pro.toString());
+                } else {
+                    deleteProyecto.setText("No existe proyecto con ese ID");
+                }
+
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error buscando proyecto por ID");
+            }
+        }
+    }
+
+    //Panel delete
+    //botones de eliminar
+    public void buttonDelete(ActionEvent event){
+        //si el usuario se deja algún campo vacio
+        if (deleteID.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Eliminar proyecto");
+            alert.setContentText("Existen campos vacios");
+            alert.showAndWait();
+        }else {
+            try {
+                //cogemos el id y lo eliminamos
+                proyectoDAO.deleteById(Integer.parseInt(deleteID.getText()));
+                //si el usuario se deja algún campo vacio
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Eliminar proyecto");
+                alert.setContentText("Ha eliminado el proyecto");
+                alert.showAndWait();
+            } catch (DaoException e) {
+                e.printStackTrace();
+                System.out.println("Error eliminando proyecto por ID");
+            }
         }
     }
 

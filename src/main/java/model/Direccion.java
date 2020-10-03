@@ -101,4 +101,22 @@ public class Direccion {
         this.observaciones = observaciones;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "Tipo via: " +
+                this.tipoVia +
+                "\nVia: " +
+                this.via +
+                "\nNumero: " +
+                this.num +
+                "\nProvincia: " +
+                this.provincia +
+                "\nCodigo Postal: " +
+                this.codigoPostal +
+                "\nPais: " +
+                this.pais +
+                "\nObservaciones: " +
+                this.observaciones;
+    }
 }

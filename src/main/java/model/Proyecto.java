@@ -38,6 +38,7 @@ public class Proyecto implements Serializable {
     @Column (name = "socioLocal")
     private String SocioLocal;
     @Column (name = "accionesRealizar")
+
     private String accionesRealizar;
 
     private List<MiembroEquipo> miembrosEquipo;
@@ -154,11 +155,11 @@ public class Proyecto implements Serializable {
 
     @XmlElement
     public String getSocioLocal() {
-        return SocioLocal;
+        return socioLocal;
     }
 
     public Proyecto setSocioLocal(String socioLocal) {
-        SocioLocal = socioLocal;
+        this.socioLocal = socioLocal;
         return this;
     }
 
@@ -180,5 +181,25 @@ public class Proyecto implements Serializable {
     public Proyecto setMiembrosEquipo(List<MiembroEquipo> miembrosEquipo) {
         this.miembrosEquipo = miembrosEquipo;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        String bloqueId = this.id == 0 ? "" : "Id: " + this.id + "\n";
+        return bloqueId +
+                "Nombre proyecto: " +
+                this.nombreProyecto +
+                "\nLinea de accion: " +
+                this.lineaAccion +
+                "\nFecha de inicio: " +
+                this.fechaInicio.toString() +
+                "\nFecha fin: " +
+                this.fechaFin.toString() +
+                "\nSocio local: " +
+                this.socioLocal +
+                "\nAcciones a realizar: " +
+                this.accionesRealizar +
+                "\nDireccion: " +
+                this.localizacion.toString();
     }
 }
