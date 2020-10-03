@@ -5,6 +5,7 @@ import daoroot.DAO;
 import enums.LineaAccion;
 import enums.SublineaAccion;
 import exceptions.DaoException;
+import model.HibernateWorks;
 import model.Proyecto;
 
 import java.lang.reflect.InvocationTargetException;
@@ -24,9 +25,11 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
         this.dbConnector = dbConnector;
     }
 
+    private HibernateWorks hibernate = new HibernateWorks();
+
     @Override
     public List<Proyecto> listAll() throws DaoException {
-        List<Proyecto> listaProyectos = new ArrayList<>();
+        /*List<Proyecto> listaProyectos = new ArrayList<>();
         Connection connection = null;
         try {
             connection = dbConnector.connect();
@@ -44,7 +47,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
         } finally {
             dbConnector.disconnect(connection);
         }
-        return listaProyectos;
+        return listaProyectos;*/
+        return this.hibernate.listProyectos();
     }
 
     @Override
@@ -122,8 +126,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
         }
     }
 
-    public void update(Proyecto data) throws DaoException {
-        Connection connection = null;
+    public void update(Proyecto p) throws DaoException {
+        /*Connection connection = null;
         try {
             connection = dbConnector.connect();
             PreparedStatement stmt = connection.prepareStatement("Update "+TABLA_PROYECTOS+" set "+
@@ -174,12 +178,13 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             throw new DaoException(e);
         } finally {
             dbConnector.disconnect(connection);
-        }
+        }*/
+        this.hibernate.saveOrUpdate(p);
     }
 
     @Override
     public void deleteById(int id) throws DaoException {
-        Connection connection = null;
+       /*Connection connection = null;
         try {
             connection = dbConnector.connect();
             PreparedStatement stmt = connection.prepareStatement("delete from " + TABLA_PROYECTOS + " where " + PROYECTOS_ID + "= ?");
@@ -189,11 +194,17 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             e.printStackTrace();
             System.out.println("No se pudo borrar el proyecto");
         }
+        */
+
+    }
+
+    public void delete (Proyecto p) {
+        this.hibernate.erase(p);
     }
 
     @Override
     public void create(Proyecto data) throws DaoException {
-        Connection connection = null;
+        /*Connection connection = null;
         try {
             connection = dbConnector.connect();
             PreparedStatement stmt = connection.prepareStatement("insert into "+TABLA_PROYECTOS+" ("+
@@ -250,7 +261,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             throw new DaoException(e);
         } finally {
             dbConnector.disconnect(connection);
-        }
+        }*/
+        this.hibernate.createProyecto(data);
     }
 
     private Proyecto resultSetToProyecto(ResultSet rs) throws SQLException {

@@ -3,6 +3,7 @@ package model;
 import enums.LineaAccion;
 import enums.Rol;
 
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="voluntario")

@@ -1,16 +1,36 @@
 package model;
 
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import java.io.Serializable;
 
 import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 
 @XmlRootElement(name="sede")
-public class Sede {
+@Entity
+@Table(name = "Sedes")
+public class Sede implements Serializable {
+
+    @Id
+    @GeneratedValue
+    @Column (name="idSede")
     private int id;
+
+    @Column (name="nombreSede")
     private String nombreSede;
+
+    @OneToOne (cascade = {CascadeType.ALL})
+    @JoinColumn (name = "direccion")
     private Direccion direccion = new Direccion();
+
+    @Column (name="telefono")
     private String telefono;
+
+    @Column (name="email")
     private String email;
+
+    @Column (name= "central")
     private boolean central;
 
     public Sede(){}

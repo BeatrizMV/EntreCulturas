@@ -1,6 +1,5 @@
 /.gradle/
 /build/
-.gradle
 bin
 .idea/
 output/proyectos/*
