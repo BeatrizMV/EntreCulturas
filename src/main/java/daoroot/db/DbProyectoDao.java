@@ -72,7 +72,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
     @Override
     public void updateFieldById(int field, String value, int idArchivo) throws DaoException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
         Optional<Proyecto> p = findById(idArchivo);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         if (p.isPresent()) {
             Proyecto proyecto = p.get();
             switch (field) {
