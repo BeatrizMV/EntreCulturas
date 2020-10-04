@@ -10,13 +10,13 @@ public class HibernateWorks {
     private Object id;
 
     //Insertar nuevos registros en tabla Proyectos
-    public <T> void createProyecto(T t){
+    public void createProyecto(Proyecto proyecto){
         //man es el EntityManager creado más arriba
         EntityTransaction tx = man.getTransaction();
         tx.begin();
 
         try {
-            man.persist(new Proyecto(t));
+            man.persist(proyecto);
             //si el cambio va bien, se actualiza en la base de datos
             tx.commit();
         }catch (Exception e){
