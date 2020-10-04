@@ -68,12 +68,12 @@ public class HibernateWorks {
             man.close();
     }
 
-    public void erase (Proyecto p){
+    public void erase (int proyectoId){
         EntityTransaction tx = man.getTransaction();
         tx.begin();
 
         try{
-            Proyecto proyecto= man.find(Proyecto.class, id);
+            Proyecto proyecto= man.find(Proyecto.class, proyectoId);
             man.remove(proyecto);
             tx.commit();
 ;

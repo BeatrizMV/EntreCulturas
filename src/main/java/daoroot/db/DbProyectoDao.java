@@ -195,12 +195,12 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
             System.out.println("No se pudo borrar el proyecto");
         }
         */
-
+        this.hibernate.erase(id);
     }
 
-    public void delete (Proyecto p) {
+    /*public void delete (Proyecto p) {
         this.hibernate.erase(p);
-    }
+    }*/
 
     @Override
     public void create(Proyecto data) throws DaoException {
