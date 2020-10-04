@@ -13,7 +13,7 @@ import static daoroot.db.DbConstants.DIR_STR_SEPARATOR;
 public class Sede implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name="idSede")
     private int id;
 

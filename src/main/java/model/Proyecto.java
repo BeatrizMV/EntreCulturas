@@ -2,7 +2,9 @@ package model;
 
 import enums.LineaAccion;
 import enums.SublineaAccion;
+import others.LineaAccionConverter;
 import others.LocalDateAdapter;
+import others.SublineaAccionConverter;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
@@ -19,7 +21,7 @@ public class Proyecto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "idCodigoProyecto")
     private int id;
     @Column(name = "nombreProyecto")
@@ -27,9 +29,13 @@ public class Proyecto implements Serializable {
     //@Column (name = "localizacion")
     @Embedded
     private Direccion localizacion = new Direccion();
-    @Enumerated (EnumType.STRING)
+    //@Enumerated
+    @Column(name = "fk_lineaAccion")
+    @Convert(converter = LineaAccionConverter.class)
     private LineaAccion lineaAccion;
-    @Enumerated (EnumType.STRING)
+    //@Enumerated
+    @Column(name = "fk_subLineaAccion")
+    @Convert(converter = SublineaAccionConverter.class)
     private SublineaAccion sublineaAccion;
     @Column (name = "fechaInicio")
     private LocalDate fechaInicio;
