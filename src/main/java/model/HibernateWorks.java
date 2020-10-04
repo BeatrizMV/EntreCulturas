@@ -54,18 +54,29 @@ public class HibernateWorks {
     }
 
     public void saveOrUpdate (Proyecto p){
-        EntityTransaction tx = man.getTransaction();
+        EntityManager anotherMan = factory.createEntityManager();
+        EntityTransaction tx = anotherMan.getTransaction();
         tx.begin();
 
         try{
-            p =man.find(Proyecto.class, id);
-            man.merge(p);
-            man.getTransaction().commit();
+            Proyecto fromDb =anotherMan.find(Proyecto.class, p.getCodigoProyecto());
+            fromDb.setCodigoProyecto(p.getCodigoProyecto());
+            fromDb.setNombreProyecto(p.getNombreProyecto());
+            fromDb.setLineaAccion(p.getLineaAccion());
+            fromDb.setSublineaAccion(p.getSublineaAccion());
+            fromDb.setFechaInicio(p.getFechaInicio());
+            fromDb.setFechaFin(p.getFechaFin());
+            fromDb.setSocioLocal(p.getSocioLocal());
+            fromDb.setAccionesRealizar(p.getAccionesRealizar());
+            fromDb.setLocalizacion(p.getLocalizacion());
+            anotherMan.merge(fromDb);
+            //anotherMan.persist(p);
+            tx.commit();
         } catch (Exception e){
             e.printStackTrace();
             tx.rollback();
         }
-            man.close();
+        anotherMan.close();
     }
 
     public void erase (int proyectoId){
