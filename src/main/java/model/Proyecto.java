@@ -36,7 +36,7 @@ public class Proyecto implements Serializable {
     @Column (name = "fechaFinal")
     private LocalDate fechaFin;
     @Column (name = "socioLocal")
-    private String SocioLocal;
+    private String socioLocal;
     @Column (name = "accionesRealizar")
 
     private String accionesRealizar;

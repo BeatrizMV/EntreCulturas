@@ -8,10 +8,8 @@ import java.text.ParseException;
 public class Main {
 
     public static void main(String[] args) throws IOException, DaoException, ParseException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, NoSuchFieldException {
-
         bootstrapView.startView(args);
     }
-
 }
 
     /*
