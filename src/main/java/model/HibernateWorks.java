@@ -16,7 +16,8 @@ public class HibernateWorks {
         tx.begin();
 
         try {
-            man.persist(proyecto);
+            //man.persist(proyecto);
+            man.merge(proyecto);
             //si el cambio va bien, se actualiza en la base de datos
             tx.commit();
         }catch (Exception e){

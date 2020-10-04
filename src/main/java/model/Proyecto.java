@@ -26,14 +26,11 @@ public class Proyecto implements Serializable {
     private int id;
     @Column(name = "nombreProyecto")
     private String nombreProyecto;
-    //@Column (name = "localizacion")
     @Embedded
     private Direccion localizacion = new Direccion();
-    //@Enumerated
     @Column(name = "fk_lineaAccion")
     @Convert(converter = LineaAccionConverter.class)
     private LineaAccion lineaAccion;
-    //@Enumerated
     @Column(name = "fk_subLineaAccion")
     @Convert(converter = SublineaAccionConverter.class)
     private SublineaAccion sublineaAccion;
@@ -46,8 +43,6 @@ public class Proyecto implements Serializable {
     @Column (name = "accionesRealizar")
 
     private String accionesRealizar;
-
-    //private List<MiembroEquipo> miembrosEquipo;
 
     public Proyecto(int id, String nombreProyecto, LineaAccion lineaAccion, SublineaAccion sublineaAccion, LocalDate fechaInicio, LocalDate fechaFin, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
         setCodigoProyecto(id);
@@ -178,17 +173,6 @@ public class Proyecto implements Serializable {
         this.accionesRealizar = accionesRealizar;
         return this;
     }
-
-    /*
-    @XmlElement
-    public List<MiembroEquipo> getMiembrosEquipo() {
-        return miembrosEquipo;
-    }
-
-    public Proyecto setMiembrosEquipo(List<MiembroEquipo> miembrosEquipo) {
-        this.miembrosEquipo = miembrosEquipo;
-        return this;
-    }*/
 
     @Override
     public String toString() {
