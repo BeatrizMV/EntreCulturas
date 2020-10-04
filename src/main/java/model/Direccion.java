@@ -4,13 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-//@Entity
-//@Table(name = "proyectos")
+
 public class Direccion {
 
     @Column (name = "tipoVia")
     private String tipoVia;
-    //@Id
     @Column (name = "via")
     private String via;
     @Column (name = "num")
