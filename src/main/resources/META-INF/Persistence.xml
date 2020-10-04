@@ -5,6 +5,9 @@
     <persistence-unit name="persistencia" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <class>model.Proyecto</class>
+        <class>model.Direccion</class>
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/entreCulturas?serverTimezone=UTC"/>

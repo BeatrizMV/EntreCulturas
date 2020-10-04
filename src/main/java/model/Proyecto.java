@@ -10,7 +10,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @XmlRootElement
 @Entity
@@ -25,7 +24,8 @@ public class Proyecto implements Serializable {
     private int id;
     @Column(name = "nombreProyecto")
     private String nombreProyecto;
-    @Column (name = "localizacion")
+    //@Column (name = "localizacion")
+    @Embedded
     private Direccion localizacion = new Direccion();
     @Enumerated (EnumType.STRING)
     private LineaAccion lineaAccion;
@@ -41,7 +41,7 @@ public class Proyecto implements Serializable {
 
     private String accionesRealizar;
 
-    private List<MiembroEquipo> miembrosEquipo;
+    //private List<MiembroEquipo> miembrosEquipo;
 
     public Proyecto(int id, String nombreProyecto, LineaAccion lineaAccion, SublineaAccion sublineaAccion, LocalDate fechaInicio, LocalDate fechaFin, String socioLocal, String accionesRealizar, String tipoVia, String via, int num, String provincia, int codigoPostal, String pais, String observaciones) {
         setCodigoProyecto(id);
@@ -173,6 +173,7 @@ public class Proyecto implements Serializable {
         return this;
     }
 
+    /*
     @XmlElement
     public List<MiembroEquipo> getMiembrosEquipo() {
         return miembrosEquipo;
@@ -181,7 +182,7 @@ public class Proyecto implements Serializable {
     public Proyecto setMiembrosEquipo(List<MiembroEquipo> miembrosEquipo) {
         this.miembrosEquipo = miembrosEquipo;
         return this;
-    }
+    }*/
 
     @Override
     public String toString() {

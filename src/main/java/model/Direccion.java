@@ -1,19 +1,16 @@
 package model;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Embeddable;
 
-@Entity
-@Table(name = "Direccion")
+@Embeddable
+//@Entity
+//@Table(name = "proyectos")
 public class Direccion {
 
     @Column (name = "tipoVia")
     private String tipoVia;
-    @Id
+    //@Id
     @Column (name = "via")
     private String via;
     @Column (name = "num")
