@@ -6,12 +6,12 @@ import java.util.List;
 public class HibernateWorks {
 
     private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistencia");
-    EntityManager man = factory.createEntityManager();
-    private Object id;
+
 
     //Insertar nuevos registros en tabla Proyectos
     public void createProyecto(Proyecto proyecto){
         //man es el EntityManager creado más arriba
+        EntityManager man = factory.createEntityManager();
         EntityTransaction tx = man.getTransaction();
         tx.begin();
 
@@ -23,13 +23,15 @@ public class HibernateWorks {
             e.printStackTrace();
             //vuelve atrás si se detecta un fallo
             tx.rollback();
+        } finally {
+            man.close();
         }
 
     }
 
     //Consulta que facilita una lista de los proyectos existentes
     public List<Proyecto> listProyectos() {
-
+        EntityManager man = factory.createEntityManager();
         // Nuevamente, manager es el EntityManager obtenido anteriormente.
         List<Proyecto> resultList = man.createQuery(
                 /*dos parámetros: la consulta que se quiere realizar en JPLQ
@@ -39,17 +41,20 @@ public class HibernateWorks {
         for (Proyecto next : resultList) {
             System.out.println("siguiente proyecto: " + next);
         }
+        man.close();
         return resultList;
     }
 
     //Consulta de un proyecto por su nombre
     public Proyecto queryForProyecto(int idCodigoProyecto) {
+        EntityManager man = factory.createEntityManager();
         System.out.println("QUERY FOR "+idCodigoProyecto);
         Query query = man
                 .createQuery("Select a from Proyecto a where a.id = :idCodigoProyecto");
         query.setParameter("idCodigoProyecto", idCodigoProyecto);
         Proyecto anProyecto = (Proyecto) query.getSingleResult();
         System.out.println("Los datos del proyecto que buscas son : " + anProyecto.toString());
+        man.close();
         return anProyecto;
     }
 
@@ -75,11 +80,14 @@ public class HibernateWorks {
         } catch (Exception e){
             e.printStackTrace();
             tx.rollback();
+        } finally {
+            anotherMan.close();
         }
-        anotherMan.close();
+
     }
 
     public void erase (int proyectoId){
+        EntityManager man = factory.createEntityManager();
         EntityTransaction tx = man.getTransaction();
         tx.begin();
 
@@ -91,8 +99,10 @@ public class HibernateWorks {
         } catch (Exception e){
             e.printStackTrace();
             tx.rollback();
+        } finally {
+            man.close();
         }
-        man.close();
+
     }
 
 }
