@@ -9,11 +9,10 @@ import model.HibernateWorks;
 import model.Proyecto;
 
 import java.lang.reflect.InvocationTargetException;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,7 +52,7 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
 
     @Override
     public Optional<Proyecto> findById(int id) throws DaoException {
-        Proyecto proyecto = null;
+        /*Proyecto proyecto = null;
         Connection connection = null;
         try {
             connection = dbConnector.connect();
@@ -70,7 +69,8 @@ public class DbProyectoDao implements DAO<Proyecto>, DbConstants {
         } finally {
             dbConnector.disconnect(connection);
         }
-        return Optional.ofNullable(proyecto);
+        return Optional.ofNullable(proyecto);*/
+        return Optional.ofNullable(this.hibernate.queryForProyecto(id));
     }
 
     @Override

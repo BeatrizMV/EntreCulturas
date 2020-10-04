@@ -1,7 +1,5 @@
 package model;
 
-import org.hibernate.Session;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -45,11 +43,11 @@ public class HibernateWorks {
     }
 
     //Consulta de un proyecto por su nombre
-    public Proyecto queryForProyecto(String idCodigoProyecto) {
+    public Proyecto queryForProyecto(int idCodigoProyecto) {
         System.out.println("QUERY FOR "+idCodigoProyecto);
         Query query = man
-                .createQuery("Select a from Proyecto a where a.idCodigoProyecto = :idCodigoProyecto");
-        query.setParameter("nombreProyecto", idCodigoProyecto);
+                .createQuery("Select a from Proyecto a where a.id = :idCodigoProyecto");
+        query.setParameter("idCodigoProyecto", idCodigoProyecto);
         Proyecto anProyecto = (Proyecto) query.getSingleResult();
         System.out.println("Los datos del proyecto que buscas son : " + anProyecto.toString());
         return anProyecto;
